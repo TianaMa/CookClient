@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mViewModel"
+            type="com.demo.cook.ui.publish.type.PublishTypeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.publish.type.PublishTypeActivity">
+
+        <ImageView
+            android:id="@+id/ivPublishTypeClose"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:src="@drawable/vector_ic_close"/>
+
+        <ImageView
+            android:id="@+id/ivPublishTypeHeadImg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            headImg="@{mViewModel.user.headImg}"
+            android:src="@drawable/ic_user_image_default" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ivPublishTypeHeadImg"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textSize="17sp"
+            android:text="@string/text_publish_slogan">
+
+        </TextView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.8">
+
+            <LinearLayout
+                android:id="@+id/publishTypeRecipe"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:padding="20dp"
+                    android:src="@drawable/vector_ic_line_text"
+                    android:background="@drawable/shape_circle"
+                    android:backgroundTint="#86CEDC"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textSize="15sp"
+                    android:textColor="#222222"
+                    android:textStyle="bold"
+                    android:text="@string/text_publish_recipe">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/publishTypeImage"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:padding="20dp"
+                    android:src="@drawable/vector_ic_line_image"
+                    android:background="@drawable/shape_circle"
+                    android:backgroundTint="#E33123"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textSize="15sp"
+                    android:textColor="#222222"
+                    android:textStyle="bold"
+                    android:text="@string/text_publish_picture">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/publishTypeVideo"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:padding="20dp"
+                    android:src="@drawable/vector_ic_line_video"
+                    android:background="@drawable/shape_circle"
+                    android:backgroundTint="#FA8156"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textSize="15sp"
+                    android:textColor="#222222"
+                    android:textStyle="bold"
+                    android:text="@string/text_publish_video">
+
+                </TextView>
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

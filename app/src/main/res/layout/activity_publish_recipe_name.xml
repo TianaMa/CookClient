@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mViewModel"
+            type="com.demo.cook.ui.publish.recipe.PublishRecipeNameViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.publish.recipe.PublishRecipeNameActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/ivPublishTypeClose"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:padding="10dp"
+                android:src="@drawable/vector_ic_close"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                android:padding="8dp"
+                android:text="@string/text_publish_recipe_create"/>
+
+            <TextView
+                android:id="@+id/tvPublishRecipeNameNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginRight="10dp"
+                android:enabled="@{mViewModel.canNext}"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_text_button"
+                android:text="@string/text_next">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="28dp"
+            android:background="@null"
+            android:gravity="center"
+            android:hint="@string/text_publish_recipe_name"
+            android:text="@={mViewModel.recipeName}"
+            android:afterTextChanged="@{mViewModel.afterTextChanged}"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+        </EditText>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="8dp"
+            android:background="#CCCCCC">
+        </View>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#222222"
+                android:textSize="16sp"
+                android:text="@string/text_prompt"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/shape_corners_1"
+                android:backgroundTint="#FFE13418" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:lineSpacingExtra="5dp"
+            android:textSize="15sp"
+            android:text="@string/text_publish_recipe_name_prompt"/>
+
+
+    </LinearLayout>
+</layout>

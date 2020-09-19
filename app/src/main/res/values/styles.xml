@@ -1,0 +1,23 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!--不挤占状态栏的空间-->
+        <item name="android:fitsSystemWindows">true</item>
+        <!--半透明状态栏-->
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <!--半透明导航栏-->
+        <item name="android:windowTranslucentNavigation">true</item>
+
+    </style>
+
+
+    <style name="AppTheme.CustomerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--全屏，没有状态栏-->
+        <item name="android:windowFullscreen">true</item>
+        <!--防止启动白屏-->
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+</resources>

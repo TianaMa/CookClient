@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvMyPublishRecipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:itemCount="4"
+        app:spanCount="2"
+        tools:listitem="@layout/item_layout_my_publish_recipe"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        tools:context=".ui.me.recipe.MyPublishRecipeFragment">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+</layout>

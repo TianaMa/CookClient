@@ -1,0 +1,131 @@
+<resources>
+<!-- attention = add friends = add-->
+<!-- works 是想表达什么 -->
+    <string name="app_name">Cookey</string>
+    <string name="text_attention">Add</string>
+    <string name="text_fans">Fans</string>
+
+    <string name="text_recipe">Recipe</string>
+    <string name="text_product">product</string>
+    <string name="text_next">Next</string>
+    <string name="text_prompt">Prompt</string>
+    <string name="text_cancel">Cancel</string>
+
+    <!--common-->
+    <string name="text_service_error">Network request exception</string>
+    <string name="text_success">Succeed</string>
+
+    <string name="text_upload_image">图片上传中...</string>
+    <string name="text_upload_image_fail">图片上传失败</string>
+
+    <string name="text_loading">正在加载数据...</string>
+    <string name="text_update_success">修改成功</string>
+    <string name="text_publishing">正在发布...</string>
+
+    <string name="text_publish">Publish</string>
+
+
+    <!--WelcomeActivity-->
+    <string name="text_welcome_jump">Enter</string>
+
+    <!--LoginActivity-->
+    <string name="text_login_user_hint">User account</string>
+    <string name="text_login_password_hint">Password</string>
+    <string name="text_login">Login</string>
+    <string name="text_login_register_account">Sign in</string>
+    <string name="text_login_visitor">Visitors</string>
+
+    <!--RegisterActivity-->
+    <!-- register = sin in-->
+    <string name="text_register">Sign in</string>
+    <string name="text_register_hint_account">Account Number</string>
+    <string name="text_register_hint_password">New Password</string>
+    <string name="text_register_hint_password_again">Confirm Password</string>
+    <string name="text_register_password_un_same">Confirm unsuccessfully</string>
+
+
+
+    <!--MainActivity-->
+    <!-- like = favorites -->
+    <string name="title_home">Home</string>
+    <string name="title_classes">Classes</string>
+    <string name="title_like">Favorites</string>
+    <string name="title_me">My</string>
+    
+    <!--HomeFragment-->
+    <string name="text_home_friends">My friends</string>
+    <string name="text_home_recommend">Recommend</string>
+    
+    <!--MeFragment-->
+    <string name="text_me_be_collected">Collected</string>
+
+    <string name="text_me_search_my_recipe">Search my recipes</string>
+    
+    <!--PublishTypeActivity-->
+    <string name="text_publish_slogan">Share recipes, share life</string>
+    <string name="text_publish_recipe">Recipe</string>
+    <string name="text_publish_picture">Picture</string>
+    <string name="text_publish_video">Video</string>
+
+    <!--PublishRecipeNameActivity-->
+    <string name="text_publish_recipe_create">Create a recipe</string>
+    <string name="text_publish_recipe_name">Write down the names of your recipes</string>
+    <string name="text_publish_recipe_name_prompt">
+        1. A good headline is the first step to attracting the attention of a chef\n
+        2. Describing the features of the recipe in the title will attract more clicks.
+        for example [Rice balls without pinch]、[Braised pork in brown sauce without blanching or oil]
+    </string>
+    <!--PublishRecipeNameActivity-->
+    <string name="text_publish_recipe_save_draft">Save</string>
+    <string name="text_publish_recipe_cover_hint">+ The menu cover \n A friendly cover could get attention from others</string>
+    <string name="text_publish_recipe_describe">What is you recipes story?</string>
+
+    <string name="text_publish_recipe_material">Materials</string>
+
+    <string name="text_publish_recipe_material_example">Ingredients: Egg</string>
+    <string name="text_publish_recipe_dosage_example">Sumption</string>
+    <string name="text_publish_recipe_add_material">Add more</string>
+    <string name="text_publish_recipe_adjust_material">Fix</string>
+
+    <string name="text_publish_recipe_method">Direction</string>
+    <string name="text_publish_recipe_batch">Uploade Images</string>
+    <string name="text_publish_recipe_step">Steps</string>
+    <string name="text_publish_recipe_add_step_explain">At least two steps</string>
+
+    <string name="text_publish_recipe_add_step">Add one step</string>
+    <string name="text_publish_recipe_adjust_step">Fix</string>
+
+    <string name="text_publish_recipe_drag">d\nr\na\ng</string>
+
+    <string name="text_publish_recipe_adjust_success">Finish</string>
+    
+    <string name="text_publish_recipe_tips">Notes</string>
+    <string name="text_publish_recipe_tips_hint">A little tip about this dish</string>
+
+    <string name="text_publish_recipe_publish">Publish</string>
+    <string name="text_publish_recipe_cant_empty_cover">Please submit the cover image</string>
+    <string name="text_publish_recipe_cant_empty_material">Ingredients can not empty</string>
+    <string name="text_publish_recipe_cant_empty_material_name">Please submit the %1$s ingredient name</string>
+    <string name="text_publish_recipe_cant_empty_material_dosage">Please submit the %1$s ingredient sumption</string>
+
+    <string name="text_publish_recipe_cant_empty_step">The step can not empty.</string>
+    <string name="text_publish_recipe_cant_empty_step_content">Please submit the %1$s describe</string>
+
+    <!--MyPublishRecipeFragment-->
+    <string name="text_my_publish_recipe_go">开启创建第一道菜谱</string>
+    <string name="text_my_publish_product_empty_toast">记录生活，生活因回忆更美好</string>
+    <string name="text_my_publish_product_go">分享我的美食作品</string>
+
+
+    <!--PublishProductActivity-->
+    <string name="text_publish_product_title_hint">填写标题，会获得更多赞哦</string>
+    <string name="text_publish_product_title_content">分享的你下厨心得，生活点滴</string>
+    <string name="text_publish_product_tag"># 标签</string>
+    <string name="text_publish_product_add_tag">添加作品标签？</string>
+
+
+
+    
+
+    
+</resources>

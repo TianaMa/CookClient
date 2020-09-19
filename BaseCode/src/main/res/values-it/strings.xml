@@ -1,0 +1,113 @@
+<resources>
+
+    <string name="app_name">烹饪</string>
+    <string name="text_attention">关注</string>
+    <string name="text_fans">粉丝</string>
+
+    <string name="text_recipe">菜谱</string>
+    <string name="text_product">作品</string>
+    <string name="text_next">下一步</string>
+    <string name="text_prompt">提示</string>
+    <string name="text_cancel">取消</string>
+
+    <!--common-->
+    <string name="text_service_error">网络请求异常</string>
+
+    <string name="text_upload_image">图片上传中...</string>
+    <string name="text_upload_image_fail">图片上传失败</string>
+
+    <string name="text_loading">正在加载数据...</string>
+    <string name="text_update_success">修改成功</string>
+    <string name="text_publishing">正在发布...</string>
+
+    <!--WelcomeActivity-->
+    <string name="text_welcome_jump">跳过</string>
+
+    <!--LoginActivity-->
+    <string name="text_login_user_hint">请输入用户名</string>
+    <string name="text_login_password_hint">请输入密码</string>
+    <string name="text_login">登录</string>
+    <string name="text_login_register_account">注册账号</string>
+    <string name="text_login_visitor">游客登录</string>
+
+    <!--RegisterActivity-->
+    <string name="text_register">注册</string>
+    <string name="text_register_hint_account">请输入您的注册账号</string>
+    <string name="text_register_hint_password">请输入您的账号密码</string>
+    <string name="text_register_hint_password_again">请输入确认密码</string>
+    <string name="text_register_password_un_same">两次密码不一致</string>
+    <string name="text_success">注册成功</string>
+
+
+    <!--MainActivity-->
+    <string name="title_home">首页</string>
+    <string name="title_classes">课堂</string>
+    <string name="title_like">收藏</string>
+    <string name="title_me">我的</string>
+
+    <!--HomeFragment-->
+    <string name="text_home_friends">厨友</string>
+    <string name="text_home_recommend">推荐</string>
+    
+    <!--MeFragment-->
+    <string name="text_me_be_collected">被关注</string>
+    <string name="text_publish">发布</string>
+    <string name="text_me_search_my_recipe">搜索我的菜谱</string>
+    
+    <!--PublishTypeActivity-->
+    <string name="text_publish_slogan">分享的人是厨房里的天使</string>
+    <string name="text_publish_recipe">菜谱</string>
+    <string name="text_publish_picture">图片</string>
+    <string name="text_publish_video">视频</string>
+
+    <!--PublishRecipeNameActivity-->
+    <string name="text_publish_recipe_create">创建一个菜谱</string>
+    <string name="text_publish_recipe_name">写下你的菜谱名吧</string>
+    <string name="text_publish_recipe_name_prompt">
+        1.好的标题是吸引厨友关注的第一步。\n
+        2. 在标题中描述菜谱的特点，会吸引更多的人点击。例如 [不用捏的饭团]、[不焯水不放油的红烧肉]
+    </string>
+    <!--PublishRecipeNameActivity-->
+    <string name="text_publish_recipe_save_draft">存草稿</string>
+    <string name="text_publish_recipe_cover_hint">+菜谱封面\n诱人的封面是吸引厨友的关键</string>
+    <string name="text_publish_recipe_describe">请输入这道菜的描述或介绍</string>
+
+    <string name="text_publish_recipe_material">用料</string>
+
+    <string name="text_publish_recipe_material_example">食材：如鸡蛋</string>
+    <string name="text_publish_recipe_dosage_example">用量：如一只</string>Cover
+    <string name="text_publish_recipe_add_material">再增加一行</string>
+    <string name="text_publish_recipe_adjust_material">调整用料</string>
+
+    <string name="text_publish_recipe_method">做法</string>
+    <string name="text_publish_recipe_batch">批量传图</string>
+    <string name="text_publish_recipe_step">步骤</string>
+    <string name="text_publish_recipe_add_step_explain">添加步骤说明,至少两步</string>
+
+    <string name="text_publish_recipe_add_step">再增加一步</string>
+    <string name="text_publish_recipe_adjust_step">调整步骤</string>
+
+    <string name="text_publish_recipe_drag">长\n按\n拖\n动</string>
+
+    <string name="text_publish_recipe_adjust_success">调整完成</string>
+    
+    <string name="text_publish_recipe_tips">小贴士</string>
+    <string name="text_publish_recipe_tips_hint">这道菜还有哪些需要注意的细节和小技巧？</string>
+
+    <string name="text_publish_recipe_publish">发布这个菜谱</string>
+    <string name="text_publish_recipe_cant_empty_cover">请上传菜谱封面</string>
+    <string name="text_publish_recipe_cant_empty_material">用料不能为空</string>
+    <string name="text_publish_recipe_cant_empty_material_name">请输入第%1$s个食材的名称</string>
+    <string name="text_publish_recipe_cant_empty_material_dosage">请输入第%1$s个食材的用量</string>
+
+    <string name="text_publish_recipe_cant_empty_step">步骤不能为空</string>
+    <string name="text_publish_recipe_cant_empty_step_content">请输入第%1$s步的说明</string>
+
+
+    <!--MyPublishRecipeFragment-->
+    <string name="text_my_publish_recipe_go">开启创建第一道菜谱</string>
+    <string name="text_my_publish_product_empty_toast">记录生活，生活因回忆更美好</string>
+    <string name="text_my_publish_product_go">分享我的美食作品</string>
+
+    
+</resources>

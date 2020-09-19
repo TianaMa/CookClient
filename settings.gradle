@@ -1,0 +1,4 @@
+include ':BaseCode'
+include ':BaseLib'
+include ':app'
+rootProject.name = "Cook"

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mViewModel"
+            type="com.demo.cook.ui.me.MeViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.me.MeFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <!-- title：设置Toolbar的标题，注意：如果在CollapsingToolbarLayout中指定了title属性，那么Toolbar中的title属性将会变得无效-->
+            <!--expandedTitleMarginStart：设置下拉伸缩完成后，ToolBar标题文字左边的margin距离-->
+            <!--expandedTitleMarginEnd：设置下拉伸缩完成后，Toolbar标题文字右边的margin距离-->
+            <!--contentScrim：设置Toolbar折叠到顶部后的背景-->
+            <!--layout_collapseMode：折叠效果，有两个值，pin代表从底部拉出，parallax代表从中间展开-->
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="80dp"
+                    android:orientation="vertical"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:gravity="center_vertical"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:text="@{mViewModel.user.nickname}"
+                            tools:text="昵称涂涂_umk" />
+
+
+                        <ImageView
+                            android:id="@+id/ivMeHead"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            headImg="@{mViewModel.user.headImg}"
+                            android:src="@drawable/ic_user_image_default" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/black"
+                                android:gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:text="5">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#444444"
+                                android:text="@string/text_attention">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/black"
+                                android:gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:text="5">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#444444"
+                                android:text="@string/text_fans">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/black"
+                                android:gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:text="5">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#444444"
+                                android:text="@string/text_me_be_collected">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <include layout="@layout/view_line" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="14sp"
+                        android:textColor="#555555"
+                        android:lineSpacingExtra="6dp"
+                        userInfo="@{mViewModel.user}"
+                        tools:text="男·2020-09-11 加入·家乡：山东，德州\n常居：山东，济南\n添加个人简介，让厨友更了解你"></TextView>
+
+                    <include layout="@layout/view_line" />
+
+                    <TextView
+                        android:id="@+id/tvMinePublish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:drawableRight="@drawable/vector_ic_publish_add"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:text="@string/text_publish" />
+
+                    <include layout="@layout/view_line" />
+
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/scroll_tb_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#F5F5F5"
+                    app:layout_collapseMode="pin">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="40dp"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="8dp"
+                            android:paddingRight="8dp"
+                            android:src="@drawable/vector_ic_add"/>
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_corners_5"
+                            android:backgroundTint="#E9E9E9"
+                            android:drawableLeft="@drawable/vector_ic_search"
+                            android:drawablePadding="5dp"
+                            android:hint="@string/text_me_search_my_recipe"
+                            android:padding="10dp"
+                            android:textSize="13sp" />
+
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="5dp"
+                            android:padding="8dp"
+                            android:src="@drawable/vector_ic_add_friend"/>
+
+                        <ImageView
+                            android:id="@+id/ivMeSetting"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="10dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@drawable/vector_ic_setting"/>
+
+                    </LinearLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabMe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabIndicatorFullWidth="false"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <include layout="@layout/view_line" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpMe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        </androidx.viewpager.widget.ViewPager>
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

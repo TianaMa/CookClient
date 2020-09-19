@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mViewModel"
+            type="com.demo.cook.ui.publish.recipe.PublishRecipeViewModel" />
+
+        <import type="android.view.View"/>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        tools:context=".ui.publish.recipe.PublishRecipeActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvPublishRecipeNameNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_text_button"
+                    android:text="@string/text_cancel"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"
+                    android:padding="8dp"
+                    android:text="@string/text_publish_recipe_create"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_text_button"
+                    android:visibility="gone"
+                    android:text="@string/text_publish_recipe_save_draft"/>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/flPublishRecipeCover"
+                android:layout_width="match_parent"
+                android:layout_height="240dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#EEEEEE"
+                    android:gravity="center"
+                    android:text="@string/text_publish_recipe_cover_hint"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    srcPath="@{mViewModel.recipe.cover}"/>
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="28dp"
+                    android:layout_margin="5dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    tools:text="菜谱名称"
+                    android:text="@{mViewModel.recipe.recipeName}"
+                    android:gravity="center"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="8dp"
+                    android:background="#CCCCCC">
+                </View>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:textSize="15sp"
+                    android:padding="8dp"
+                    android:text="@={mViewModel.recipe.recipeDescribe}"
+                    android:hint="@string/text_publish_recipe_describe"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="@string/text_publish_recipe_material"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="15dp"
+                    android:background="#CCCCCC">
+                </View>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvPublishRecipeMaterial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_layout_recipe_material"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="#EE744D"
+                        android:onClick="@{()->mViewModel.addMaterial()}"
+                        android:visibility="@{mViewModel.canEditMaterial?View.GONE:View.VISIBLE}"
+                        android:text="@string/text_publish_recipe_add_material"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_gravity="right"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="#EE744D"
+                        android:onClick="@{()->mViewModel.editMaterial()}"
+                        tools:text="@string/text_publish_recipe_adjust_material"
+                        android:text="@{mViewModel.canEditMaterial?@string/text_publish_recipe_adjust_success:@string/text_publish_recipe_adjust_material}"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:text="@string/text_publish_recipe_method"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_gravity="right"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="#EE744D"
+                        android:visibility="gone"
+                        android:text="@string/text_publish_recipe_batch"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvPublishRecipeStep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_layout_recipe_step"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="#EE744D"
+                        android:onClick="@{()->mViewModel.addStep()}"
+                        android:visibility="@{mViewModel.canEditStep?View.GONE:View.VISIBLE}"
+                        android:text="@string/text_publish_recipe_add_step"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_gravity="right"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="#EE744D"
+                        tools:text="@string/text_publish_recipe_adjust_material"
+                        android:onClick="@{()->mViewModel.editStep()}"
+                        android:text="@{mViewModel.canEditStep?@string/text_publish_recipe_adjust_success:@string/text_publish_recipe_adjust_step}"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:text="@string/text_publish_recipe_tips"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:textSize="15sp"
+                    android:padding="8dp"
+                    android:text="@={mViewModel.recipe.tips}"
+                    android:hint="@string/text_publish_recipe_tips_hint"/>
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="@string/text_publish_recipe_publish"
+                android:onClick="@{()->mViewModel.publish()}"
+                android:background="@drawable/selector_publish_click"/>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</layout>
