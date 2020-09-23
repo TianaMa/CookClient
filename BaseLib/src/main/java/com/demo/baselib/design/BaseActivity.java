@@ -72,6 +72,8 @@ public abstract class BaseActivity<V extends ViewDataBinding,VM extends BaseView
                 showLoading(s);
             }
         });
+
+        mViewModel.uiChangeObservable.finishActivity.observe(this,aBoolean -> this.finish());
     }
 
     private Dialog loading;

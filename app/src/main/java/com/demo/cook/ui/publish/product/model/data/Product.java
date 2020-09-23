@@ -1,11 +1,15 @@
 package com.demo.cook.ui.publish.product.model.data;
 
+import com.demo.cook.base.local.Storage;
+
 import java.util.Date;
 import java.util.List;
 
 public class Product {
 
     private String productId;
+
+    private String issuer = Storage.getUser().getUsername();
 
     private String title;
 
@@ -15,7 +19,7 @@ public class Product {
 
     private List<ProductImage> productImageList;
 
-    private List<ProductTagRelation> productTagRelationList;
+    private List<String> productTagList;
 
 
     public Product(String productId, String title, String content, Date createTime) {
@@ -35,6 +39,10 @@ public class Product {
 
     public void setProductId(String productId) {
         this.productId = productId == null ? null : productId.trim();
+    }
+
+    public String getIssuer() {
+        return issuer;
     }
 
     public String getTitle() {
@@ -69,12 +77,12 @@ public class Product {
         this.productImageList = productImageList;
     }
 
-    public List<ProductTagRelation> getProductTagRelationList() {
-        return productTagRelationList;
+    public List<String> getProductTagList() {
+        return productTagList;
     }
 
-    public void setProductTagRelationList(List<ProductTagRelation> productTagRelationList) {
-        this.productTagRelationList = productTagRelationList;
+    public void setProductTagList(List<String> productTagList) {
+        this.productTagList = productTagList;
     }
 
 }

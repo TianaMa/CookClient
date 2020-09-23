@@ -78,6 +78,7 @@ public abstract class BaseFragment<V extends ViewDataBinding,VM extends BaseView
                 showLoading(s);
             }
         });
+        mViewModel.uiChangeObservable.finishActivity.observe(this.getViewLifecycleOwner(),aBoolean -> this.getActivity().finish());
     }
 
     private Dialog loading;

@@ -9,7 +9,7 @@ import com.demo.baselib.base.BaseContext;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.user.login.LoginActivity;
 
-public class RouteUtils {
+public class LoginVerifyUtils {
 
     public interface VerifyAccount{
         void verifySuccess();

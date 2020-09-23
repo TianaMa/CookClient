@@ -33,7 +33,9 @@
             app:layout_constraintVertical_bias="0.2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            headImg="@{mViewModel.user.headImg}"
+            srcPath="@{mViewModel.user.headImg}"
+            error="@{@drawable/user_head_0}"
+            placeholder="@{@drawable/user_head_0}"
             android:src="@drawable/ic_user_image_default" />
 
         <TextView
@@ -97,14 +99,15 @@
                     android:src="@drawable/vector_ic_line_image"
                     android:background="@drawable/shape_circle"
                     android:backgroundTint="#E33123"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:textSize="15sp"
+                    android:text="@string/text_publish_product"
                     android:textColor="#222222"
-                    android:textStyle="bold"
-                    android:text="@string/text_publish_picture">
+                    android:textSize="15sp"
+                    android:textStyle="bold">
 
                 </TextView>
             </LinearLayout>

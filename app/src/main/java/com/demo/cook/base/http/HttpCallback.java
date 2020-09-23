@@ -13,11 +13,16 @@ public abstract class HttpCallback<D> implements Callback<RtnResult<D>> {
     @Override
     public void onResponse(Call<RtnResult<D>> call, Response<RtnResult<D>> response) {
         finallyCall();
-        RtnResult<D> result=response.body();
-        if(0==result.getCode()){
-            onSuccess(result.getData());
+
+        if(response.code()==200){
+            RtnResult<D> result=response.body();
+            if(0==result.getCode()){
+                onSuccess(result.getData());
+            }else {
+                ToastyUtils.showError(result.getMsg());
+            }
         }else {
-            ToastyUtils.showError(result.getMsg());
+            ToastyUtils.showError(R.string.text_service_error);
         }
     }
 

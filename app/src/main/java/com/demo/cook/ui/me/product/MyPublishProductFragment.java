@@ -2,12 +2,12 @@ package com.demo.cook.ui.me.product;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -15,10 +15,13 @@ import android.widget.TextView;
 import com.demo.baselib.adapter.CmnRcvAdapter;
 import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
+import com.demo.cook.base.http.QiNiuUtil;
 import com.demo.cook.databinding.FragmentMyPublishProductBinding;
 import com.demo.cook.ui.publish.product.PublishProductActivity;
 import com.demo.cook.ui.publish.product.model.data.MyPublishProduct;
-import com.demo.cook.utils.RouteUtils;
+import com.demo.cook.utils.LoginVerifyUtils;
+import com.demo.cook.utils.upload.UpLoadUtils;
+import com.google.gson.Gson;
 
 
 public class MyPublishProductFragment extends BaseFragment<FragmentMyPublishProductBinding, MyPublishProductViewModel> {
@@ -58,8 +61,11 @@ public class MyPublishProductFragment extends BaseFragment<FragmentMyPublishProd
         ((TextView)emptyView.findViewById(R.id.tvEmptyMyPublishGo)).setText(R.string.text_my_publish_product_go);
         emptyView.findViewById(R.id.tvEmptyMyPublishGo).setOnClickListener(v -> {
 
-            RouteUtils.jumpNeedAccount(() -> {
-                startActivity(new Intent(getContext(), PublishProductActivity.class));
+            LoginVerifyUtils.jumpNeedAccount(() -> {
+                UpLoadUtils.upLoadMultiImage(getActivity(), QiNiuUtil.Prefix.IMAGE_RECIPE_PRODUCT,9, pathList -> {
+                    Log.e("upLoadMultiImage",new Gson().toJson(pathList));
+                    PublishProductActivity.actionCreate(getContext(),pathList);
+                });
             });
         });
         adapter.setEmptyView(emptyView);

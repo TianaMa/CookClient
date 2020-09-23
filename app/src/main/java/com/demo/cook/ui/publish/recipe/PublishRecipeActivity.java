@@ -79,7 +79,7 @@ public class PublishRecipeActivity extends BaseActivity<ActivityPublishRecipeBin
                 UpLoadUtils.upLoadSingleImage(
                         PublishRecipeActivity.this,
                         QiNiuUtil.Prefix.IMAGE_RECIPE_COVER,
-                        path -> mViewModel.recipe.getValue().setCover(path)
+                        path -> mViewModel.recipe.getValue().setCover(path.get(0))
                 )
         );
 
@@ -128,7 +128,7 @@ public class PublishRecipeActivity extends BaseActivity<ActivityPublishRecipeBin
                         UpLoadUtils.upLoadSingleImage(
                                 PublishRecipeActivity.this,
                                 QiNiuUtil.Prefix.IMAGE_RECIPE_STEP,
-                                path -> recipeStep.setStepImg(path)
+                                path -> recipeStep.setStepImg(path.get(0))
                         )
                 );
             }

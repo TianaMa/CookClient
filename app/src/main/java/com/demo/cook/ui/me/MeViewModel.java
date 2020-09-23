@@ -24,6 +24,7 @@ public class MeViewModel extends BaseViewModel {
             @Override
             public void onSuccess(User data) {
                 user.postValue(data);
+                Storage.setUser(data);
                 ToastyUtils.show(R.string.text_update_success);
             }
         });

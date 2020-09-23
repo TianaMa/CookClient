@@ -18,7 +18,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- SD卡写权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -29,7 +28,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.publish.product.PublishProductActivity"></activity>
+        <activity android:name=".ui.publish.product.ProductTagSelectActivity"></activity>
+        <activity android:name=".ui.publish.product.PublishProductActivity" />
         <activity android:name=".ui.publish.recipe.PublishRecipeNameActivity" />
         <activity android:name=".ui.publish.type.PublishTypeActivity" />
         <activity android:name=".ui.publish.recipe.PublishRecipeActivity" />

@@ -33,7 +33,7 @@ public abstract class CmnRcvAdapter<T> extends RecyclerView.Adapter<RecyclerView
 
     public CmnRcvAdapter(int layoutId, List<T> dataList) {
         this.mLayoutId = layoutId;
-        this.dataList.postValue(dataList);
+        this.dataList.setValue(dataList);
     }
 
 

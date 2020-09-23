@@ -174,17 +174,42 @@
 
                     <include layout="@layout/view_line" />
 
-                    <TextView
-                        android:id="@+id/tvMinePublish"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:drawableRight="@drawable/vector_ic_publish_add"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:text="@string/text_publish" />
+                        android:gravity="center_vertical"
+                        android:layout_margin="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:textColor="@android:color/black"
+                            android:text="草\n稿\n箱"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:textColor="@android:color/black"
+                            android:drawableTop="@drawable/vector_ic_drafts_recipe"
+                            android:text="菜谱"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:textColor="@android:color/black"
+                            android:drawableTop="@drawable/vector_ic_drafts_product"
+                            android:text="作品"/>
+
+
+
+
+                    </LinearLayout>
 
                     <include layout="@layout/view_line" />
 
@@ -204,6 +229,7 @@
                         android:gravity="center_vertical">
 
                         <ImageView
+                            android:id="@+id/ivMinePublish"
                             android:layout_width="32dp"
                             android:layout_height="40dp"
                             android:paddingTop="8dp"

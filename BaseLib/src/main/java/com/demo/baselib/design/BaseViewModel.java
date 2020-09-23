@@ -11,7 +11,8 @@ public class BaseViewModel extends ViewModel {
     public UIChangeObservable uiChangeObservable =new UIChangeObservable();
 
     class UIChangeObservable{
-        MutableLiveData<String> showLoading= new MutableLiveData<>();
+        MutableLiveData<String> showLoading= new MutableLiveData();
+        MutableLiveData<Boolean> finishActivity = new MutableLiveData();
     }
 
     protected void showLoading(String msg){
@@ -23,6 +24,10 @@ public class BaseViewModel extends ViewModel {
     }
     protected void closeLoading(){
         uiChangeObservable.showLoading.postValue(null);
+    }
+
+    protected void finishActivity(){
+        uiChangeObservable.finishActivity.postValue(true);
     }
 
 }

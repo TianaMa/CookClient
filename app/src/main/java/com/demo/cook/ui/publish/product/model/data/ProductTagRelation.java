@@ -3,11 +3,11 @@ package com.demo.cook.ui.publish.product.model.data;
 public class ProductTagRelation {
     private String productId;
 
-    private String productTypeId;
+    private String productTagId;
 
-    public ProductTagRelation(String productId, String productTypeId) {
+    public ProductTagRelation(String productId, String productTagId) {
         this.productId = productId;
-        this.productTypeId = productTypeId;
+        this.productTagId = productTagId;
     }
 
     public ProductTagRelation() {
@@ -22,11 +22,11 @@ public class ProductTagRelation {
         this.productId = productId == null ? null : productId.trim();
     }
 
-    public String getProductTypeId() {
-        return productTypeId;
+    public String getProductTagId() {
+        return productTagId;
     }
 
-    public void setProductTypeId(String productTypeId) {
-        this.productTypeId = productTypeId == null ? null : productTypeId.trim();
+    public void setProductTagId(String productTagId) {
+        this.productTagId = productTagId == null ? null : productTagId.trim();
     }
 }

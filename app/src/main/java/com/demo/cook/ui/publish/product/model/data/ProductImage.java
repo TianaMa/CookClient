@@ -13,8 +13,8 @@ public class ProductImage {
         this.orderIndex = orderIndex;
     }
 
-    public ProductImage() {
-        super();
+    public ProductImage(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public String getProductId() {

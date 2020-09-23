@@ -24,6 +24,10 @@
 
     <string name="text_publish">Publish</string>
 
+    <string name="text_praise">Praise</string>
+    <string name="text_collect">Collect</string>
+    <string name="text_comment">Comment</string>
+
 
     <!--WelcomeActivity-->
     <string name="text_welcome_jump">Enter</string>
@@ -53,7 +57,7 @@
     <string name="title_me">My</string>
     
     <!--HomeFragment-->
-    <string name="text_home_friends">My friends</string>
+    <string name="text_home_friends">Friends</string>
     <string name="text_home_recommend">Recommend</string>
     
     <!--MeFragment-->
@@ -64,7 +68,7 @@
     <!--PublishTypeActivity-->
     <string name="text_publish_slogan">Share recipes, share life</string>
     <string name="text_publish_recipe">Recipe</string>
-    <string name="text_publish_picture">Picture</string>
+    <string name="text_publish_product">Product</string>
     <string name="text_publish_video">Video</string>
 
     <!--PublishRecipeNameActivity-->
@@ -122,6 +126,8 @@
     <string name="text_publish_product_title_content">分享的你下厨心得，生活点滴</string>
     <string name="text_publish_product_tag"># 标签</string>
     <string name="text_publish_product_add_tag">添加作品标签？</string>
+    <string name="text_product_title_cant_empty">请输入作品标题</string>
+    <string name="text_product_content_cant_empty">请输入作品心得</string>
 
 
 

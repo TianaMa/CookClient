@@ -23,13 +23,14 @@
             android:padding="15dp">
 
             <ImageView
-                android:id="@+id/ivRegisterClose"
+                android:id="@+id/ivPublishProductClose"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:padding="10dp"
                 android:src="@drawable/vector_ic_close"/>
 
             <TextView
-                android:id="@+id/tvPublishRecipeNameNext"
+                android:id="@+id/tvPublishProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -37,21 +38,44 @@
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:textColor="@color/color_text_button"
+                android:onClick="@{()->mViewModel.publish()}"
                 android:text="@string/text_publish"/>
 
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            tools:itemCount="4"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_layout_product_image"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvProductImageList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="3"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_layout_publish_product_image"
+                    android:orientation="horizontal">
 
-        </androidx.recyclerview.widget.RecyclerView>
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <ImageView
+                    android:id="@+id/ivAddProductImage"
+                    android:layout_width="86dp"
+                    android:layout_height="86dp"
+                    android:padding="3dp"
+                    android:src="@drawable/vector_ic_add_image"/>
+
+
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,11 +86,13 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
                 android:background="@null"
                 android:textStyle="bold"
+                android:textSize="14sp"
                 android:hint="@string/text_publish_product_title_hint"
-                android:text="@{mViewModel.productData.title}"/>
+                android:text="@={mViewModel.productData.title}"/>
 
             <include layout="@layout/view_line"/>
 
@@ -78,14 +104,17 @@
                 android:minHeight="200dp"
                 android:background="@null"
                 android:gravity="top"
+                android:textSize="13sp"
                 android:hint="@string/text_publish_product_title_content"
-                android:text="@{mViewModel.productData.content}"/>
+                android:text="@={mViewModel.productData.content}"/>
 
             <include layout="@layout/view_line"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:gravity="center_vertical">
 
                 <EditText
@@ -110,6 +139,14 @@
                     android:src="@drawable/vector_ic_arrows_right"/>
 
             </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
 
 
         </LinearLayout>

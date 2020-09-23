@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="productDetail"
+            type="com.demo.cook.ui.product.data.ProductDetails" />
+
+        <variable
+            name="user"
+            type="com.demo.cook.ui.user.model.data.User" />
+
+        <import type="com.demo.cook.utils.format.DateFormat"/>
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                srcPath="@{productDetail.headImg}"
+                error="@{@drawable/user_head_0}"
+                placeholder="@{@drawable/user_head_0}"
+                circle="@{true}"
+                android:src="@drawable/user_head_0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:text="@{productDetail.nickname}"
+                tools:text="用户昵称"/>
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/vector_ic_more_action"
+                android:drawablePadding="5dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="@{productDetail.title}"
+            android:textColor="@android:color/black"
+            tools:hint="@string/text_publish_product_title_hint"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="top"
+            android:textSize="13sp"
+            android:text="@{productDetail.content}"
+            android:hint="@string/text_publish_product_title_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcyProductImageList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginTop="15dp"
+            tools:itemCount="4"
+            app:spanCount="3"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/item_layout_product_image"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <CheckBox
+                android:id="@+id/tvPraise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:button="@drawable/selector_drawable_praise"
+                android:checked="@{productDetail.praised}"
+                android:text="@{productDetail.countPraise==0?@string/text_praise:productDetail.countPraise+``}"
+                tools:text="144"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:drawableLeft="@drawable/vector_ic_comment"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="@{productDetail.countComment==0?@string/text_comment:productDetail.countComment+``}"
+                tools:text="12"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+            <CheckBox
+                android:id="@+id/tvCollect"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:button="@drawable/selector_drawable_collect"
+                android:drawablePadding="10dp"
+                android:checked="@{productDetail.collected}"
+                android:text="@{productDetail.countCollect==0?@string/text_collect:productDetail.countCollect+``}"
+                tools:text="122"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                srcPath="@{user.headImg}"
+                error="@{@drawable/user_head_0}"
+                circle="@{true}"
+                placeholder="@{@drawable/user_head_0}"
+                android:src="@drawable/user_head_0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:background="@drawable/shape_corners_15"
+                android:backgroundTint="#88DDDDDD"
+                tools:text="写评论..."/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="top"
+            android:textSize="13sp"
+            android:text="@{DateFormat.format(productDetail.createTime,`yyyy-MM-dd`)}"
+            android:hint="2020-07-30"/>
+
+
+
+    </LinearLayout>
+
+
+</layout>

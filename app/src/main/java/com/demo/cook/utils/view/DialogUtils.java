@@ -27,11 +27,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * @author ZDP
- * @Desc 本类封装了 几种常用的dialog 的显示和关闭方法。 旨在方便
- * @Desc 如有其它需要请自行扩展
- */
 public class DialogUtils {
 
     private static class DialogUtilHolder {
@@ -45,13 +40,6 @@ public class DialogUtils {
         return DialogUtilHolder.INSTANCE;
     }
 
-    /**
-     * @param context
-     * @param title
-     * @param alertMsg
-     * @Desc 单纯的提示。如果想在提示消失后添加逻辑请传递 listener 参数
-     * @author ZDP
-     */
     public void showAlertDialog(Context context, String title, String alertMsg) {
         // 创建一个Builder对象，因为Builder是静态内部类，所以它的实例化方式为 外部类.静态内部类
         new AlertDialog.Builder(context)
@@ -62,14 +50,6 @@ public class DialogUtils {
                 .show();// 显示Builder
     }
 
-    /**
-     * @param context
-     * @param title
-     * @param confirmMsg
-     * @param clickListener
-     * @Desc 用户选择确定和取消的弹窗，点确定后执行方法
-     * @author ZDP
-     */
     public void showConfirmDialog(Context context, String title, String confirmMsg, DialogInterface.OnClickListener clickListener) {
         new AlertDialog.Builder(context)
                 .setTitle(title)
@@ -80,14 +60,6 @@ public class DialogUtils {
                 .show();
     }
 
-    /**
-     * @param context
-     * @param title
-     * @param items
-     * @param clickListener
-     * @Desc 选择提示框
-     * @author ZDP
-     */
     public void showChooseDialog(Context context, String title, String[] items, DialogInterface.OnClickListener clickListener) {
         new AlertDialog.Builder(context)
                 .setTitle(title)
@@ -96,14 +68,6 @@ public class DialogUtils {
                 .show();
     }
 
-    /**
-     * @param context
-     * @param style
-     * @param title
-     * @param listener
-     * @Desc 日期选择提示框
-     * @author ZDP
-     */
     public void showDataDialog(Context context, int style, String title, DatePickerDialog.OnDateSetListener listener) {
         // 通过静态方法getInstance()从指定时区 Locale.CHINA 获得一个日期实例
         Calendar d = Calendar.getInstance(Locale.CHINA);
@@ -120,14 +84,6 @@ public class DialogUtils {
         datePickerDialog.show();
     }
 
-    /**
-     * @param context
-     * @param style
-     * @param title
-     * @param listener
-     * @Desc 时间选择提示框
-     * @author ZDP
-     */
     public void showTimeDialog(Context context, int style, String title, TimePickerDialog.OnTimeSetListener listener) {
         // 通过静态方法getInstance()从指定时区 Locale.CHINA 获得一个日期实例
         Calendar d = Calendar.getInstance(Locale.CHINA);
@@ -143,16 +99,8 @@ public class DialogUtils {
     }
 
 
-    /**
-     * ProgressDialog
-     */
     private ProgressDialog progress;
 
-    /**
-     * @param content
-     * @param title   可以为null
-     * @author ZDP
-     */
     public void showProgress(Context context, @Nullable String title, String content) {
         closeProgress();
         progress = new ProgressDialog(context);
@@ -162,10 +110,6 @@ public class DialogUtils {
         progress.show();
     }
 
-    /**
-     * @Desc 关闭Progress
-     * @author ZDP
-     */
     public void closeProgress() {
         if (progress != null && progress.isShowing()) {
             progress.dismiss();
@@ -260,20 +204,12 @@ public class DialogUtils {
                 cutLine.setHeight(metrics.heightPixels/96);
                 cutLine.setBackgroundColor(Color.parseColor("#DDDDDD"));
                 dialogView.addView(cutLine);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
+                button.setOnClickListener(view -> dialog.dismiss());
             }else{
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                        if(mListener!=null){
-                            mListener.onClick(dialog,(int)view.getTag());
-                        }
+                button.setOnClickListener(view -> {
+                    dialog.dismiss();
+                    if(mListener!=null){
+                        mListener.onClick(dialog,(int)view.getTag());
                     }
                 });
             }

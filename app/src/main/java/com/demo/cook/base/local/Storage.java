@@ -8,15 +8,7 @@ import com.demo.baselib.base.BaseContext;
 import com.demo.cook.ui.user.model.data.User;
 import com.google.gson.Gson;
 
-/**
- * 作者：吕振鹏
- * E-mail:lvzhenpeng@pansoft.com
- * 创建时间：2019年03月27日
- * 时间：15:00
- * 版本：v1.0.0
- * 类描述：
- * 修改时间：
- */
+
 public class Storage {
 
     static SharedPreferences preferences = BaseContext.getInstance().getSharedPreferences("storage", Context.MODE_PRIVATE);

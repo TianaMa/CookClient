@@ -3,21 +3,12 @@ package com.demo.cook.ui.publish.recipe.model.data;
 import androidx.databinding.BaseObservable;
 
 public class RecipeStep extends BaseObservable {
-    private String recipeId;
 
     private String stepContent;
 
     private String stepImg;
 
     private int orderIndex;
-
-    public String getRecipeId() {
-        return recipeId;
-    }
-
-    public void setRecipeId(String recipeId) {
-        this.recipeId = recipeId == null ? null : recipeId.trim();
-    }
 
     public String getStepContent() {
         return stepContent;

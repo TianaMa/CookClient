@@ -4,11 +4,17 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.demo.baselib.design.BaseActivity;
 import com.demo.cook.R;
+import com.demo.cook.base.http.QiNiuUtil;
 import com.demo.cook.databinding.ActivityPublishTypeBinding;
+import com.demo.cook.ui.publish.product.PublishProductActivity;
 import com.demo.cook.ui.publish.recipe.PublishRecipeNameActivity;
+import com.demo.cook.utils.upload.UpLoadUtils;
+import com.google.gson.Gson;
+
 
 public class PublishTypeActivity extends BaseActivity<ActivityPublishTypeBinding, PublishTypeViewModel> {
 
@@ -29,23 +35,21 @@ public class PublishTypeActivity extends BaseActivity<ActivityPublishTypeBinding
         mDataBinding.setMViewModel(mViewModel);
 
         mDataBinding.ivPublishTypeClose.setOnClickListener(v -> onBackPressed());
-        mDataBinding.publishTypeRecipe.setOnClickListener(v ->{
+        mDataBinding.publishTypeRecipe.setOnClickListener(v -> {
             startActivity(new Intent(this, PublishRecipeNameActivity.class));
             this.finish();
         });
 
-        mDataBinding.publishTypeImage.setOnClickListener(v ->{
-            startActivity(new Intent(this, PublishRecipeNameActivity.class));
-            this.finish();
-        });
+        mDataBinding.publishTypeImage.setOnClickListener(v -> UpLoadUtils.upLoadMultiImage(this, QiNiuUtil.Prefix.IMAGE_RECIPE_PRODUCT,9, pathList -> {
+            Log.e("upLoadMultiImage", new Gson().toJson(pathList));
+            PublishProductActivity.actionCreate(PublishTypeActivity.this, pathList);
+            PublishTypeActivity.this.finish();
+        }));
 
-        mDataBinding.publishTypeVideo.setOnClickListener(v ->{
-
-
-
-            startActivity(new Intent(this, PublishRecipeNameActivity.class));
-            this.finish();
-        });
+//        mDataBinding.publishTypeVideo.setOnClickListener(v -> {
+//            startActivity(new Intent(this, PublishRecipeNameActivity.class));
+//            this.finish();
+//        });
 
 
     }

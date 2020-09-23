@@ -5,16 +5,16 @@
     <data>
 
         <variable
-            name="imagePath"
-            type="java.lang.String" />
+            name="productImage"
+            type="com.demo.cook.ui.publish.product.model.data.ProductImage" />
     </data>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_margin="3dp"
-        android:adjustViewBounds="true"
-        srcPath="@{imagePath}"
+        android:scaleType="fitXY"
+        srcPath="@{productImage.imagePath}"
         error="@{@drawable/logo_login}"
         placeholder="@{@drawable/logo_login}"
         android:src="@drawable/logo_login"/>

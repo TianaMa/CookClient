@@ -20,6 +20,10 @@
     <string name="text_update_success">修改成功</string>
     <string name="text_publishing">正在发布...</string>
 
+    <string name="text_praise">Praise</string>
+    <string name="text_collect">Collect</string>
+    <string name="text_comment">Comment</string>
+
     <!--WelcomeActivity-->
     <string name="text_welcome_jump">跳过</string>
 
@@ -57,7 +61,7 @@
     <!--PublishTypeActivity-->
     <string name="text_publish_slogan">分享的人是厨房里的天使</string>
     <string name="text_publish_recipe">菜谱</string>
-    <string name="text_publish_picture">图片</string>
+    <string name="text_publish_product">作品</string>
     <string name="text_publish_video">视频</string>
 
     <!--PublishRecipeNameActivity-->
@@ -108,6 +112,14 @@
     <string name="text_my_publish_recipe_go">开启创建第一道菜谱</string>
     <string name="text_my_publish_product_empty_toast">记录生活，生活因回忆更美好</string>
     <string name="text_my_publish_product_go">分享我的美食作品</string>
+
+    <!--PublishProductActivity-->
+    <string name="text_publish_product_title_hint">填写标题，会获得更多赞哦</string>
+    <string name="text_publish_product_title_content">分享的你下厨心得，生活点滴</string>
+    <string name="text_publish_product_tag"># 标签</string>
+    <string name="text_publish_product_add_tag">添加作品标签？</string>
+    <string name="text_product_title_cant_empty">请输入作品标题</string>
+    <string name="text_product_content_cant_empty">请输入作品心得</string>
 
     
 </resources>

@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.demo.baselib.adapter.CmnRcvAdapter;
@@ -24,7 +23,7 @@ import com.demo.cook.databinding.ItemLayoutMyPublishRecipeBinding;
 import com.demo.cook.ui.publish.recipe.PublishRecipeActivity;
 import com.demo.cook.ui.publish.recipe.PublishRecipeNameActivity;
 import com.demo.cook.ui.publish.recipe.model.data.MyPublishRecipe;
-import com.demo.cook.utils.RouteUtils;
+import com.demo.cook.utils.LoginVerifyUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -67,7 +66,7 @@ public class MyPublishRecipeFragment extends BaseFragment<FragmentMyPublishRecip
         ((TextView)emptyView.findViewById(R.id.tvEmptyMyPublishToast)).setText(R.string.text_publish_slogan);
         ((TextView)emptyView.findViewById(R.id.tvEmptyMyPublishGo)).setText(R.string.text_my_publish_recipe_go);
         emptyView.findViewById(R.id.tvEmptyMyPublishGo).setOnClickListener(v -> {
-            RouteUtils.jumpNeedAccount(()->startActivity(new Intent(getContext(), PublishRecipeNameActivity.class)));
+            LoginVerifyUtils.jumpNeedAccount(()->startActivity(new Intent(getContext(), PublishRecipeNameActivity.class)));
         });
         adapter.setEmptyView(emptyView);
 

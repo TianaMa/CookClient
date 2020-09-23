@@ -18,7 +18,7 @@ import com.demo.cook.ui.me.recipe.MyPublishRecipeFragment;
 import com.demo.cook.ui.me.product.MyPublishProductFragment;
 import com.demo.cook.ui.publish.type.PublishTypeActivity;
 import com.demo.cook.ui.user.login.LoginActivity;
-import com.demo.cook.utils.RouteUtils;
+import com.demo.cook.utils.LoginVerifyUtils;
 import com.demo.cook.utils.upload.UpLoadUtils;
 
 public class MeFragment extends BaseFragment<FragmentMeBinding,MeViewModel> {
@@ -38,8 +38,8 @@ public class MeFragment extends BaseFragment<FragmentMeBinding,MeViewModel> {
         super.onViewCreated(view, savedInstanceState);
 
         mDataBinding.setMViewModel(mViewModel);
-        mDataBinding.tvMinePublish.setOnClickListener(v -> {
-            RouteUtils.jumpNeedAccount(() -> startActivity(new Intent(MeFragment.this.getContext(), PublishTypeActivity.class)));
+        mDataBinding.ivMinePublish.setOnClickListener(v -> {
+            LoginVerifyUtils.jumpNeedAccount(() -> startActivity(new Intent(MeFragment.this.getContext(), PublishTypeActivity.class)));
         });
 
         mDataBinding.ivMeSetting.setOnClickListener(v -> {
@@ -58,7 +58,7 @@ public class MeFragment extends BaseFragment<FragmentMeBinding,MeViewModel> {
                 v -> UpLoadUtils.upLoadSingleImage(
                         getActivity(),
                         QiNiuUtil.Prefix.IMAGE_HEAD,
-                        path -> mViewModel.updateHeadImage(path)
+                        path -> mViewModel.updateHeadImage(path.get(0))
                 )
         );
     }

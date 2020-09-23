@@ -1,7 +1,6 @@
 package com.demo.cook.ui.publish.recipe.model.data;
 
 public class RecipeMaterial {
-    private String recipeId;
 
     private String materialName;
 
@@ -9,15 +8,6 @@ public class RecipeMaterial {
 
     private int orderIndex;
 
-
-
-    public String getRecipeId() {
-        return recipeId;
-    }
-
-    public void setRecipeId(String recipeId) {
-        this.recipeId = recipeId == null ? null : recipeId.trim();
-    }
 
     public String getMaterialName() {
         return materialName;
