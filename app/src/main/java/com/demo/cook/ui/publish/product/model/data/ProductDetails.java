@@ -1,28 +1,14 @@
-package com.demo.cook.ui.product.data;
-
-import androidx.databinding.BaseObservable;
+package com.demo.cook.ui.publish.product.model.data;
 
 import java.util.Date;
 
-public class ProductDetails extends BaseObservable {
+public class ProductDetails extends Product {
 
     private String productId;
 
 
-
-    private String title;
-
-    private String content;
-
-    private String images;
-
-    private String tagId;
-
     private Date createTime;
 
-
-
-    private String issuer;
 
     private String nickname;
 
@@ -50,39 +36,6 @@ public class ProductDetails extends BaseObservable {
     }
 
 
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public String getImages() {
-        return images;
-    }
-
-    public void setImages(String images) {
-        this.images = images;
-    }
-
-    public String getTagId() {
-        return tagId;
-    }
-
-    public void setTagId(String tagId) {
-        this.tagId = tagId;
-    }
-
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
@@ -92,21 +45,6 @@ public class ProductDetails extends BaseObservable {
     }
 
 
-
-
-
-
-
-
-
-
-    public String getIssuer() {
-        return issuer;
-    }
-
-    public void setIssuer(String issuer) {
-        this.issuer = issuer;
-    }
 
     public String getNickname() {
         return nickname;
@@ -131,7 +69,6 @@ public class ProductDetails extends BaseObservable {
 
     public void setCountPraise(int countPraise) {
         this.countPraise = countPraise;
-        notifyChange();
     }
 
     public int getCountCollect() {
@@ -140,7 +77,6 @@ public class ProductDetails extends BaseObservable {
 
     public void setCountCollect(int countCollect) {
         this.countCollect = countCollect;
-        notifyChange();
     }
 
 
@@ -150,7 +86,6 @@ public class ProductDetails extends BaseObservable {
 
     public void setCountComment(int countComment) {
         this.countComment = countComment;
-        notifyChange();
     }
 
     public boolean isCollected() {
@@ -167,6 +102,5 @@ public class ProductDetails extends BaseObservable {
 
     public void setPraised(boolean praised) {
         this.praised = praised;
-        notifyChange();
     }
 }

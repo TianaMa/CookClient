@@ -1,48 +1,26 @@
 package com.demo.cook.ui.publish.product.model.data;
 
-import com.demo.cook.base.local.Storage;
 
-import java.util.Date;
-import java.util.List;
+import com.demo.cook.base.local.Storage;
 
 public class Product {
 
-    private String productId;
-
-    private String issuer = Storage.getUser().getUsername();
+    private String issuer = Storage.getUserInfo().getUsername();
 
     private String title;
 
     private String content;
 
-    private Date createTime;
+    private String images;
 
-    private List<ProductImage> productImageList;
-
-    private List<String> productTagList;
-
-
-    public Product(String productId, String title, String content, Date createTime) {
-        this.productId = productId;
-        this.title = title;
-        this.content = content;
-        this.createTime = createTime;
-    }
-
-    public Product() {
-        super();
-    }
-
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId == null ? null : productId.trim();
-    }
+    private String tagId;
 
     public String getIssuer() {
         return issuer;
+    }
+
+    public void setIssuer(String issuer) {
+        this.issuer = issuer;
     }
 
     public String getTitle() {
@@ -61,28 +39,21 @@ public class Product {
         this.content = content == null ? null : content.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getImages() {
+        return images;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setImages(String images) {
+        this.images = images;
     }
 
-    public List<ProductImage> getProductImageList() {
-        return productImageList;
+    public String getTagId() {
+        return tagId;
     }
 
-    public void setProductImageList(List<ProductImage> productImageList) {
-        this.productImageList = productImageList;
+    public void setTagId(String tagId) {
+        this.tagId = tagId;
     }
 
-    public List<String> getProductTagList() {
-        return productTagList;
-    }
-
-    public void setProductTagList(List<String> productTagList) {
-        this.productTagList = productTagList;
-    }
 
 }

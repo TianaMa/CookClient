@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mViewModel"
+            type="com.demo.cook.ui.me.MyInfoViewModel" />
+        
+        <import type="android.view.View"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.me.MyInfoActivity"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/ivMyInfoBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:src="@drawable/vector_ic_arrows_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:text="@string/text_me_info"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:textSize="15sp"
+                android:textColor="@color/color_text_button"
+                android:onClick="@{()->mViewModel.editOrSave()}"
+                android:text="@{mViewModel.editAble?@string/text_save:@string/text_edit}"
+                tools:text="@string/text_edit"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivMyInfoHead"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:enabled="@{mViewModel.editAble}"
+                    srcPath="@{mViewModel.user.headImg}"
+                    error="@{@drawable/user_head_0}"
+                    placeholder="@{@drawable/user_head_0}"
+                    circle="@{true}"
+                    android:src="@drawable/ic_user_image_default" />
+
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:enabled="@{mViewModel.editAble}"
+                    android:text="@={mViewModel.user.nickname}"
+                    tools:text="昵称"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_bg_under_line">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="性别"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvMyInfoGender"
+                        android:layout_width="0dp"
+                        android:layout_weight="8"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:textColor="@android:color/black"
+                        android:enabled="@{mViewModel.editAble}"
+                        android:text="@{mViewModel.user.gender??@string/text_no_data}"
+                        tools:text="女"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_bg_under_line">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="生日"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvMyInfoBirthday"
+                        android:layout_width="0dp"
+                        android:layout_weight="8"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:textColor="@android:color/black"
+                        android:enabled="@{mViewModel.editAble}"
+                        android:text="@{mViewModel.user.birthday??@string/text_no_data}"
+                        tools:text="2020-01-01"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_bg_under_line">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="职业"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvMyInfoProfession"
+                        android:layout_width="0dp"
+                        android:layout_weight="8"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:background="@null"
+                        android:textColor="@android:color/black"
+                        android:enabled="@{mViewModel.editAble}"
+                        android:text="@{mViewModel.user.profession??@string/text_no_data}"
+                        tools:text="软件开发工程师"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_bg_under_line">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="家乡"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvMyInfoHometown"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="8"
+                        android:enabled="@{mViewModel.editAble}"
+                        android:gravity="center_vertical"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:text="@{mViewModel.user.hometown??@string/text_no_data}"
+                        android:textColor="@android:color/black"
+                        tools:text="山东-济南-高新" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_bg_under_line">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="常居地"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/tvMyInfoAddress"
+                        android:layout_width="0dp"
+                        android:layout_weight="8"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:textColor="@android:color/black"
+                        android:enabled="@{mViewModel.editAble}"
+                        android:text="@{mViewModel.user.address??@string/text_no_data}"
+                        tools:text="山东-济南-高新"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_bg_under_line">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:paddingTop="15dp"
+                        android:text="个人简介"/>
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_weight="8"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:minLines="6"
+                        android:background="@null"
+                        android:paddingBottom="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="top"
+                        android:enabled="@{mViewModel.editAble}"
+                        android:text="@={mViewModel.user.signature}"
+                        tools:text="我是一个快乐的程序员"/>
+                </LinearLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMyInfoLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/selector_login_click"
+                    android:text="退出登录"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    tools:ignore="UnusedAttribute" />
+
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+    </LinearLayout>
+
+
+
+
+</layout>

@@ -28,6 +28,7 @@ public abstract class HttpCallback<D> implements Callback<RtnResult<D>> {
 
     @Override
     public void onFailure(Call<RtnResult<D>> call, Throwable t) {
+        t.printStackTrace();
         finallyCall();
         ToastyUtils.showError(R.string.text_service_error);
     }

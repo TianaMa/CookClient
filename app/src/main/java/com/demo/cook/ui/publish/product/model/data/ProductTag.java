@@ -1,8 +1,10 @@
 package com.demo.cook.ui.publish.product.model.data;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.Date;
 
-public class ProductTag {
+public class ProductTag extends BaseObservable {
 
     private String tagId;
 
@@ -44,4 +46,14 @@ public class ProductTag {
     }
 
 
+    private boolean selected;
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+        notifyChange();
+    }
 }

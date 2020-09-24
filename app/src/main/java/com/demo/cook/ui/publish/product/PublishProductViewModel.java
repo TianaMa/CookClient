@@ -1,6 +1,7 @@
 package com.demo.cook.ui.publish.product;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -10,8 +11,10 @@ import com.demo.cook.R;
 import com.demo.cook.base.http.HttpCallback;
 import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.ui.publish.product.model.HttpProductApi;
+import com.demo.cook.ui.publish.product.model.HttpProductTagApi;
 import com.demo.cook.ui.publish.product.model.data.Product;
-import com.demo.cook.ui.publish.product.model.data.ProductImage;
+import com.demo.cook.ui.publish.product.model.data.ProductTag;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +25,7 @@ public class PublishProductViewModel extends BaseViewModel {
 
     public MutableLiveData<Product> productData = new MutableLiveData(new Product());
 
-    public MutableLiveData<List<ProductImage>> productImageListData = new MutableLiveData();
+    public MutableLiveData<List<String>> productImageListData = new MutableLiveData();
 
 
     public void getProductDetails(String productId){
@@ -31,12 +34,7 @@ public class PublishProductViewModel extends BaseViewModel {
     }
 
     public void initProduct(ArrayList<String> productImagePathList){
-        List<ProductImage> productImageList = new ArrayList<>();
-        for (String productImagePath:productImagePathList ){
-            productImageList.add(new ProductImage(productImagePath));
-        }
-        productData.getValue().setProductImageList(productImageList);
-        productImageListData.postValue(productImageList);
+        productImageListData.postValue(productImagePathList);
     }
 
 
@@ -49,6 +47,14 @@ public class PublishProductViewModel extends BaseViewModel {
         if(TextUtils.isEmpty(productData.getValue().getContent())){
             ToastyUtils.show(R.string.text_product_content_cant_empty);return;
         }
+
+        StringBuffer imagesStr=new StringBuffer();
+        for (String productImagePath:productImageListData.getValue() ){
+            imagesStr.append(",");
+            imagesStr.append(productImagePath);
+        }
+        productData.getValue().setImages(imagesStr.toString().substring(1));
+        Log.e("product==",new Gson().toJson(productData.getValue()));
 
         showLoading(R.string.text_publishing);
         productApi.publish(productData.getValue()).enqueue(new HttpCallback() {
@@ -65,8 +71,26 @@ public class PublishProductViewModel extends BaseViewModel {
             }
         });
 
-
     }
+
+
+
+    HttpProductTagApi productTagApi = HttpConfig.getHttpServe(HttpProductTagApi.class);
+
+    MutableLiveData<List<ProductTag>> productTagsData = new MutableLiveData();
+
+    void getProductTagList(){
+        productTagApi.getTags().enqueue(new HttpCallback<List<ProductTag>>() {
+            @Override
+            public void onSuccess(List<ProductTag> data) {
+                productTagsData.setValue(data);
+            }
+        });
+    }
+
+
+
+
 
 
 }

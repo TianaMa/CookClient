@@ -11,7 +11,8 @@ import com.demo.cook.base.http.HttpCallback;
 import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.user.model.HttpUserApi;
-import com.demo.cook.ui.user.model.data.User;
+import com.demo.cook.ui.user.model.data.Register;
+import com.demo.cook.ui.user.model.data.UserInfo;
 
 import java.util.Random;
 
@@ -40,17 +41,17 @@ public class RegisterViewModel extends BaseViewModel {
             return;
         }
 
-        User user = new User();
+        Register user = new Register();
         user.setUsername(username);
         user.setPassword(password);
         user.setHeadImg("image/head/user_head_"+new Random().nextInt(34)+".jpg");
         user.setNickname("Visitor_"+username);
 
-        userApi.register(user).enqueue(new HttpCallback<User>() {
+        userApi.register(user).enqueue(new HttpCallback<UserInfo>() {
             @Override
-            public void onSuccess(User data) {
+            public void onSuccess(UserInfo data) {
                 ToastyUtils.showInfo(R.string.text_success);
-                Storage.setUser(data);
+                Storage.setUserInfo(data);
                 uiChange.registerSuccess.postValue(true);
             }
         });

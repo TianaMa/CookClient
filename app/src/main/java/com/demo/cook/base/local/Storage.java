@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.demo.baselib.base.BaseContext;
 import com.demo.cook.ui.user.model.data.User;
+import com.demo.cook.ui.user.model.data.UserInfo;
 import com.google.gson.Gson;
 
 
@@ -15,16 +16,16 @@ public class Storage {
 
     private static String storage_user ="user";
 
-    public static void  setUser(User user){
+    public static void setUserInfo(UserInfo user){
         preferences.edit().putString(storage_user,new Gson().toJson(user)).commit();
     }
 
-    public static User getUser(){
+    public static UserInfo getUserInfo(){
         String userString =preferences.getString(storage_user,null);
         if(userString==null){
             return null;
         }
-        return new Gson().fromJson(userString,User.class);
+        return new Gson().fromJson(userString,UserInfo.class);
     }
 
     public static void setZh(boolean chinese){

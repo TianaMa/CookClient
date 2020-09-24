@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="tag"
+            type="com.demo.cook.ui.publish.product.model.data.ProductTag" />
+
+    </data>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/shape_border_tag"
+        android:layout_margin="5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="@{tag.tagName}"
+        android:textSize="15sp"
+        android:drawablePadding="8dp"
+        android:drawableRight="@{tag.selected?@drawable/vector_ic_check_tick:null}"
+        android:textColor="@android:color/white"
+        tools:text="下午茶"/>
+
+</layout>

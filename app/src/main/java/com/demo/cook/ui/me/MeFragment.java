@@ -12,12 +12,10 @@ import com.demo.baselib.adapter.MyPagerAdapter;
 import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
 import com.demo.cook.base.http.QiNiuUtil;
-import com.demo.cook.base.local.Storage;
 import com.demo.cook.databinding.FragmentMeBinding;
 import com.demo.cook.ui.me.recipe.MyPublishRecipeFragment;
 import com.demo.cook.ui.me.product.MyPublishProductFragment;
 import com.demo.cook.ui.publish.type.PublishTypeActivity;
-import com.demo.cook.ui.user.login.LoginActivity;
 import com.demo.cook.utils.LoginVerifyUtils;
 import com.demo.cook.utils.upload.UpLoadUtils;
 
@@ -39,13 +37,15 @@ public class MeFragment extends BaseFragment<FragmentMeBinding,MeViewModel> {
 
         mDataBinding.setMViewModel(mViewModel);
         mDataBinding.ivMinePublish.setOnClickListener(v -> {
-            LoginVerifyUtils.jumpNeedAccount(() -> startActivity(new Intent(MeFragment.this.getContext(), PublishTypeActivity.class)));
+            LoginVerifyUtils.verifyAccount(() -> startActivity(new Intent(getContext(), PublishTypeActivity.class)));
         });
 
-        mDataBinding.ivMeSetting.setOnClickListener(v -> {
-            Storage.setUser(null);
-            startActivity(new Intent(this.getContext(), LoginActivity.class));
-        });
+        mDataBinding.tvMeInfo.setOnClickListener(v -> LoginVerifyUtils.verifyAccount(() ->
+                startActivity(new Intent(getContext(),MyInfoActivity.class)))
+        );
+        mDataBinding.llMeInfo.setOnClickListener(v -> LoginVerifyUtils.verifyAccount(() ->
+                startActivity(new Intent(getContext(),MyInfoActivity.class)))
+        );
 
         final MyPagerAdapter adapter=new MyPagerAdapter(getChildFragmentManager());
         adapter.add(getString(R.string.text_recipe),MyPublishRecipeFragment.newInstance());

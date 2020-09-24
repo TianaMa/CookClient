@@ -16,8 +16,9 @@ import com.demo.baselib.design.BaseActivity;
 import com.demo.cook.R;
 import com.demo.cook.base.http.QiNiuUtil;
 import com.demo.cook.databinding.ActivityPublishProductBinding;
+import com.demo.cook.databinding.ItemLayoutProductTagBinding;
 import com.demo.cook.databinding.ItemLayoutPublishProductImageBinding;
-import com.demo.cook.ui.publish.product.model.data.ProductImage;
+import com.demo.cook.ui.publish.product.model.data.ProductTag;
 import com.demo.cook.utils.upload.UpLoadUtils;
 
 import java.util.ArrayList;
@@ -29,8 +30,6 @@ public class PublishProductActivity extends BaseActivity<ActivityPublishProductB
     private static final String PRODUCT_ID = "productId";
 
     private static final String PRODUCT_IMAGE_PATH_LIST = "productImagePathList";
-
-
 
     public static void actionCreate(Context context, ArrayList<String> productImagePathList){
         Intent intent = new Intent(context, PublishProductActivity.class);
@@ -71,13 +70,16 @@ public class PublishProductActivity extends BaseActivity<ActivityPublishProductB
 
         mDataBinding.ivPublishProductClose.setOnClickListener(v -> super.onBackPressed());
 
-        mDataBinding.rcvProductImageList.setAdapter(new CmnRcvAdapter<ProductImage>(this,R.layout.item_layout_publish_product_image,mViewModel.productImageListData) {
+        mDataBinding.rcvProductImageList.setAdapter(new CmnRcvAdapter<String>(this,R.layout.item_layout_publish_product_image,mViewModel.productImageListData) {
             @Override
-            public void convert(CmnViewHolder holder, ProductImage productImage, int position) {
+            public void convert(CmnViewHolder holder, String productImage, int position) {
                 ItemLayoutPublishProductImageBinding productImageBinding = DataBindingUtil.bind(holder.itemView);
                 productImageBinding.setProductImage(productImage);
-                productImage.setOrderIndex(position+1);
-
+                productImageBinding.ivDeleteImage.setOnClickListener(v -> {
+                    List<String> imageList = mViewModel.productImageListData.getValue();
+                    imageList.remove(position);
+                    mViewModel.productImageListData.postValue(imageList);
+                });
             }
         });
 
@@ -90,17 +92,38 @@ public class PublishProductActivity extends BaseActivity<ActivityPublishProductB
                         QiNiuUtil.Prefix.IMAGE_RECIPE_PRODUCT,
                         9 - mViewModel.productImageListData.getValue().size(), 
                         pathList -> {
-                            List<ProductImage> productImageList = mViewModel.productImageListData.getValue();
+                            List<String> productImageList = mViewModel.productImageListData.getValue();
                             for (String path:pathList){
-                                ProductImage productImage = new ProductImage(path);
-                                productImageList.add(productImage);
-                                mViewModel.productData.getValue().getProductImageList().add(productImage);
+                                productImageList.add(path);
                             }
                             mViewModel.productImageListData.postValue(productImageList);
                         }
                 )
         );
 
+        mViewModel.getProductTagList();
+
+        mDataBinding.rcvProductTags.setAdapter(new CmnRcvAdapter<ProductTag>(this,R.layout.item_layout_product_tag,mViewModel.productTagsData) {
+            @Override
+            public void convert(CmnViewHolder holder, ProductTag tag, int position) {
+                ItemLayoutProductTagBinding tagBinding = DataBindingUtil.bind(holder.itemView);
+                tagBinding.setTag(tag);
+                holder.itemView.setOnClickListener(v -> {
+                    if(tag.isSelected()){
+                        tag.setSelected(false);
+                        mDataBinding.tvProductTagName.setText(null);
+                        mViewModel.productData.getValue().setTagId(null);
+                    }else {
+                        for (ProductTag tagItem:mViewModel.productTagsData.getValue()){
+                            tagItem.setSelected(false);
+                        }
+                        tag.setSelected(true);
+                        mDataBinding.tvProductTagName.setText(tag.getTagName());
+                        mViewModel.productData.getValue().setTagId(tag.getTagId());
+                    }
+                });
+            }
+        });
 
 
 

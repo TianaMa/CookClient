@@ -2,18 +2,14 @@ package com.demo.cook.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.demo.baselib.base.BaseContext;
 import com.demo.cook.R;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.user.login.LoginActivity;
@@ -69,7 +65,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private void gotoMain() {
 
         Intent intent = new Intent();
-        if (Storage.getUser()==null){
+        if (Storage.getUserInfo()==null){
             intent.setClass(WelcomeActivity.this, LoginActivity.class);
         }else {
             intent.setClass(WelcomeActivity.this, MainActivity.class);

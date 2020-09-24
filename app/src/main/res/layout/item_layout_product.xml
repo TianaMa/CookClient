@@ -6,7 +6,7 @@
     <data>
         <variable
             name="productDetail"
-            type="com.demo.cook.ui.product.data.ProductDetails" />
+            type="com.demo.cook.ui.publish.product.model.data.ProductDetails" />
 
         <variable
             name="user"

@@ -9,36 +9,36 @@ import com.demo.cook.base.http.PageInfo;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.collect.HttpCollectApi;
 import com.demo.cook.ui.praise.HttpPraiseApi;
-import com.demo.cook.ui.product.data.HttpProductDetailsApi;
-import com.demo.cook.ui.product.data.ProductDetails;
+import com.demo.cook.ui.publish.product.model.HttpProductApi;
+import com.demo.cook.ui.publish.product.model.data.ProductDetails;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendViewModel extends BaseViewModel {
 
-    HttpProductDetailsApi productDetailsApi = HttpConfig.getHttpServe(HttpProductDetailsApi.class);
+    HttpProductApi productDetailsApi = HttpConfig.getHttpServe(HttpProductApi.class);
     HttpPraiseApi praiseApi = HttpConfig.getHttpServe(HttpPraiseApi.class);
     HttpCollectApi collectApi = HttpConfig.getHttpServe(HttpCollectApi.class);
 
 
     MutableLiveData<PageInfo<ProductDetails>> pageInfoData = new MutableLiveData<>(new PageInfo<>());
 
-    MutableLiveData<List<ProductDetails>> ProductListData = new MutableLiveData(new ArrayList());
+    MutableLiveData<List<ProductDetails>> productListData = new MutableLiveData(new ArrayList());
 
 
     void getProductDetails(){
 
-        productDetailsApi.queryProductDetails(pageInfoData.getValue().getPageNum(),pageInfoData.getValue().getPageSize(), Storage.getUser().getUsername(),"")
+        productDetailsApi.queryProductDetails(pageInfoData.getValue().getPageNum(),pageInfoData.getValue().getPageSize(), Storage.getUserInfo().getUsername(),"")
                 .enqueue(new HttpCallback<PageInfo<ProductDetails>>() {
                     @Override
                     public void onSuccess(PageInfo<ProductDetails> data) {
-                        List<ProductDetails> listData = ProductListData.getValue();
+                        List<ProductDetails> listData = productListData.getValue();
                         if(pageInfoData.getValue().getPageNum()==1){
                             listData.clear();
                         }
                         listData.addAll(data.getList());
-                        ProductListData.postValue(listData);
+                        productListData.postValue(listData);
                         pageInfoData.postValue(data);
                     }
 
@@ -52,7 +52,7 @@ public class RecommendViewModel extends BaseViewModel {
     }
 
     void addPraise(ProductDetails productDetails){
-        praiseApi.addPraise(Storage.getUser().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
+        praiseApi.addPraise(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
             @Override
             public void onSuccess(Object data) {
                 productDetails.setCountPraise(productDetails.getCountPraise()+1);
@@ -62,7 +62,7 @@ public class RecommendViewModel extends BaseViewModel {
     }
 
     void cancelPraise(ProductDetails productDetails){
-        praiseApi.cancelPraise(Storage.getUser().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
+        praiseApi.cancelPraise(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
             @Override
             public void onSuccess(Object data) {
                 productDetails.setCountPraise(productDetails.getCountPraise()-1);
@@ -72,7 +72,7 @@ public class RecommendViewModel extends BaseViewModel {
     }
 
     void addCollect(ProductDetails productDetails){
-        collectApi.addCollect(Storage.getUser().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
+        collectApi.addCollect(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
             @Override
             public void onSuccess(Object data) {
                 productDetails.setCountCollect(productDetails.getCountCollect()+1);
@@ -82,7 +82,7 @@ public class RecommendViewModel extends BaseViewModel {
     }
 
     void cancelCollect(ProductDetails productDetails){
-        collectApi.cancelCollect(Storage.getUser().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
+        collectApi.cancelCollect(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
             @Override
             public void onSuccess(Object data) {
                 productDetails.setCountCollect(productDetails.getCountCollect()-1);

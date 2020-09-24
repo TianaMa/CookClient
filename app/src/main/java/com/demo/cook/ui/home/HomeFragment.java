@@ -1,5 +1,6 @@
 package com.demo.cook.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,11 @@ import com.demo.cook.R;
 import com.demo.cook.databinding.FragmentHomeBinding;
 import com.demo.cook.ui.home.friends.FriendsFragment;
 import com.demo.cook.ui.home.recommend.RecommendFragment;
+import com.demo.cook.ui.me.MeFragment;
 import com.demo.cook.ui.me.product.MyPublishProductFragment;
 import com.demo.cook.ui.me.recipe.MyPublishRecipeFragment;
+import com.demo.cook.ui.publish.type.PublishTypeActivity;
+import com.demo.cook.utils.LoginVerifyUtils;
 
 public class HomeFragment extends BaseFragment<FragmentHomeBinding,HomeViewModel> {
 
@@ -36,6 +40,10 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding,HomeViewModel
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        mDataBinding.ivHomePublish.setOnClickListener(v -> {
+            LoginVerifyUtils.verifyAccount(() -> startActivity(new Intent(getContext(), PublishTypeActivity.class)));
+        });
 
         final MyPagerAdapter adapter=new MyPagerAdapter(getChildFragmentManager());
         adapter.add(getString(R.string.text_home_friends), FriendsFragment.newInstance());

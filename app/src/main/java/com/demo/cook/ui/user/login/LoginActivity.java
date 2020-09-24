@@ -12,6 +12,7 @@ import com.demo.cook.ui.MainActivity;
 import com.demo.cook.R;
 import com.demo.cook.databinding.ActivityLoginBinding;
 import com.demo.cook.ui.user.model.data.User;
+import com.demo.cook.ui.user.model.data.UserInfo;
 import com.demo.cook.ui.user.register.RegisterActivity;
 import com.google.gson.Gson;
 
@@ -42,12 +43,12 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
         });
 
         mDataBinding.tvLoginVisitor.setOnClickListener(v->{
-            User user= new User();
+            UserInfo user= new UserInfo();
             user.setRegisterDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
             user.setNickname("Visitor_"+((Math.random())+"").substring(2,8));
             user.setHeadImg("image/head/user_head_"+new Random().nextInt(34)+".jpg");
             Log.e("Visitor","user="+new Gson().toJson(user));
-            Storage.setUser(user);
+            Storage.setUserInfo(user);
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
 
         });

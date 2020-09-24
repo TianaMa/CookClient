@@ -1,5 +1,6 @@
 package com.demo.cook.ui.me.product;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -17,8 +18,9 @@ import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
 import com.demo.cook.base.http.QiNiuUtil;
 import com.demo.cook.databinding.FragmentMyPublishProductBinding;
+import com.demo.cook.databinding.ItemLayoutProductImageBinding;
 import com.demo.cook.ui.publish.product.PublishProductActivity;
-import com.demo.cook.ui.publish.product.model.data.MyPublishProduct;
+import com.demo.cook.ui.publish.product.model.data.ProductDetails;
 import com.demo.cook.utils.LoginVerifyUtils;
 import com.demo.cook.utils.upload.UpLoadUtils;
 import com.google.gson.Gson;
@@ -46,12 +48,16 @@ public class MyPublishProductFragment extends BaseFragment<FragmentMyPublishProd
 
         super.onViewCreated(view, savedInstanceState);
 
-        CmnRcvAdapter<MyPublishProduct> adapter = new CmnRcvAdapter<MyPublishProduct>(
-                this,R.layout.item_layout_my_publish_product,mViewModel.myPublishProductListData
+        CmnRcvAdapter<ProductDetails> adapter = new CmnRcvAdapter<ProductDetails>(
+                this,R.layout.item_layout_product_image,mViewModel.myPublishProductListData
         ) {
             @Override
-            public void convert(CmnViewHolder holder, MyPublishProduct myPublishProduct, int position) {
+            public void convert(CmnViewHolder holder, ProductDetails myPublishProduct, int position) {
+                ItemLayoutProductImageBinding imageBinding = DataBindingUtil.bind(holder.itemView);
+                imageBinding.setImagePath(myPublishProduct.getImages().split(",")[0]);
+                holder.itemView.setOnClickListener(v -> {
 
+                });
             }
         };
 
@@ -61,7 +67,7 @@ public class MyPublishProductFragment extends BaseFragment<FragmentMyPublishProd
         ((TextView)emptyView.findViewById(R.id.tvEmptyMyPublishGo)).setText(R.string.text_my_publish_product_go);
         emptyView.findViewById(R.id.tvEmptyMyPublishGo).setOnClickListener(v -> {
 
-            LoginVerifyUtils.jumpNeedAccount(() -> {
+            LoginVerifyUtils.verifyAccount(() -> {
                 UpLoadUtils.upLoadMultiImage(getActivity(), QiNiuUtil.Prefix.IMAGE_RECIPE_PRODUCT,9, pathList -> {
                     Log.e("upLoadMultiImage",new Gson().toJson(pathList));
                     PublishProductActivity.actionCreate(getContext(),pathList);
@@ -71,6 +77,8 @@ public class MyPublishProductFragment extends BaseFragment<FragmentMyPublishProd
         adapter.setEmptyView(emptyView);
 
         mDataBinding.rcvMyPublishProduct.setAdapter(adapter);
+
+        mViewModel.queryMyProductList();
     }
 
 

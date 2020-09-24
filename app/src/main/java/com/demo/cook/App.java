@@ -25,7 +25,7 @@ public class App extends BaseContext {
     }
 
     private void initStorage(){
-        Storage.setZh(true);
+        Storage.setZh(false);
         Storage.setQNToken(QiNiuUtil.getToken());
 
 

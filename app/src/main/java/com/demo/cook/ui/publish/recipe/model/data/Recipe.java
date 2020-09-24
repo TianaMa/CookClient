@@ -11,7 +11,7 @@ public class Recipe extends BaseObservable {
 
     private String recipeId;
 
-    private String issuer = Storage.getUser().getUsername();
+    private String issuer = Storage.getUserInfo().getUsername();
 
     private String recipeName;
 

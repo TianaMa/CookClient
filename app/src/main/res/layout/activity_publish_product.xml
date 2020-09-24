@@ -117,36 +117,41 @@
                 android:paddingBottom="10dp"
                 android:gravity="center_vertical">
 
-                <EditText
+                <TextView
+                    android:id="@+id/tvProductTagName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:textSize="17sp"
-                    android:text="# 标签"/>
+                    android:paddingRight="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:drawableLeft="@drawable/vector_ic_tag"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/text_publish_product_tag"/>
 
-                <EditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:background="@null"
-                    android:gravity="right"
+                    android:gravity="right|center_vertical"
                     android:textSize="12sp"
                     android:text="@string/text_publish_product_add_tag"/>
 
-                <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:src="@drawable/vector_ic_arrows_right"/>
-
             </LinearLayout>
 
+
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvProductTags"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_layout_product_tag">
 
             </androidx.recyclerview.widget.RecyclerView>
+
 
 
         </LinearLayout>

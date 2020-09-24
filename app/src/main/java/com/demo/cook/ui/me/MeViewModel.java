@@ -11,20 +11,21 @@ import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.user.model.HttpUserApi;
 import com.demo.cook.ui.user.model.data.User;
+import com.demo.cook.ui.user.model.data.UserInfo;
 
 public class MeViewModel extends BaseViewModel {
 
     HttpUserApi userApi = HttpConfig.getHttpServe(HttpUserApi.class);
 
-    public MutableLiveData<User> user = new MutableLiveData<>(Storage.getUser());
+    public MutableLiveData<UserInfo> user = new MutableLiveData<>(Storage.getUserInfo());
 
     void updateHeadImage(String path){
         user.getValue().setHeadImg(path);
-        userApi.updateUserInfo(user.getValue()).enqueue(new HttpCallback<User>() {
+        userApi.updateUserInfo(user.getValue()).enqueue(new HttpCallback<UserInfo>() {
             @Override
-            public void onSuccess(User data) {
+            public void onSuccess(UserInfo data) {
                 user.postValue(data);
-                Storage.setUser(data);
+                Storage.setUserInfo(data);
                 ToastyUtils.show(R.string.text_update_success);
             }
         });

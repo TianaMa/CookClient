@@ -11,13 +11,13 @@ import com.demo.cook.ui.user.login.LoginActivity;
 
 public class LoginVerifyUtils {
 
-    public interface VerifyAccount{
+    public interface VerifyCallback {
         void verifySuccess();
     }
 
-    public static void jumpNeedAccount(VerifyAccount verify){
+    public static void verifyAccount(VerifyCallback verify){
 
-        if(TextUtils.isEmpty(Storage.getUser().getUsername())){
+        if(TextUtils.isEmpty(Storage.getUserInfo().getUsername())){
             new AlertDialog.Builder(BaseContext.getInstance().getTopActivity())
                     .setTitle("温馨提示")
                     .setMessage("请先登录账号")

@@ -66,7 +66,7 @@ public class MyPublishRecipeFragment extends BaseFragment<FragmentMyPublishRecip
         ((TextView)emptyView.findViewById(R.id.tvEmptyMyPublishToast)).setText(R.string.text_publish_slogan);
         ((TextView)emptyView.findViewById(R.id.tvEmptyMyPublishGo)).setText(R.string.text_my_publish_recipe_go);
         emptyView.findViewById(R.id.tvEmptyMyPublishGo).setOnClickListener(v -> {
-            LoginVerifyUtils.jumpNeedAccount(()->startActivity(new Intent(getContext(), PublishRecipeNameActivity.class)));
+            LoginVerifyUtils.verifyAccount(()->startActivity(new Intent(getContext(), PublishRecipeNameActivity.class)));
         });
         adapter.setEmptyView(emptyView);
 

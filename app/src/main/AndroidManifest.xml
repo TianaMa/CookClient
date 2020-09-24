@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.publish.product.ProductTagSelectActivity"></activity>
+        <activity android:name=".ui.me.MyInfoActivity"></activity>
         <activity android:name=".ui.publish.product.PublishProductActivity" />
         <activity android:name=".ui.publish.recipe.PublishRecipeNameActivity" />
         <activity android:name=".ui.publish.type.PublishTypeActivity" />

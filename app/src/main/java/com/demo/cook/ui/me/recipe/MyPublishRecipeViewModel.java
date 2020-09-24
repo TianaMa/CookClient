@@ -22,7 +22,7 @@ public class MyPublishRecipeViewModel extends BaseViewModel {
 
     public void queryMuPublishRecipe(){
 
-        String username = Storage.getUser().getUsername();
+        String username = Storage.getUserInfo().getUsername();
         if(!TextUtils.isEmpty(username)){
             httpRecipeApi.queryMyPublish(username).enqueue(new HttpCallback<List<MyPublishRecipe>>() {
                 @Override

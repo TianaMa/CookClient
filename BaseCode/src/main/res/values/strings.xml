@@ -21,12 +21,23 @@
     <string name="text_loading">正在加载数据...</string>
     <string name="text_update_success">修改成功</string>
     <string name="text_publishing">正在发布...</string>
+    <string name="text_edit">编辑</string>
+    <string name="text_save">保存</string>
 
     <string name="text_publish">Publish</string>
 
     <string name="text_praise">Praise</string>
     <string name="text_collect">Collect</string>
     <string name="text_comment">Comment</string>
+    <string name="text_no_data">暂无信息</string>
+
+    <string name="text_subscribe">关注</string>
+    <string name="text_subscribe_cancel">取消关注</string>
+
+
+    <string name="text_confirm">确定</string>
+    <string name="text_man">男</string>
+    <string name="text_woman">女</string>
 
 
     <!--WelcomeActivity-->
@@ -59,11 +70,22 @@
     <!--HomeFragment-->
     <string name="text_home_friends">Friends</string>
     <string name="text_home_recommend">Recommend</string>
+    <string name="text_friend_recommend">你可能感兴趣的厨友</string>
     
     <!--MeFragment-->
     <string name="text_me_be_collected">Collected</string>
 
     <string name="text_me_search_my_recipe">Search my recipes</string>
+
+    <!--MyInfoActivity-->
+    <string name="text_me_info">个人资料</string>
+    <string name="text_me_nickname">个人资料</string>
+    <string name="text_me_gender">性别</string>
+    <string name="text_me_birthday">生日</string>
+    <string name="text_me_profession">职业</string>
+    <string name="text_me_hometown">家乡</string>
+    <string name="text_me_address">常居地</string>
+    <string name="text_me_signature">个人简介</string>
     
     <!--PublishTypeActivity-->
     <string name="text_publish_slogan">Share recipes, share life</string>

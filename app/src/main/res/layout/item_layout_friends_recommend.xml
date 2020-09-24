@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="friends"
+            type="com.demo.cook.ui.user.model.data.UserInfo" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_corners_5"
+        android:backgroundTint="@android:color/white"
+        android:layout_margin="3dp"
+        android:padding="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            srcPath="@{friends.headImg}"
+            error="@{@drawable/user_head_0}"
+            placeholder="@{@drawable/user_head_0}"
+            circle="@{true}"
+            android:src="@drawable/logo_login"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:singleLine="true"
+            android:ellipsize="middle"
+            android:text="@{friends.nickname}"
+            tools:text="用户昵称" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="@{@string/text_fans+`:`}"
+                tools:text="粉丝："/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{friends.countBeCared+``}"
+                tools:text="10000"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btRecommendSubscribe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:minHeight="0dp"
+            android:background="@drawable/shape_corners_5"
+            android:backgroundTint="@color/color_text_button"
+            android:textColor="@android:color/white"
+            android:padding="4dp"
+            android:textSize="12sp"
+            android:text="@string/text_subscribe">
+
+        </Button>
+
+
+    </LinearLayout>
+
+
+</layout>

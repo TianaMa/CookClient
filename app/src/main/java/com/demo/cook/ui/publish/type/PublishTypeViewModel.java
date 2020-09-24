@@ -6,5 +6,5 @@ import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.user.model.data.User;
 
 public class PublishTypeViewModel extends BaseViewModel {
-    public User user = Storage.getUser();
+    public User user = Storage.getUserInfo();
 }

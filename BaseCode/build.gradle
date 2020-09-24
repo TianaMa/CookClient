@@ -52,5 +52,8 @@ dependencies {
     api 'com.qiniu:qiniu-android-sdk:8.0.+'
     api 'top.zibin:Luban:1.1.8'
 
+    //选择器框架
+    api 'com.contrarywind:Android-PickerView:4.1.6'
+
 
 }

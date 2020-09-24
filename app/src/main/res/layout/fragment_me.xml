@@ -44,6 +44,7 @@
                     app:layout_scrollFlags="scroll|enterAlways">
 
                     <LinearLayout
+                        android:id="@+id/llMeInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
@@ -69,7 +70,10 @@
                             android:layout_height="70dp"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
-                            headImg="@{mViewModel.user.headImg}"
+                            srcPath="@{mViewModel.user.headImg}"
+                            error="@{@drawable/user_head_0}"
+                            placeholder="@{@drawable/user_head_0}"
+                            circle="@{true}"
                             android:src="@drawable/ic_user_image_default" />
                     </LinearLayout>
 
@@ -91,7 +95,8 @@
                                 android:textColor="@android:color/black"
                                 android:gravity="center_horizontal"
                                 android:textStyle="bold"
-                                android:text="5">
+                                android:text="@{mViewModel.user.countSubscribe+``}"
+                                tools:text="5">
 
                             </TextView>
 
@@ -117,7 +122,8 @@
                                 android:textColor="@android:color/black"
                                 android:gravity="center_horizontal"
                                 android:textStyle="bold"
-                                android:text="5">
+                                android:text="@{mViewModel.user.countBeCared+``}"
+                                tools:text="5">
 
                             </TextView>
 
@@ -162,6 +168,7 @@
                     <include layout="@layout/view_line" />
 
                     <TextView
+                        android:id="@+id/tvMeInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -256,14 +263,6 @@
                             android:layout_marginLeft="5dp"
                             android:padding="8dp"
                             android:src="@drawable/vector_ic_add_friend"/>
-
-                        <ImageView
-                            android:id="@+id/ivMeSetting"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:padding="10dp"
-                            android:layout_marginRight="5dp"
-                            android:src="@drawable/vector_ic_setting"/>
 
                     </LinearLayout>
 

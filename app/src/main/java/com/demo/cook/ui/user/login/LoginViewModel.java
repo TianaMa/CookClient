@@ -11,7 +11,7 @@ import com.demo.cook.base.http.HttpCallback;
 import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.user.model.HttpUserApi;
-import com.demo.cook.ui.user.model.data.User;
+import com.demo.cook.ui.user.model.data.UserInfo;
 
 
 public class LoginViewModel extends BaseViewModel {
@@ -35,10 +35,10 @@ public class LoginViewModel extends BaseViewModel {
             return;
         }
 
-        userApi.login(username,password).enqueue(new HttpCallback<User>() {
+        userApi.login(username,password).enqueue(new HttpCallback<UserInfo>() {
             @Override
-            public void onSuccess(User data) {
-                Storage.setUser(data);
+            public void onSuccess(UserInfo data) {
+                Storage.setUserInfo(data);
                 uiChange.loginSuccess.postValue(true);
             }
         });

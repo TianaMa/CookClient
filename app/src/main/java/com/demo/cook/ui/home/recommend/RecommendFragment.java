@@ -4,26 +4,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.demo.baselib.adapter.CmnRcvAdapter;
 import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
-import com.demo.cook.base.http.PageInfo;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.databinding.FragmentRecommendBinding;
 import com.demo.cook.databinding.ItemLayoutProductBinding;
 import com.demo.cook.databinding.ItemLayoutProductImageBinding;
-import com.demo.cook.ui.product.data.ProductDetails;
+import com.demo.cook.ui.publish.product.model.data.ProductDetails;
 import com.demo.cook.utils.LoginVerifyUtils;
-import com.google.gson.Gson;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 
@@ -51,15 +46,15 @@ public class RecommendFragment extends BaseFragment<FragmentRecommendBinding,Rec
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        CmnRcvAdapter<ProductDetails> adapter = new CmnRcvAdapter<ProductDetails>(this,R.layout.item_layout_product,mViewModel.ProductListData) {
+        CmnRcvAdapter<ProductDetails> adapter = new CmnRcvAdapter<ProductDetails>(this,R.layout.item_layout_product,mViewModel.productListData) {
             @Override
             public void convert(CmnViewHolder holder, ProductDetails productDetails, int position) {
                 ItemLayoutProductBinding productBinding = DataBindingUtil.bind(holder.itemView);
                 productBinding.setProductDetail(productDetails);
-                productBinding.setUser(Storage.getUser());
+                productBinding.setUser(Storage.getUserInfo());
 
                 productBinding.tvPraise.setOnClickListener(v -> {
-                    LoginVerifyUtils.jumpNeedAccount(() -> {
+                    LoginVerifyUtils.verifyAccount(() -> {
                         if (((CheckBox) v).isChecked()){
                             mViewModel.addPraise(productDetails);
                         }else {
@@ -69,7 +64,7 @@ public class RecommendFragment extends BaseFragment<FragmentRecommendBinding,Rec
                 });
 
                 productBinding.tvCollect.setOnClickListener(v -> {
-                    LoginVerifyUtils.jumpNeedAccount(() -> {
+                    LoginVerifyUtils.verifyAccount(() -> {
                         if (((CheckBox) v).isChecked()){
                             mViewModel.addCollect(productDetails);
                         }else {
