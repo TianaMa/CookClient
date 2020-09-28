@@ -89,6 +89,7 @@
     <string name="text_me_be_collected">Collected</string>
 
     <string name="text_me_search_my_recipe">Search my recipes</string>
+    <string name="text_search_my_collect">Search my collect</string>
 
     <!--MyInfoActivity-->
     <string name="text_me_info">个人资料</string>

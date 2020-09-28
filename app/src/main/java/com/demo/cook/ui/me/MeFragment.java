@@ -64,6 +64,12 @@ public class MeFragment extends BaseFragment<FragmentMeBinding,MeViewModel> {
                         path -> mViewModel.updateHeadImage(path.get(0))
                 )
         );
+
+        mViewModel.user.observe(getViewLifecycleOwner(),userInfo -> {
+            mDataBinding.tabMe.getTabAt(0).setText(getString(R.string.text_recipe) +" ("+ userInfo.getCountRecipe()+")");
+            mDataBinding.tabMe.getTabAt(1).setText(getString(R.string.text_product) +" ("+ userInfo.getCountProduct()+")");
+        });
+
     }
 
 

@@ -79,6 +79,7 @@
     <string name="text_me_be_collected">被关注</string>
     <string name="text_publish">发布</string>
     <string name="text_me_search_my_recipe">搜索我的菜谱</string>
+    <string name="text_search_my_collect">搜索我的收藏</string>
 
     <!--MyInfoActivity-->
     <string name="text_me_info">个人资料</string>

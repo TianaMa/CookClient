@@ -14,6 +14,8 @@ public class UserInfo extends User{
 
     private int countSubscribe;
 
+    private int countCollect;
+
     private boolean subscribe;
 
     public int getCountProduct() {
@@ -46,6 +48,14 @@ public class UserInfo extends User{
 
     public void setCountSubscribe(int countSubscribe) {
         this.countSubscribe = countSubscribe;
+    }
+
+    public int getCountCollect() {
+        return countCollect;
+    }
+
+    public void setCountCollect(int countCollect) {
+        this.countCollect = countCollect;
     }
 
     public boolean isSubscribe() {

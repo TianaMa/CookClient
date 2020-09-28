@@ -149,7 +149,8 @@
                                 android:textColor="@android:color/black"
                                 android:gravity="center_horizontal"
                                 android:textStyle="bold"
-                                android:text="5">
+                                android:text="@{mViewModel.user.countCollect+``}"
+                                tools:text="5">
 
                             </TextView>
 

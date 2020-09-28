@@ -27,24 +27,29 @@
 
 
                 <EditText
+                    android:id="@+id/etLikeSearchText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/shape_corners_5"
                     android:backgroundTint="#E9E9E9"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"
                     android:drawableLeft="@drawable/vector_ic_search"
                     android:drawablePadding="5dp"
                     android:hint="@string/text_me_search_my_recipe"
                     android:padding="10dp"
                     android:textSize="13sp" />
 
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
-                    android:padding="8dp"
-                    android:src="@drawable/vector_ic_add_friend"/>
+                <TextView
+                    android:id="@+id/tvLikeSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_text_button"
+                    android:text="@string/text_search"/>
 
 
             </LinearLayout>
