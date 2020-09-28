@@ -49,6 +49,16 @@
                     android:text="@{mViewModel.recipe.recipeName}"
                     android:gravity="center"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:layout_margin="5dp"
+                    android:textStyle="bold"
+                    tools:text="中国菜 · 15人收藏"
+                    android:text="@{mViewModel.recipe.recipeName}"
+                    android:gravity="center"/>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
@@ -56,15 +66,85 @@
                     android:background="#CCCCCC">
                 </View>
 
-                <EditText
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/shape_corners_5"
+                    android:backgroundTint="@android:color/white">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        circle="@{true}"
+                        error="@{@drawable/user_head_0}"
+                        placeholder="@{@drawable/user_head_0}"
+                        srcPath="@{mViewModel.recipe.headImg}"
+                        android:src="@drawable/logo_login" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:text="@{mViewModel.recipe.nickname}"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:text="用户昵称" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{mViewModel.recipe.recipeName+``}"
+                                tools:text="2020-12-03" />
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                    <Button
+                        android:id="@+id/btRecommendSubscribe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/shape_corners_5"
+                        android:backgroundTint="#BBBBBB"
+                        android:minHeight="0dp"
+                        android:padding="4dp"
+                        android:text="@string/text_subscribe_cancel"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp">
+
+                    </Button>
+
+
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@null"
                     android:textSize="15sp"
                     android:padding="8dp"
-                    android:text="@={mViewModel.recipe.recipeDescribe}"
-                    android:hint="@string/text_publish_recipe_describe"/>
+                    android:text="@{mViewModel.recipe.recipeDescribe}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -75,23 +155,17 @@
                     android:textColor="@android:color/black"
                     android:text="@string/text_publish_recipe_material"/>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_marginTop="15dp"
-                    android:background="#CCCCCC">
-                </View>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcvPublishRecipeMaterial"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_marginTop="15dp"
                     android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="2"
-                    tools:listitem="@layout/item_layout_recipe_material"/>
-
+                    tools:listitem="@layout/item_layout_recipe_details_material" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -132,7 +206,7 @@
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="1"
-                    tools:listitem="@layout/item_layout_recipe_step"/>
+                    tools:listitem="@layout/item_layout_recipe_details_step"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -143,14 +217,14 @@
                     android:textColor="@android:color/black"
                     android:text="@string/text_publish_recipe_tips"/>
 
-                <EditText
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@null"
                     android:textSize="15sp"
                     android:padding="8dp"
-                    android:text="@={mViewModel.recipe.tips}"
+                    android:text="@{mViewModel.recipe.tips}"
                     android:hint="@string/text_publish_recipe_tips_hint"/>
 
 
@@ -160,27 +234,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:paddingLeft="15dp"
-                android:backgroundTint="@android:color/white"
-                android:gravity="center_vertical"
-                android:background="@drawable/shape_bg_under_line">
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    srcPath="@{mViewModel.user.headImg}"
+                    error="@{@drawable/user_head_0}"
+                    circle="@{true}"
+                    placeholder="@{@drawable/user_head_0}"
+                    android:src="@drawable/user_head_0"/>
+
                 <TextView
                     android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="推荐至分类"/>
-
-                <TextView
-                    android:id="@+id/tvPublishRecipeSortName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:gravity="right"
-                    android:drawablePadding="5dp"
-                    android:textColor="@android:color/black"
-                    android:drawableRight="@drawable/vector_ic_arrows_right"
-                    tools:text="其他"/>
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:background="@drawable/shape_corners_15"
+                    android:backgroundTint="#88DDDDDD"
+                    android:hint="写评论..."/>
             </LinearLayout>
-
 
         </LinearLayout>
 

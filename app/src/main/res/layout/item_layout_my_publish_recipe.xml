@@ -82,9 +82,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/vector_ic_my_recipe_collect"
+                android:drawableLeft="@drawable/vector_ic_collect_count"
                 android:drawablePadding="5dp"
-                android:text="@{recipe.collectedCount+``}"
+                android:text="@{recipe.countCollect+``}"
                 tools:text="127"/>
 
         </LinearLayout>

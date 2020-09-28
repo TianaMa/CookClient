@@ -244,7 +244,8 @@
                             android:paddingRight="8dp"
                             android:src="@drawable/vector_ic_add"/>
 
-                        <EditText
+                        <TextView
+                            android:id="@+id/tvMeSearchMyRecipe"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

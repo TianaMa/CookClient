@@ -2,22 +2,14 @@ package com.demo.cook.ui.recipe.model.data;
 
 import java.util.Date;
 
-public class RecipeBrief {
+//item 展示信息。
+public class RecipeBrief extends RecipeBase {
 
+    private Date createTime;
 
     private String nickname;
 
     private String headImg;
-
-    private int collectedCount;
-
-    private String recipeId;
-
-    private String recipeName;
-
-    private String cover;
-
-    private Date createTime;
 
     private int countPraise;
 
@@ -45,37 +37,6 @@ public class RecipeBrief {
         this.headImg = headImg;
     }
 
-    public int getCollectedCount() {
-        return collectedCount;
-    }
-
-    public void setCollectedCount(int collectedCount) {
-        this.collectedCount = collectedCount;
-    }
-
-    public String getRecipeId() {
-        return recipeId;
-    }
-
-    public void setRecipeId(String recipeId) {
-        this.recipeId = recipeId;
-    }
-
-    public String getRecipeName() {
-        return recipeName;
-    }
-
-    public void setRecipeName(String recipeName) {
-        this.recipeName = recipeName;
-    }
-
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
 
     public Date getCreateTime() {
         return createTime;

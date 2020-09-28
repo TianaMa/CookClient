@@ -34,8 +34,7 @@ public class RecipeSortSelectActivity extends AppCompatActivity {
         try {
             List<RecipeSort> recipeSortList = new Gson().fromJson(
                     new InputStreamReader(this.getAssets().open("recipeSortMenu.json"), "UTF-8"),
-                    new TypeToken<List<RecipeSort>>() {
-                    }.getType()
+                    new TypeToken<List<RecipeSort>>() {}.getType()
             );
             for (RecipeSort sort:recipeSortList){
                 if(sort.getSortId().equals(sortId)){

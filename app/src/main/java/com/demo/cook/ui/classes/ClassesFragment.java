@@ -16,13 +16,12 @@ import com.bumptech.glide.request.RequestOptions;
 import com.demo.baselib.adapter.CmnRcvAdapter;
 import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
-import com.demo.cook.base.http.QiNiuUtil;
 import com.demo.cook.databinding.FragmentClassesBinding;
 import com.demo.cook.databinding.ItemLayoutBannerClassesBinding;
 import com.demo.cook.databinding.ItemLayoutRecipeMenuBinding;
 import com.demo.cook.ui.classes.model.data.RecipeSort;
+import com.demo.cook.ui.classes.search.SearchRecipeActivity;
 import com.demo.cook.ui.classes.sort.RecipeListActivity;
-import com.demo.cook.ui.product.fragment.ProductListFragment;
 import com.demo.cook.ui.recipe.fragment.RecipeListFragment;
 import com.demo.cook.ui.recipe.model.data.request.QueryRecipeParams;
 import com.google.gson.Gson;
@@ -51,6 +50,8 @@ public class ClassesFragment extends BaseFragment<FragmentClassesBinding, Classe
         super.onViewCreated(view, savedInstanceState);
 
 
+        mDataBinding.tvClassesSearch.setOnClickListener(v -> SearchRecipeActivity.actionStart(getContext(),false));
+
         //Banner
         mDataBinding.bannerClasses.setIndicator(
                 new IndicatorView(getContext()).setIndicatorColor(Color.WHITE).setIndicatorSelectorColor(Color.YELLOW)
@@ -75,8 +76,7 @@ public class ClassesFragment extends BaseFragment<FragmentClassesBinding, Classe
         try {
             List<RecipeSort> recipeSortList = new Gson().fromJson(
                     new InputStreamReader(getContext().getAssets().open("recipeSortMenu.json"), "UTF-8"),
-                    new TypeToken<List<RecipeSort>>() {
-                    }.getType()
+                    new TypeToken<List<RecipeSort>>() {}.getType()
             );
 
             mDataBinding.rcvClassesSort.setAdapter(new CmnRcvAdapter<RecipeSort>(R.layout.item_layout_recipe_menu, recipeSortList) {

@@ -15,6 +15,7 @@ import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
 import com.demo.cook.databinding.FragmentRecipeListBinding;
 import com.demo.cook.databinding.ItemLayoutRecipeBinding;
+import com.demo.cook.ui.recipe.RecipeDetailsActivity;
 import com.demo.cook.ui.recipe.model.data.RecipeBrief;
 import com.demo.cook.ui.recipe.model.data.request.QueryRecipeParams;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
@@ -54,6 +55,7 @@ public class RecipeListFragment extends BaseFragment<FragmentRecipeListBinding,R
             public void convert(CmnViewHolder holder, RecipeBrief recipeBrief, int position) {
                 ItemLayoutRecipeBinding myPublishRecipeBinding = DataBindingUtil.bind(holder.itemView);
                 myPublishRecipeBinding.setRecipe(recipeBrief);
+                holder.itemView.setOnClickListener(v -> RecipeDetailsActivity.actionStart(v.getContext(),recipeBrief.getRecipeId()));
             }
         };
         //空数据视图逻辑

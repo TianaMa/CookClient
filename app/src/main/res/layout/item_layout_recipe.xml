@@ -59,14 +59,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/vector_ic_praise_count"
+                android:drawablePadding="5dp"
+                android:text="@{recipe.countPraise+``}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvItemRecipePublishTime"
-                android:layout_marginTop="10dp"
-                android:drawableLeft="@drawable/vector_ic_my_recipe_collect"
-                android:drawablePadding="5dp"
-                android:text="@{recipe.collectedCount+``}"
-                tools:text="127"/>
-
+                tools:text="127" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -74,9 +73,9 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvItemRecipePublishTime"
                 android:layout_marginTop="10dp"
-                android:drawableLeft="@drawable/vector_ic_my_recipe_collect"
+                android:drawableLeft="@drawable/vector_ic_collect_count"
                 android:drawablePadding="5dp"
-                android:text="@{recipe.collectedCount+``}"
+                android:text="@{recipe.countCollect+``}"
                 tools:text="127"/>
 
             <LinearLayout

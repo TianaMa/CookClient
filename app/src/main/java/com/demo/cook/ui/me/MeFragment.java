@@ -13,6 +13,7 @@ import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
 import com.demo.cook.base.http.QiNiuUtil;
 import com.demo.cook.databinding.FragmentMeBinding;
+import com.demo.cook.ui.classes.search.SearchRecipeActivity;
 import com.demo.cook.ui.me.recipe.MyPublishRecipeFragment;
 import com.demo.cook.ui.me.product.MyPublishProductFragment;
 import com.demo.cook.ui.publish.type.PublishTypeActivity;
@@ -39,6 +40,8 @@ public class MeFragment extends BaseFragment<FragmentMeBinding,MeViewModel> {
         mDataBinding.ivMinePublish.setOnClickListener(v -> {
             LoginVerifyUtils.verifyAccount(() -> startActivity(new Intent(getContext(), PublishTypeActivity.class)));
         });
+
+        mDataBinding.tvMeSearchMyRecipe.setOnClickListener(v -> SearchRecipeActivity.actionStart(getContext(),true));
 
         mDataBinding.tvMeInfo.setOnClickListener(v -> LoginVerifyUtils.verifyAccount(() ->
                 startActivity(new Intent(getContext(),MyInfoActivity.class)))

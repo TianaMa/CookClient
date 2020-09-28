@@ -50,10 +50,14 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
             Log.e("Visitor","user="+new Gson().toJson(user));
             Storage.setUserInfo(user);
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
+            finish();
 
         });
 
-        mViewModel.uiChange.loginSuccess.observe(this, aBoolean -> startActivity(new Intent(LoginActivity.this, MainActivity.class)));
+        mViewModel.uiChange.loginSuccess.observe(this, aBoolean -> {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        });
 
     }
 }

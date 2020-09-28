@@ -1,27 +1,11 @@
 package com.demo.cook.ui.recipe.model.data;
 
-import androidx.databinding.BaseObservable;
-
-import com.demo.cook.base.local.Storage;
 
 import java.util.ArrayList;
 
-public class Recipe extends BaseObservable {
+//发布和修改的参数
+public class Recipe extends RecipeBase {
 
-
-    private String recipeId;
-
-    private String issuer = Storage.getUserInfo().getUsername();
-
-    private String recipeName;
-
-    private String cover;
-
-    private String recipeDescribe;
-
-    private String tips;
-
-    private String sortId = "";
 
     private ArrayList<RecipeMaterial> recipeMaterialList;
 
@@ -43,60 +27,4 @@ public class Recipe extends BaseObservable {
         this.recipeStepList = recipeStepList;
     }
 
-    public String getRecipeId() {
-        return recipeId;
-    }
-
-    public void setRecipeId(String recipeId) {
-        this.recipeId = recipeId == null ? null : recipeId.trim();
-    }
-
-    public String getIssuer() {
-        return issuer;
-    }
-
-    public void setIssuer(String issuer) {
-        this.issuer = issuer == null ? null : issuer.trim();
-    }
-
-    public String getRecipeName() {
-        return recipeName;
-    }
-
-    public void setRecipeName(String recipeName) {
-        this.recipeName = recipeName == null ? null : recipeName.trim();
-    }
-
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover == null ? null : cover.trim();
-        notifyChange();
-    }
-
-    public String getRecipeDescribe() {
-        return recipeDescribe;
-    }
-
-    public void setRecipeDescribe(String recipeDescribe) {
-        this.recipeDescribe = recipeDescribe == null ? null : recipeDescribe.trim();
-    }
-
-    public String getTips() {
-        return tips;
-    }
-
-    public void setTips(String tips) {
-        this.tips = tips == null ? null : tips.trim();
-    }
-
-    public String getSortId() {
-        return sortId;
-    }
-
-    public void setSortId(String sortId) {
-        this.sortId = sortId;
-    }
 }
