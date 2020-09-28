@@ -6,13 +6,17 @@
     <data>
         <variable
             name="productDetail"
-            type="com.demo.cook.ui.publish.product.model.data.ProductDetails" />
+            type="com.demo.cook.ui.product.model.data.ProductDetails" />
 
         <variable
             name="user"
             type="com.demo.cook.ui.user.model.data.User" />
 
         <import type="com.demo.cook.utils.format.DateFormat"/>
+
+        <import type="android.view.View"/>
+
+        <import type="android.text.TextUtils"/>
 
 
     </data>
@@ -92,9 +96,28 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/item_layout_product_image"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_margin="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="@{productDetail.tagName}"
+            android:visibility="@{TextUtils.isEmpty(productDetail.tagName)?View.GONE:View.VISIBLE}"
+            android:textSize="15sp"
+            android:background="@drawable/shape_corners_15"
+            android:backgroundTint="#CCCCCC"
+            android:textColor="@android:color/white"
+            tools:text="下午茶"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg_under_line"
             android:gravity="center_vertical">
 
             <CheckBox
@@ -167,7 +190,7 @@
                 android:textColor="#666666"
                 android:background="@drawable/shape_corners_15"
                 android:backgroundTint="#88DDDDDD"
-                tools:text="写评论..."/>
+                android:hint="写评论..."/>
         </LinearLayout>
 
         <TextView

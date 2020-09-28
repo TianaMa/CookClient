@@ -28,11 +28,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.me.MyInfoActivity"></activity>
-        <activity android:name=".ui.publish.product.PublishProductActivity" />
-        <activity android:name=".ui.publish.recipe.PublishRecipeNameActivity" />
+        <activity android:name=".ui.classes.sort.RecipeListActivity"></activity>
+        <activity android:name=".ui.classes.search.SearchRecipeActivity" />
+        <activity android:name=".ui.recipe.RecipeDetailsActivity" />
+        <activity android:name=".ui.recipe.publish.RecipeSortSelectActivity" />
+        <activity android:name=".ui.me.product.MyPublishProductActivity" />
+        <activity
+            android:name=".ui.home.search.SearchProductActivity"
+            android:windowSoftInputMode="stateAlwaysVisible" />
+        <activity android:name=".ui.me.MyInfoActivity" />
+        <activity android:name=".ui.product.PublishProductActivity" />
+        <activity android:name=".ui.recipe.publish.PublishRecipeNameActivity" />
         <activity android:name=".ui.publish.type.PublishTypeActivity" />
-        <activity android:name=".ui.publish.recipe.PublishRecipeActivity" />
+        <activity android:name=".ui.recipe.publish.PublishRecipeActivity" />
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.user.register.RegisterActivity" />
         <activity android:name=".ui.user.login.LoginActivity" />

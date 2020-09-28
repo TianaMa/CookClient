@@ -20,9 +20,9 @@ import com.demo.cook.R;
 import com.demo.cook.base.event.BusEvent;
 import com.demo.cook.databinding.FragmentMyPublishRecipeBinding;
 import com.demo.cook.databinding.ItemLayoutMyPublishRecipeBinding;
-import com.demo.cook.ui.publish.recipe.PublishRecipeActivity;
-import com.demo.cook.ui.publish.recipe.PublishRecipeNameActivity;
-import com.demo.cook.ui.publish.recipe.model.data.MyPublishRecipe;
+import com.demo.cook.ui.recipe.publish.PublishRecipeActivity;
+import com.demo.cook.ui.recipe.publish.PublishRecipeNameActivity;
+import com.demo.cook.ui.recipe.model.data.RecipeBrief;
 import com.demo.cook.utils.LoginVerifyUtils;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -49,11 +49,11 @@ public class MyPublishRecipeFragment extends BaseFragment<FragmentMyPublishRecip
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         registerEventBus=true;
-        CmnRcvAdapter<MyPublishRecipe> adapter= new CmnRcvAdapter<MyPublishRecipe>(
+        CmnRcvAdapter<RecipeBrief> adapter= new CmnRcvAdapter<RecipeBrief>(
                 this, R.layout.item_layout_my_publish_recipe,mViewModel.myPublishRecipeListData
         ) {
             @Override
-            public void convert(CmnViewHolder holder, MyPublishRecipe myPublishRecipe, int position) {
+            public void convert(CmnViewHolder holder, RecipeBrief myPublishRecipe, int position) {
                 ItemLayoutMyPublishRecipeBinding myPublishRecipeBinding = DataBindingUtil.bind(holder.itemView);
                 myPublishRecipeBinding.setRecipe(myPublishRecipe);
                 myPublishRecipeBinding.ivEditRecipe.setOnClickListener(v -> {

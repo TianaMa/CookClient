@@ -9,8 +9,9 @@ import com.demo.cook.base.http.HttpCallback;
 import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.base.http.PageInfo;
 import com.demo.cook.base.local.Storage;
-import com.demo.cook.ui.publish.product.model.HttpProductApi;
-import com.demo.cook.ui.publish.product.model.data.ProductDetails;
+import com.demo.cook.ui.product.model.HttpProductApi;
+import com.demo.cook.ui.product.model.data.ProductDetails;
+import com.demo.cook.ui.product.model.data.request.QueryProductParams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +25,12 @@ public class MyPublishProductViewModel extends BaseViewModel {
 
         String username = Storage.getUserInfo().getUsername();
         if(!TextUtils.isEmpty(username)){
-            productApi.queryMyPublish(Storage.getUserInfo().getUsername()).enqueue(new HttpCallback<PageInfo<ProductDetails>>() {
+            QueryProductParams params = new QueryProductParams(username);
+            params.setOrder(QueryProductParams.Order.time);
+            productApi.queryProductList(params).enqueue(new HttpCallback<PageInfo<ProductDetails>>() {
                 @Override
                 public void onSuccess(PageInfo<ProductDetails> data) {
-                    myPublishProductListData.postValue(data.getList());
+                    myPublishProductListData.setValue(data.getList());
                 }
             });
         }

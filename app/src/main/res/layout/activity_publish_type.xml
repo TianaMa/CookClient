@@ -36,6 +36,7 @@
             srcPath="@{mViewModel.user.headImg}"
             error="@{@drawable/user_head_0}"
             placeholder="@{@drawable/user_head_0}"
+            circle="@{true}"
             android:src="@drawable/ic_user_image_default" />
 
         <TextView
@@ -115,6 +116,7 @@
             <LinearLayout
                 android:id="@+id/publishTypeVideo"
                 android:layout_width="wrap_content"
+                android:visibility="gone"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"

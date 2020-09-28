@@ -6,11 +6,11 @@
 
         <variable
             name="step"
-            type="com.demo.cook.ui.publish.recipe.model.data.RecipeStep" />
+            type="com.demo.cook.ui.recipe.model.data.RecipeStep" />
 
         <variable
             name="viewModel"
-            type="com.demo.cook.ui.publish.recipe.PublishRecipeViewModel" />
+            type="com.demo.cook.ui.recipe.publish.PublishRecipeViewModel" />
 
         <import type="android.view.View"/>
 

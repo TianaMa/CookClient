@@ -1,0 +1,52 @@
+[
+  {
+    "sortId": "0e3654ab-c42b-45a8-aa72-9fb0b42d7475",
+    "sortName": "面包",
+    "imageName": "vector_ic_recipe_sort_bread"
+  },
+  {
+    "sortId": "1c4d0ad7-466e-4f1e-93c3-a8d758504f39",
+    "sortName": "蛋糕",
+    "imageName": "vector_ic_recipe_sort_cake"
+  },
+  {
+    "sortId": "46d470ef-b6b2-46ca-bc01-02f90d7708ce",
+    "sortName": "甜点",
+    "imageName": "vector_ic_recipe_sort_dessert"
+  },
+  {
+    "sortId": "33e8a196-2691-4046-8cb1-b16c2696235d",
+    "sortName": "饮品",
+    "imageName": "vector_ic_recipe_sort_drinks"
+  },
+  {
+    "sortId": "0e5ec712-47fa-44c5-ad31-8e2a3a662bca",
+    "sortName": "面食",
+    "imageName": "vector_ic_recipe_sort_pasta"
+  },
+  {
+    "sortId": "c52f914f-21fb-44f3-af7a-890eecc2433f",
+    "sortName": "中国菜",
+    "imageName": "vector_ic_recipe_sort_chinese_food"
+  },
+  {
+    "sortId": "01cc535c-6394-46c7-a1d1-caab058de312",
+    "sortName": "汤类",
+    "imageName": "vector_ic_recipe_sort_soup"
+  },
+  {
+    "sortId": "4860ea94-990b-41ce-857a-83c9b47781c1",
+    "sortName": "粥类",
+    "imageName": "vector_ic_recipe_sort_porridge"
+  },
+  {
+    "sortId": "efd5b69f-7329-444e-a44a-b4cd64c869d9",
+    "sortName": "烧烤",
+    "imageName": "vector_ic_recipe_sort_bbq"
+  },
+  {
+    "sortId": "",
+    "sortName": "其他",
+    "imageName": "vector_ic_recipe_sort_more"
+  }
+]

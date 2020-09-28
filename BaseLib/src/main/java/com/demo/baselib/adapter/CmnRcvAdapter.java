@@ -9,6 +9,7 @@ import androidx.annotation.LayoutRes;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -131,7 +132,8 @@ public abstract class CmnRcvAdapter<T> extends RecyclerView.Adapter<RecyclerView
                                 ViewGroup.LayoutParams.MATCH_PARENT);
                 layoutParams.setFullSpan(true);
                 emptyView.setLayoutParams(layoutParams);
-            }else if(layoutManager instanceof GridLayoutManager){
+            }
+            if(layoutManager instanceof GridLayoutManager){
                 final GridLayoutManager manager=(GridLayoutManager)layoutManager;
                 manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                     @Override
@@ -143,6 +145,12 @@ public abstract class CmnRcvAdapter<T> extends RecyclerView.Adapter<RecyclerView
                         return 1;
                     }
                 });
+            }
+
+            if (layoutManager instanceof LinearLayoutManager){
+                ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT);
+                emptyView.setLayoutParams(layoutParams);
             }
 
         }

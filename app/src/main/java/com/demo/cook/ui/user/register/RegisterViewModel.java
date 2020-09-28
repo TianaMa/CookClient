@@ -47,12 +47,19 @@ public class RegisterViewModel extends BaseViewModel {
         user.setHeadImg("image/head/user_head_"+new Random().nextInt(34)+".jpg");
         user.setNickname("Visitor_"+username);
 
+        showLoading(R.string.text_loading_register);
         userApi.register(user).enqueue(new HttpCallback<UserInfo>() {
             @Override
             public void onSuccess(UserInfo data) {
                 ToastyUtils.showInfo(R.string.text_success);
                 Storage.setUserInfo(data);
                 uiChange.registerSuccess.postValue(true);
+            }
+
+            @Override
+            public void finallyCall() {
+                super.finallyCall();
+                closeLoading();
             }
         });
     }

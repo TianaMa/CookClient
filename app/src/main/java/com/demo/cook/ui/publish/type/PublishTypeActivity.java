@@ -10,8 +10,8 @@ import com.demo.baselib.design.BaseActivity;
 import com.demo.cook.R;
 import com.demo.cook.base.http.QiNiuUtil;
 import com.demo.cook.databinding.ActivityPublishTypeBinding;
-import com.demo.cook.ui.publish.product.PublishProductActivity;
-import com.demo.cook.ui.publish.recipe.PublishRecipeNameActivity;
+import com.demo.cook.ui.product.PublishProductActivity;
+import com.demo.cook.ui.recipe.publish.PublishRecipeNameActivity;
 import com.demo.cook.utils.upload.UpLoadUtils;
 import com.google.gson.Gson;
 

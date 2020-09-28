@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mViewModel"
+            type="com.demo.cook.ui.home.search.SearchProductViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F5F5F5"
+        tools:context=".ui.home.search.SearchProductActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/scroll_tb_header"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_collapseMode="pin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivSearchBack"
+                    android:layout_width="32dp"
+                    android:layout_height="40dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingRight="8dp"
+                    android:src="@drawable/vector_ic_arrows_left"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/shape_corners_5"
+                    android:backgroundTint="#E9E9E9"
+                    android:drawableLeft="@drawable/vector_ic_search"
+                    android:drawablePadding="5dp"
+                    android:text="@={mViewModel.searchText}"
+                    android:hint="@string/text_search_product"
+                    android:padding="10dp"
+                    android:textSize="13sp" >
+                    <requestFocus/>
+                </EditText>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:onClick="@{()->mViewModel.searchProduct()}"
+                    android:textColor="@color/color_text_button"
+                    android:text="@string/text_search"/>
+
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvSearchProductTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_layout_product_tag_select">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <FrameLayout
+            android:id="@+id/flSearchProduct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+</layout>

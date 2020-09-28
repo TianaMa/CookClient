@@ -7,7 +7,7 @@
 
         <variable
             name="mViewModel"
-            type="com.demo.cook.ui.publish.recipe.PublishRecipeViewModel" />
+            type="com.demo.cook.ui.recipe.publish.PublishRecipeViewModel" />
 
         <import type="android.view.View"/>
 
@@ -17,20 +17,22 @@
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="match_parent"
-        tools:context=".ui.publish.recipe.PublishRecipeActivity">
+        tools:context=".ui.recipe.publish.PublishRecipeActivity">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#F5F5F5"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:background="@android:color/white"
                 android:gravity="center_vertical">
 
                 <TextView
-                    android:id="@+id/tvPublishRecipeNameNext"
+                    android:id="@+id/tvPublishRecipeBack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -59,7 +61,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold"
                     android:textColor="@color/color_text_button"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     android:text="@string/text_publish_recipe_save_draft"/>
 
             </LinearLayout>
@@ -87,6 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
+                android:background="@android:color/white"
                 android:orientation="vertical">
 
                 <TextView
@@ -269,9 +272,35 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="15dp"
+                android:backgroundTint="@android:color/white"
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_bg_under_line">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="推荐至分类"/>
+
+                <TextView
+                    android:id="@+id/tvPublishRecipeSortName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:gravity="right"
+                    android:drawablePadding="5dp"
+                    android:textColor="@android:color/black"
+                    android:drawableRight="@drawable/vector_ic_arrows_right"
+                    tools:text="其他"/>
+            </LinearLayout>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:padding="12dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"

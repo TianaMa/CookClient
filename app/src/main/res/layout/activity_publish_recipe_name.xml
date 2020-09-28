@@ -7,7 +7,7 @@
 
         <variable
             name="mViewModel"
-            type="com.demo.cook.ui.publish.recipe.PublishRecipeNameViewModel" />
+            type="com.demo.cook.ui.recipe.publish.PublishRecipeNameViewModel" />
 
     </data>
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.publish.recipe.PublishRecipeNameActivity">
+        tools:context=".ui.recipe.publish.PublishRecipeNameActivity">
 
         <LinearLayout
             android:layout_width="match_parent"

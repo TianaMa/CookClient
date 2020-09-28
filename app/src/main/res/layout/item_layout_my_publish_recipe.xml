@@ -6,7 +6,7 @@
 
         <variable
             name="recipe"
-            type="com.demo.cook.ui.publish.recipe.model.data.MyPublishRecipe" />
+            type="com.demo.cook.ui.recipe.model.data.RecipeBrief" />
     </data>
 
     <LinearLayout
@@ -63,7 +63,10 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/user_head_0"
-                headImg="@{recipe.headImg}"/>
+                srcPath="@{recipe.headImg}"
+                error="@{@drawable/user_head_0}"
+                placeholder="@{@drawable/user_head_0}"
+                circle="@{true}"/>
 
             <TextView
                 android:layout_width="wrap_content"

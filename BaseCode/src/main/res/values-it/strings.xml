@@ -14,6 +14,14 @@
     <string name="text_man">男</string>
     <string name="text_woman">女</string>
 
+    <string name="text_search">Search</string>
+    <string name="text_search_product">搜索更多作品</string>
+    <string name="text_search_recipe">搜多更多菜谱</string>
+
+    <string name="text_goto_login">去登录</string>
+    <string name="text_login_please">请先登录账号</string>
+    <string name="text_dialog_title">温馨提示</string>
+
     <!--common-->
     <string name="text_service_error">网络请求异常</string>
 
@@ -33,6 +41,9 @@
 
     <string name="text_subscribe">关注</string>
     <string name="text_subscribe_cancel">取消关注</string>
+
+    <string name="text_loading_login">登陆中...</string>
+    <string name="text_loading_register">正在注册...</string>
 
     <!--WelcomeActivity-->
     <string name="text_welcome_jump">跳过</string>
@@ -128,11 +139,16 @@
     <string name="text_publish_recipe_cant_empty_step">步骤不能为空</string>
     <string name="text_publish_recipe_cant_empty_step_content">请输入第%1$s步的说明</string>
 
+    <string name="text_select_sort">选择分类</string>
+
 
     <!--MyPublishRecipeFragment-->
     <string name="text_my_publish_recipe_go">开启创建第一道菜谱</string>
     <string name="text_my_publish_product_empty_toast">记录生活，生活因回忆更美好</string>
     <string name="text_my_publish_product_go">分享我的美食作品</string>
+
+    <!--MyPublishProductActivity-->
+    <string name="text_my_product_all">全部作品</string>
 
     <!--PublishProductActivity-->
     <string name="text_publish_product_title_hint">填写标题，会获得更多赞哦</string>
@@ -141,6 +157,12 @@
     <string name="text_publish_product_add_tag">添加作品标签？</string>
     <string name="text_product_title_cant_empty">请输入作品标题</string>
     <string name="text_product_content_cant_empty">请输入作品心得</string>
+
+    <string name="text_recipe_recommend">推荐菜谱</string>
+
+    <string name="text_order_praise">获赞最多</string>
+    <string name="text_order_collect">收藏最多</string>
+    <string name="text_order_new">最新发布</string>
 
     
 </resources>

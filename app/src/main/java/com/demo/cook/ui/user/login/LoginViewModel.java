@@ -35,11 +35,18 @@ public class LoginViewModel extends BaseViewModel {
             return;
         }
 
+        showLoading(R.string.text_loading_login);
         userApi.login(username,password).enqueue(new HttpCallback<UserInfo>() {
             @Override
             public void onSuccess(UserInfo data) {
                 Storage.setUserInfo(data);
                 uiChange.loginSuccess.postValue(true);
+            }
+
+            @Override
+            public void finallyCall() {
+                super.finallyCall();
+                closeLoading();
             }
         });
     }

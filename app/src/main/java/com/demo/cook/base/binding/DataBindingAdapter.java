@@ -25,14 +25,11 @@ import com.demo.cook.ui.user.model.data.User;
 
 public class DataBindingAdapter {
 
-    @BindingAdapter("headImg")
-    public static void loadHeadImage(ImageView view, String headImg) {
-        Log.e("loadHeadImage",QiNiuUtil.getNetRealPath(headImg));
-        Glide.with(view)
-                .load(QiNiuUtil.getNetRealPath(headImg))
-                .thumbnail(Glide.with(view).load(R.drawable.user_head_0).circleCrop())
-                .error(Glide.with(view).load(R.drawable.user_head_0).circleCrop())
-                .circleCrop().into(view);
+    @BindingAdapter("resName")
+    public static void loadLocalImage(ImageView view, String resName) {
+        int resId= TextUtils.isEmpty(resName)?R.drawable.vector_ic_recipe_sort_more:
+        view.getContext().getResources().getIdentifier(resName,"drawable", view.getContext().getPackageName());
+        view.setImageResource(resId);
     }
 
     @BindingAdapter(value = {"srcPath","circle","placeholder","error","ratio"}, requireAll = false)
@@ -42,10 +39,8 @@ public class DataBindingAdapter {
                 imageView.setImageDrawable(placeholder);
             }
         }else {
-            //设置图片圆角角度
-            RoundedCorners roundedCorners= new RoundedCorners(12);
-//通过RequestOptions扩展功能,override:采样率,因为ImageView就这么大,可以压缩图片,降低内存消耗
-            RequestOptions options= RequestOptions.bitmapTransform(roundedCorners).override(300, 300);
+            //通过RequestOptions扩展功能,override:采样率,因为ImageView就这么大,可以压缩图片,降低内存消耗
+            RequestOptions options= RequestOptions.bitmapTransform(new RoundedCorners(12)).override(300, 300);
 
             RequestBuilder<Drawable> load = Glide.with(imageView).load(QiNiuUtil.getNetRealPath(srcPath)).apply(options);
 

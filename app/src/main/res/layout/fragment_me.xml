@@ -278,7 +278,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:tabIndicatorFullWidth="false"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:tabIndicatorColor="#ff7300">
 
             </com.google.android.material.tabs.TabLayout>
 

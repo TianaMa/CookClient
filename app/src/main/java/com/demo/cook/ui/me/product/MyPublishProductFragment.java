@@ -3,6 +3,7 @@ package com.demo.cook.ui.me.product;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,14 +17,18 @@ import android.widget.TextView;
 import com.demo.baselib.adapter.CmnRcvAdapter;
 import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
+import com.demo.cook.base.event.BusEvent;
 import com.demo.cook.base.http.QiNiuUtil;
 import com.demo.cook.databinding.FragmentMyPublishProductBinding;
 import com.demo.cook.databinding.ItemLayoutProductImageBinding;
-import com.demo.cook.ui.publish.product.PublishProductActivity;
-import com.demo.cook.ui.publish.product.model.data.ProductDetails;
+import com.demo.cook.ui.product.PublishProductActivity;
+import com.demo.cook.ui.product.model.data.ProductDetails;
 import com.demo.cook.utils.LoginVerifyUtils;
 import com.demo.cook.utils.upload.UpLoadUtils;
 import com.google.gson.Gson;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 
 public class MyPublishProductFragment extends BaseFragment<FragmentMyPublishProductBinding, MyPublishProductViewModel> {
@@ -48,6 +53,8 @@ public class MyPublishProductFragment extends BaseFragment<FragmentMyPublishProd
 
         super.onViewCreated(view, savedInstanceState);
 
+        registerEventBus = true;
+
         CmnRcvAdapter<ProductDetails> adapter = new CmnRcvAdapter<ProductDetails>(
                 this,R.layout.item_layout_product_image,mViewModel.myPublishProductListData
         ) {
@@ -56,7 +63,7 @@ public class MyPublishProductFragment extends BaseFragment<FragmentMyPublishProd
                 ItemLayoutProductImageBinding imageBinding = DataBindingUtil.bind(holder.itemView);
                 imageBinding.setImagePath(myPublishProduct.getImages().split(",")[0]);
                 holder.itemView.setOnClickListener(v -> {
-
+                    startActivity(new Intent(getContext(),MyPublishProductActivity.class));
                 });
             }
         };
@@ -81,5 +88,12 @@ public class MyPublishProductFragment extends BaseFragment<FragmentMyPublishProd
         mViewModel.queryMyProductList();
     }
 
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventMsg(BusEvent.PublishProductSuccess msg) {
+
+        Log.e("MyPublishRecipe","onEventMsg===");
+        mViewModel.queryMyProductList();
+    }
 
 }

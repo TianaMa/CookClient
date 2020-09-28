@@ -4,4 +4,6 @@ public class BusEvent {
 
     public static class PublishRecipeSuccess{}
 
+    public static class PublishProductSuccess{}
+
 }

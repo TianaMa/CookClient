@@ -32,7 +32,7 @@ public class PageInfo<T> {
     private int startRow; //从第几条
     private int endRow; //到第几条
     private int prePage;
-    private int nextPage;
+    private int nextPage =1;
     private boolean isFirstPage;
     private boolean isLastPage;
     private List<T> list;

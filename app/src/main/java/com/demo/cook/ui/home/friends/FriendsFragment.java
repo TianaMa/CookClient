@@ -70,6 +70,7 @@ public class FriendsFragment extends BaseFragment<FragmentFriendsBinding,Friends
 
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mViewModel.pageInfoData.getValue().setNextPage(1);
                 mViewModel.getMySubscribeFriends();
             }
         });

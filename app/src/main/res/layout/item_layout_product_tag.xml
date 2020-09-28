@@ -6,7 +6,7 @@
 
         <variable
             name="tag"
-            type="com.demo.cook.ui.publish.product.model.data.ProductTag" />
+            type="com.demo.cook.ui.product.model.data.ProductTag" />
 
     </data>
 

@@ -7,7 +7,7 @@
 
         <variable
             name="mViewModel"
-            type="com.demo.cook.ui.publish.product.PublishProductViewModel" />
+            type="com.demo.cook.ui.product.PublishProductViewModel" />
 
     </data>
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.publish.product.PublishProductActivity">
+        tools:context=".ui.product.PublishProductActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -47,20 +47,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="none">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcvProductImageList"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:nestedScrollingEnabled="false"
-                    tools:itemCount="3"
+                    android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_layout_publish_product_image"
-                    android:orientation="horizontal">
+                    tools:itemCount="9"
+                    tools:listitem="@layout/item_layout_publish_product_image">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -68,11 +70,12 @@
                     android:id="@+id/ivAddProductImage"
                     android:layout_width="86dp"
                     android:layout_height="86dp"
+                    android:layout_toRightOf="@id/rcvProductImageList"
                     android:padding="3dp"
                     android:src="@drawable/vector_ic_add_image"/>
 
 
-            </LinearLayout>
+            </RelativeLayout>
 
 
         </HorizontalScrollView>

@@ -10,7 +10,7 @@ import com.demo.cook.base.http.HttpCallback;
 import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.base.http.PageInfo;
 import com.demo.cook.base.local.Storage;
-import com.demo.cook.ui.subscribe.HttpSubscribeApi;
+import com.demo.cook.ui.interaction.subscribe.HttpSubscribeApi;
 import com.demo.cook.ui.user.model.HttpUserApi;
 import com.demo.cook.ui.user.model.data.UserInfo;
 
@@ -39,13 +39,13 @@ public class FriendsViewModel extends BaseViewModel {
     void getMySubscribeFriends(){
         httpUserApi.getMySubscribeFriends(
                 Storage.getUserInfo().getUsername(),
-                pageInfoData.getValue().getPageNum(), pageInfoData.getValue().getPageSize()
+                pageInfoData.getValue().getNextPage(), pageInfoData.getValue().getPageSize()
         ).enqueue(new HttpCallback<PageInfo<UserInfo>>() {
             @Override
             public void onSuccess(PageInfo<UserInfo> data) {
 
                 List<UserInfo> listData = mySubscribeFriendsData.getValue();
-                if(pageInfoData.getValue().getPageNum()==1){
+                if(data.getPageNum()==1){
                     listData.clear();
                 }
                 listData.addAll(data.getList());
@@ -68,7 +68,7 @@ public class FriendsViewModel extends BaseViewModel {
             public void onSuccess(Object data) {
                 ToastyUtils.show(R.string.text_success);
                 getRecommendFriends();
-                pageInfoData.getValue().setPageNum(1);
+                pageInfoData.getValue().setNextPage(1);
                 getMySubscribeFriends();
             }
         });
@@ -79,7 +79,7 @@ public class FriendsViewModel extends BaseViewModel {
             @Override
             public void onSuccess(Object data) {
                 getRecommendFriends();
-                pageInfoData.getValue().setPageNum(1);
+                pageInfoData.getValue().setNextPage(1);
                 getMySubscribeFriends();
             }
         });

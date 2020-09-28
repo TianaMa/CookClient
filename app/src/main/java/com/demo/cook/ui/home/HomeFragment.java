@@ -2,15 +2,11 @@ package com.demo.cook.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.demo.baselib.adapter.MyPagerAdapter;
@@ -18,10 +14,9 @@ import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
 import com.demo.cook.databinding.FragmentHomeBinding;
 import com.demo.cook.ui.home.friends.FriendsFragment;
-import com.demo.cook.ui.home.recommend.RecommendFragment;
-import com.demo.cook.ui.me.MeFragment;
-import com.demo.cook.ui.me.product.MyPublishProductFragment;
-import com.demo.cook.ui.me.recipe.MyPublishRecipeFragment;
+import com.demo.cook.ui.product.fragment.ProductListFragment;
+import com.demo.cook.ui.home.search.SearchProductActivity;
+import com.demo.cook.ui.product.model.data.request.QueryProductParams;
 import com.demo.cook.ui.publish.type.PublishTypeActivity;
 import com.demo.cook.utils.LoginVerifyUtils;
 
@@ -45,9 +40,17 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding,HomeViewModel
             LoginVerifyUtils.verifyAccount(() -> startActivity(new Intent(getContext(), PublishTypeActivity.class)));
         });
 
+        mDataBinding.tvHomeSearch.setOnClickListener(v ->{
+            Intent intent = new Intent(getContext(), SearchProductActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+
+        } );
+
+        MutableLiveData<QueryProductParams> productParamsData= new MutableLiveData(new QueryProductParams(QueryProductParams.Order.praise));
         final MyPagerAdapter adapter=new MyPagerAdapter(getChildFragmentManager());
         adapter.add(getString(R.string.text_home_friends), FriendsFragment.newInstance());
-        adapter.add(getString(R.string.text_home_recommend), RecommendFragment.newInstance());
+        adapter.add(getString(R.string.text_home_recommend), ProductListFragment.newInstance(productParamsData));
 
         mDataBinding.vpHome.setAdapter(adapter);
         mDataBinding.tabHome.setupWithViewPager(mDataBinding.vpHome);

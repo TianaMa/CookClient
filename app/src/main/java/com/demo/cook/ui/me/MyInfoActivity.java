@@ -43,7 +43,7 @@ public class MyInfoActivity extends BaseActivity<ActivityMyInfoBinding,MyInfoVie
 
         mDataBinding.setMViewModel(mViewModel);
 
-
+        mDataBinding.ivMyInfoBack.setOnClickListener(v -> super.onBackPressed());
 
         mDataBinding.ivMyInfoHead.setOnClickListener(
                 v->UpLoadUtils.upLoadSingleImage(
