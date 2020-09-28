@@ -151,6 +151,7 @@
     <string name="text_publish_recipe_cant_empty_step_content">Please submit the %1$s describe</string>
 
     <string name="text_select_sort">选择分类</string>
+    <string name="text_confirm_quit">确定退出？</string>
 
     <!--MyPublishRecipeFragment-->
     <string name="text_my_publish_recipe_go">开启创建第一道菜谱</string>
@@ -175,6 +176,9 @@
     <string name="text_order_collect">收藏最多</string>
     <string name="text_order_new">最新发布</string>
 
+
+    <!--RecipeDetailsActivity-->
+    <string name="text_collect_number">人收藏</string>
 
     
 

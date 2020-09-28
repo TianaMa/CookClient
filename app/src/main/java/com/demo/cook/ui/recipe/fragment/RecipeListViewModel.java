@@ -23,10 +23,7 @@ public class RecipeListViewModel extends BaseViewModel {
 
     MutableLiveData<List<RecipeBrief>> recipeListData = new MutableLiveData();
 
-    QueryRecipeParams recipeParams ;
-
-
-    void getRecipeList(){
+    void getRecipeList(QueryRecipeParams recipeParams){
 
         recipeApi.queryRecipeList(recipeParams).enqueue(new HttpCallback<PageInfo<RecipeBrief>>() {
             @Override

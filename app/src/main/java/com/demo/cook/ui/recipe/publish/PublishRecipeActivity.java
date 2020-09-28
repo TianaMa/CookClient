@@ -176,8 +176,7 @@ public class PublishRecipeActivity extends BaseActivity<ActivityPublishRecipeBin
         mViewModel.uiChange.publishSuccess.observe(this,recipeIdStr -> {
             EventBus.getDefault().post(new BusEvent.PublishRecipeSuccess());
             if (TextUtils.isEmpty(recipeIdStr)){
-
-                ToastyUtils.show("修改成功");
+                ToastyUtils.show(R.string.text_update_success);
             }
             this.finish();
 
@@ -199,14 +198,12 @@ public class PublishRecipeActivity extends BaseActivity<ActivityPublishRecipeBin
     public void onBackPressed() {
 
         new AlertDialog.Builder(this)
-                .setTitle("温馨提示")
-                .setMessage("是否保存草稿？")
-                .setPositiveButton("确定", (dialog, which) -> {
-
-                    //保存草稿
+                .setTitle(R.string.text_dialog_title)
+                .setMessage(R.string.text_confirm_quit)
+                .setPositiveButton(R.string.text_confirm, (dialog, which) -> {
                     super.onBackPressed();
                 })
-                .setNegativeButton("取消", (dialog, which) -> super.onBackPressed())
+                .setNegativeButton(R.string.text_cancel, null)
                 .setCancelable(false)// 设置builder不可被取消
                 .show();
     }

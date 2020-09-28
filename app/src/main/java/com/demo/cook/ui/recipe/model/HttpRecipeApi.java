@@ -35,7 +35,8 @@ public interface HttpRecipeApi {
 
     @GET("recipe/queryRecipeDetails")
     Call<RtnResult<RecipeDetails>> queryRecipeDetails(
-            @Query("recipeId") String recipeId
+            @Query("recipeId") String recipeId,
+            @Query("loginUserName") String loginUserName
     );
 
 }

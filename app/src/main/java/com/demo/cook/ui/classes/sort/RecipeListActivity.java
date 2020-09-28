@@ -41,12 +41,9 @@ public class RecipeListActivity extends AppCompatActivity {
 
         String sortId = getIntent().getStringExtra(EXTRA_SORT_ID);
         final MyPagerAdapter adapter=new MyPagerAdapter(getSupportFragmentManager());
-        adapter.add(getString(R.string.text_order_praise), RecipeListFragment.newInstance(true,
-                        new MutableLiveData(new QueryRecipeParams(sortId,QueryRecipeParams.Order.praise))));
-        adapter.add(getString(R.string.text_order_collect), RecipeListFragment.newInstance(true,
-                        new MutableLiveData(new QueryRecipeParams(sortId,QueryRecipeParams.Order.collect))));
-        adapter.add(getString(R.string.text_order_new), RecipeListFragment.newInstance(true,
-                        new MutableLiveData(new QueryRecipeParams(sortId,QueryRecipeParams.Order.time))));
+        adapter.add(getString(R.string.text_order_praise), RecipeListFragment.newInstance().setParams(new MutableLiveData(new QueryRecipeParams(sortId,QueryRecipeParams.Order.praise))));
+        adapter.add(getString(R.string.text_order_collect), RecipeListFragment.newInstance().setParams(new MutableLiveData(new QueryRecipeParams(sortId,QueryRecipeParams.Order.collect))));
+        adapter.add(getString(R.string.text_order_new), RecipeListFragment.newInstance().setParams(new MutableLiveData(new QueryRecipeParams(sortId,QueryRecipeParams.Order.time))));
 
         mBinding.vpRecipe.setAdapter(adapter);
         mBinding.tabRecipe.setupWithViewPager(mBinding.vpRecipe);

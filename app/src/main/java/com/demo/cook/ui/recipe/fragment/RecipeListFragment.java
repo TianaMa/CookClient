@@ -1,6 +1,7 @@
 package com.demo.cook.ui.recipe.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -18,18 +19,27 @@ import com.demo.cook.databinding.ItemLayoutRecipeBinding;
 import com.demo.cook.ui.recipe.RecipeDetailsActivity;
 import com.demo.cook.ui.recipe.model.data.RecipeBrief;
 import com.demo.cook.ui.recipe.model.data.request.QueryRecipeParams;
+import com.google.gson.Gson;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 
 public class RecipeListFragment extends BaseFragment<FragmentRecipeListBinding,RecipeListViewModel> {
 
-    private static MutableLiveData<QueryRecipeParams> recipeParamsData;
-    private static boolean canRefresh = true;
+    private MutableLiveData<QueryRecipeParams> recipeParamsData;
+    private boolean canRefresh = true;
 
-    public static RecipeListFragment newInstance(boolean enableRefresh,MutableLiveData<QueryRecipeParams> recipeParams) {
-        recipeParamsData=recipeParams;
-        canRefresh = enableRefresh;
+    public static RecipeListFragment newInstance() {
         return new RecipeListFragment();
+    }
+
+    public RecipeListFragment setParams(MutableLiveData<QueryRecipeParams> recipeParamsData){
+        this.recipeParamsData  = recipeParamsData;
+        return this;
+    }
+
+    public RecipeListFragment setCanRefresh(boolean canRefresh){
+        this.canRefresh = canRefresh;
+        return this;
     }
 
 
@@ -70,13 +80,13 @@ public class RecipeListFragment extends BaseFragment<FragmentRecipeListBinding,R
         mDataBinding.rflRecipeList.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                mViewModel.getRecipeList();
+                mViewModel.getRecipeList(recipeParamsData.getValue());
             }
 
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mViewModel.recipeParams.setPageNum(1);
-                mViewModel.getRecipeList();
+                recipeParamsData.getValue().setPageNum(1);
+                mViewModel.getRecipeList(recipeParamsData.getValue());
             }
         });
 
@@ -86,8 +96,7 @@ public class RecipeListFragment extends BaseFragment<FragmentRecipeListBinding,R
         });
 
         recipeParamsData.observe(getViewLifecycleOwner(), productParams -> {
-            mViewModel.recipeParams=productParams;
-            mViewModel.getRecipeList();
+            mViewModel.getRecipeList(recipeParamsData.getValue());
         });
     }
 

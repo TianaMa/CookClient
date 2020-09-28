@@ -27,7 +27,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingRight="10dp"
-            android:hint="@string/text_publish_recipe_material_example"
+            tools:text="@string/text_publish_recipe_material_example"
             android:textSize="16sp"
             android:text="@{material.materialName}"
             android:layout_height="wrap_content" />
@@ -39,7 +39,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:paddingRight="10dp"
-            android:hint="@string/text_publish_recipe_dosage_example"
+            tools:text="@string/text_publish_recipe_dosage_example"
             android:textSize="16sp"
             android:text="@{material.dosage}"
             android:layout_height="wrap_content" />

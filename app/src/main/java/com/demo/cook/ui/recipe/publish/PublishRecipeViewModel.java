@@ -12,6 +12,7 @@ import com.demo.cook.R;
 import com.demo.cook.base.http.HttpCallback;
 import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.base.http.RtnResult;
+import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.recipe.model.HttpRecipeApi;
 import com.demo.cook.ui.recipe.model.data.Recipe;
 import com.demo.cook.ui.recipe.model.data.RecipeDetails;
@@ -38,7 +39,7 @@ public class PublishRecipeViewModel extends BaseViewModel {
     public void getRecipeDetails(String recipeId){
 
         showLoading(R.string.text_loading);
-        httpRecipeApi.queryRecipeDetails(recipeId).enqueue(new HttpCallback<RecipeDetails>() {
+        httpRecipeApi.queryRecipeDetails(recipeId, Storage.getUserInfo().getUsername()).enqueue(new HttpCallback<RecipeDetails>() {
             @Override
             public void onSuccess(RecipeDetails data) {
                 recipe.postValue(data);

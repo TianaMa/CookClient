@@ -37,7 +37,7 @@ public class SearchProductActivity extends BaseActivity<ActivitySearchProductBin
 
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.flSearchProduct, ProductListFragment.newInstance(mViewModel.productParamsData))
+                .replace(R.id.flSearchProduct, ProductListFragment.newInstance().setParams(mViewModel.productParamsData))
                 .commit();
 
         mDataBinding.ivSearchBack.setOnClickListener(v -> super.onBackPressed());

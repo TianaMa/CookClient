@@ -71,7 +71,7 @@
                 android:background="@null"
                 android:textSize="15sp"
                 android:padding="8dp"
-                android:hint="@string/text_publish_recipe_describe"
+                android:hint="@string/text_publish_recipe_add_step_explain"
                 android:text="@={step.stepContent}"/>
 
 

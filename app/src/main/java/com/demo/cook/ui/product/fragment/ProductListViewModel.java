@@ -26,9 +26,8 @@ public class ProductListViewModel extends BaseViewModel {
 
     MutableLiveData<List<ProductDetails>> productListData = new MutableLiveData();
 
-    QueryProductParams productParams;
 
-    void getProductList(){
+    void getProductList(QueryProductParams productParams){
 
         productDetailsApi.queryProductList(productParams)
                 .enqueue(new HttpCallback<PageInfo<ProductDetails>>() {

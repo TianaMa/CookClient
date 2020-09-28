@@ -2,7 +2,9 @@ package com.demo.cook.ui.recipe.model.data.request;
 
 import com.demo.cook.base.local.Storage;
 
-public class QueryRecipeParams {
+import java.io.Serializable;
+
+public class QueryRecipeParams implements Serializable {
 
     public enum Order{
 

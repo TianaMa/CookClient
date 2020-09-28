@@ -23,7 +23,7 @@ public class MyPublishProductActivity extends AppCompatActivity {
         MutableLiveData<QueryProductParams> productParamsData= new MutableLiveData(new QueryProductParams(Storage.getUserInfo().getUsername()));
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.flMyProduct, ProductListFragment.newInstance(productParamsData));
+        transaction.replace(R.id.flMyProduct, ProductListFragment.newInstance().setParams(productParamsData));
         transaction.commit();
     }
 }

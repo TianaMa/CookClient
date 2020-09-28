@@ -34,10 +34,14 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
 
     }
 
-    private static MutableLiveData<QueryProductParams> productParamsData ;
-    public static ProductListFragment newInstance(MutableLiveData<QueryProductParams> productParams) {
-        productParamsData = productParams;
+    private MutableLiveData<QueryProductParams> productParamsData ;
+    public static ProductListFragment newInstance() {
         return new ProductListFragment();
+    }
+
+    public ProductListFragment setParams(MutableLiveData<QueryProductParams> productParams){
+        this.productParamsData = productParams;
+        return this;
     }
 
     @Override
@@ -105,13 +109,13 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
         mDataBinding.rflProductList.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                mViewModel.getProductList();
+                mViewModel.getProductList(productParamsData.getValue());
             }
 
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mViewModel.productParams.setPageNum(1);
-                mViewModel.getProductList();
+                productParamsData.getValue().setPageNum(1);
+                mViewModel.getProductList(productParamsData.getValue());
             }
         });
 
@@ -121,8 +125,7 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
         });
 
         productParamsData.observe(getViewLifecycleOwner(), productParams -> {
-            mViewModel.productParams=productParams;
-            mViewModel.getProductList();
+            mViewModel.getProductList(productParamsData.getValue());
         });
 
     }

@@ -13,6 +13,8 @@ public class RecipeDetails extends Recipe{
 
     private String headImg;
 
+    private boolean subscribe;
+
     private int countPraise;
 
     private int countCollect;
@@ -39,6 +41,14 @@ public class RecipeDetails extends Recipe{
         this.headImg = headImg;
     }
 
+    public boolean isSubscribe() {
+        return subscribe;
+    }
+
+    public void setSubscribe(boolean subscribe) {
+        this.subscribe = subscribe;
+        notifyChange();
+    }
 
     public Date getCreateTime() {
         return createTime;
@@ -62,6 +72,7 @@ public class RecipeDetails extends Recipe{
 
     public void setCountCollect(int countCollect) {
         this.countCollect = countCollect;
+        notifyChange();
     }
 
     public int getCountComment() {
@@ -70,6 +81,7 @@ public class RecipeDetails extends Recipe{
 
     public void setCountComment(int countComment) {
         this.countComment = countComment;
+        notifyChange();
     }
 
     public boolean isCollected() {
@@ -78,6 +90,7 @@ public class RecipeDetails extends Recipe{
 
     public void setCollected(boolean collected) {
         this.collected = collected;
+        notifyChange();
     }
 
     public boolean isPraised() {
@@ -86,6 +99,7 @@ public class RecipeDetails extends Recipe{
 
     public void setPraised(boolean praised) {
         this.praised = praised;
+        notifyChange();
     }
 
 

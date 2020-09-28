@@ -98,7 +98,7 @@ public class ClassesFragment extends BaseFragment<FragmentClassesBinding, Classe
         //下面列表
         MutableLiveData<QueryRecipeParams> recipeParamsData = new MutableLiveData(new QueryRecipeParams(QueryRecipeParams.Order.praise));
         getChildFragmentManager().beginTransaction()
-                .replace(R.id.flClassesRecommend, RecipeListFragment.newInstance(false,recipeParamsData))
+                .replace(R.id.flClassesRecommend, RecipeListFragment.newInstance().setParams(recipeParamsData).setCanRefresh(false))
                 .commit();
 
     }

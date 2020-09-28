@@ -50,7 +50,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding,HomeViewModel
         MutableLiveData<QueryProductParams> productParamsData= new MutableLiveData(new QueryProductParams(QueryProductParams.Order.praise));
         final MyPagerAdapter adapter=new MyPagerAdapter(getChildFragmentManager());
         adapter.add(getString(R.string.text_home_friends), FriendsFragment.newInstance());
-        adapter.add(getString(R.string.text_home_recommend), ProductListFragment.newInstance(productParamsData));
+        adapter.add(getString(R.string.text_home_recommend), ProductListFragment.newInstance().setParams(productParamsData));
 
         mDataBinding.vpHome.setAdapter(adapter);
         mDataBinding.tabHome.setupWithViewPager(mDataBinding.vpHome);

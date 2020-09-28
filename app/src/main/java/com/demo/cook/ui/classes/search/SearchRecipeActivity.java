@@ -36,7 +36,7 @@ public class SearchRecipeActivity extends AppCompatActivity {
         MutableLiveData<QueryRecipeParams> paramsData = new MutableLiveData(searchOwn?new QueryRecipeParams(Storage.getUserInfo().getUsername()):new QueryRecipeParams());
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.flSearchRecipe, RecipeListFragment.newInstance(true,paramsData))
+                .replace(R.id.flSearchRecipe, RecipeListFragment.newInstance().setParams(paramsData))
                 .commit();
 
         mBinding.ivSearchBack.setOnClickListener(v -> super.onBackPressed());
