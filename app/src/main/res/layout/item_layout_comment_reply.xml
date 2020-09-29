@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="comment"
+            type="com.demo.cook.ui.interaction.comment.model.data.CommentDetails" />
+
+        <import type="com.demo.cook.utils.format.DateFormat"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:background="@drawable/shape_corners_5"
+        android:backgroundTint="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="#AAAAAA"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:text="@{comment.commentUserNickName}"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="用户昵称" />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/tvReplyPraise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:drawableRight="@drawable/selector_drawable_praise"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:textColor="#AAAAAA"
+                android:checked="@{comment.praised}"
+                android:text="@{comment.countPraise==0?``:comment.countPraise+``}"
+                tools:text="144"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:textColor="@android:color/black"
+            android:text="@{comment.content}"
+            tools:text="阿阿列克的哪里可能瑟兰v哪里看能否大量的纽芬兰发啊打开的发表卡"/>
+
+    </LinearLayout>
+
+
+</layout>

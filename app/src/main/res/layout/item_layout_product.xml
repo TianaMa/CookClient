@@ -135,6 +135,7 @@
                 tools:text="144"/>
 
             <TextView
+                android:id="@+id/tvProductComment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="20dp"
@@ -181,6 +182,7 @@
                 android:src="@drawable/user_head_0"/>
 
             <TextView
+                android:id="@+id/tvWriteComment"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"

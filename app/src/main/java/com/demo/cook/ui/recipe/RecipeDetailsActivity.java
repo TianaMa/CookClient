@@ -7,23 +7,19 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.ItemTouchHelper;
 
 import com.demo.baselib.adapter.CmnRcvAdapter;
 import com.demo.baselib.design.BaseActivity;
-import com.demo.baselib.view.RcvDragVerticalCallback;
 import com.demo.cook.R;
-import com.demo.cook.base.http.QiNiuUtil;
 import com.demo.cook.databinding.ActivityRecipeDetailsBinding;
 import com.demo.cook.databinding.ItemLayoutRecipeDetailsMaterialBinding;
 import com.demo.cook.databinding.ItemLayoutRecipeDetailsStepBinding;
-import com.demo.cook.databinding.ItemLayoutRecipeMaterialBinding;
-import com.demo.cook.databinding.ItemLayoutRecipeStepBinding;
+import com.demo.cook.ui.interaction.comment.model.data.Comment;
+import com.demo.cook.ui.interaction.comment.view.CommentListDialog;
+import com.demo.cook.ui.interaction.comment.view.CommentSendDialog;
 import com.demo.cook.ui.recipe.model.data.RecipeDetails;
 import com.demo.cook.ui.recipe.model.data.RecipeMaterial;
 import com.demo.cook.ui.recipe.model.data.RecipeStep;
-import com.demo.cook.ui.recipe.publish.PublishRecipeActivity;
-import com.demo.cook.utils.upload.UpLoadUtils;
 
 public class RecipeDetailsActivity extends BaseActivity<ActivityRecipeDetailsBinding,RecipeDetailsViewModel> {
 
@@ -55,7 +51,7 @@ public class RecipeDetailsActivity extends BaseActivity<ActivityRecipeDetailsBin
         String recipeId = getIntent().getStringExtra(EXTRA_RECIPE_ID);
         mViewModel.getRecipeDetails(recipeId);
 
-        //食材adapter 及拖动
+        //食材adapter
         mDataBinding.rcvPublishRecipeMaterial.setAdapter(new CmnRcvAdapter<RecipeMaterial>(
                 this, R.layout.item_layout_recipe_details_material,
                 mViewModel.recipeMaterialListData
@@ -68,7 +64,7 @@ public class RecipeDetailsActivity extends BaseActivity<ActivityRecipeDetailsBin
             }
         });
 
-        //步骤adapter 及拖动
+        //步骤adapter
         mDataBinding.rcvPublishRecipeStep.setAdapter(new CmnRcvAdapter<RecipeStep>(
                 this, R.layout.item_layout_recipe_details_step,
                 mViewModel.recipeStepListData
@@ -81,6 +77,26 @@ public class RecipeDetailsActivity extends BaseActivity<ActivityRecipeDetailsBin
             }
         });
 
+        mDataBinding.tvRecipeComment.setOnClickListener(v -> {
+            RecipeDetails recipeDetails = mViewModel.recipe.getValue();
+            Comment comment = new Comment(recipeDetails.getRecipeId(),recipeDetails.getRecipeId(),recipeDetails.getRecipeId());
+            new CommentSendDialog(this, comment, () -> {
+                recipeDetails.setCountComment(recipeDetails.getCountComment()+1);
+            }).show();
+        });
+
+
+        mDataBinding.tvRecipeDetailsComment.setOnClickListener(v -> {
+            RecipeDetails recipeDetails = mViewModel.recipe.getValue();
+            if(recipeDetails.getCountComment()>0){
+                new CommentListDialog(this,recipeDetails.getRecipeId()).show();
+            }else {
+                Comment comment = new Comment(recipeDetails.getRecipeId(),recipeDetails.getRecipeId(),recipeDetails.getRecipeId());
+                new CommentSendDialog(this, comment, () -> {
+                    recipeDetails.setCountComment(recipeDetails.getCountComment()+1);
+                }).show();
+            }
+        });
 
     }
 }

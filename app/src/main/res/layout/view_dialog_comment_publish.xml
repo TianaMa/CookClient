@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/etCommentContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="#E9E9E9"
+            android:hint="@string/text_write_comment"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textSize="13sp">
+            <requestFocus />
+        </EditText>
+
+
+        <TextView
+            android:id="@+id/tvCommentSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_text_button"
+            android:text="@string/text_send" />
+
+    </LinearLayout>
+</layout>

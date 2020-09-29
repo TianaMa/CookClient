@@ -1,7 +1,6 @@
 package com.demo.cook.ui.product.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -19,6 +18,9 @@ import com.demo.cook.base.local.Storage;
 import com.demo.cook.databinding.FragmentProductListBinding;
 import com.demo.cook.databinding.ItemLayoutProductBinding;
 import com.demo.cook.databinding.ItemLayoutProductImageBinding;
+import com.demo.cook.ui.interaction.comment.model.data.Comment;
+import com.demo.cook.ui.interaction.comment.view.CommentListDialog;
+import com.demo.cook.ui.interaction.comment.view.CommentSendDialog;
 import com.demo.cook.ui.product.model.data.ProductDetails;
 import com.demo.cook.ui.product.model.data.request.QueryProductParams;
 import com.demo.cook.utils.LoginVerifyUtils;
@@ -85,8 +87,23 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
                     });
                 });
 
-                productBinding.tvCollect.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    Log.e("tvCollect","=="+isChecked);
+                productBinding.tvWriteComment.setOnClickListener(v -> {
+                    Comment comment = new Comment(productDetails.getProductId(),productDetails.getProductId(),productDetails.getProductId());
+                    new CommentSendDialog(getContext(), comment, () -> {
+                        productDetails.setCountComment(productDetails.getCountComment()+1);
+                    }).show();
+                });
+
+                productBinding.tvProductComment.setOnClickListener(v -> {
+                    if(productDetails.getCountComment()>0){
+                        new CommentListDialog(getContext(),productDetails.getProductId()).show();
+                    }else {
+                        Comment comment = new Comment(productDetails.getProductId(),productDetails.getProductId(),productDetails.getProductId());
+                        new CommentSendDialog(getContext(), comment, () -> {
+                            productDetails.setCountComment(productDetails.getCountComment()+1);
+                        }).show();
+                    }
+
                 });
 
                 List<String> imageList = Arrays.asList(productDetails.getImages().split(","));

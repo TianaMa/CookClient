@@ -1,8 +1,10 @@
 package com.demo.cook.ui.interaction.comment.model.data;
 
+import androidx.databinding.BaseObservable;
+
 import com.demo.cook.base.local.Storage;
 
-public class Comment {
+public class Comment extends BaseObservable {
 
     //评论对象： 作品 或 菜谱
     private String targetId;
@@ -20,10 +22,17 @@ public class Comment {
     private String commentUser = Storage.getUserInfo().getUsername();
 
 
+
+
     public Comment() {
         super();
     }
 
+    public Comment(String targetId, String parentId, String replyId) {
+        this.targetId = targetId;
+        this.parentId = parentId;
+        this.replyId = replyId;
+    }
 
     public String getTargetId() {
         return targetId;

@@ -13,6 +13,7 @@
 
     <string name="text_search">Search</string>
 
+
     <string name="text_search_product">搜索更多作品</string>
     <string name="text_search_recipe">搜多更多菜谱</string>
 
@@ -181,7 +182,14 @@
     <!--RecipeDetailsActivity-->
     <string name="text_collect_number">人收藏</string>
 
-    
+    <!--评论相关-->
+    <string name="text_send">Send</string>
+    <string name="text_write_comment">写评论...</string>
+    <string name="text_content_not_empty">内容不能为空</string>
+    <string name="text_comment_success">评论成功</string>
+    <string name="text_comment_size">条评论</string>
+    <string name="text_view_all">查看全部</string>
+    <string name="text_reply">Reply：</string>
 
     
 </resources>
