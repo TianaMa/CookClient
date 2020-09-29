@@ -8,6 +8,10 @@
             name="comment"
             type="com.demo.cook.ui.interaction.comment.model.data.CommentDetails" />
 
+        <variable
+            name="mViewModel"
+            type="com.demo.cook.ui.interaction.comment.view.CommentListViewModel" />
+
         <import type="com.demo.cook.utils.format.DateFormat"/>
 
     </data>
@@ -43,6 +47,7 @@
                     android:layout_marginLeft="10dp"
                     android:ellipsize="middle"
                     android:singleLine="true"
+                    android:textColor="#AAAAAA"
                     android:text="@{comment.commentUserNickName}"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -50,7 +55,6 @@
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/tvReplyPraise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -60,6 +64,7 @@
                 android:drawablePadding="8dp"
                 android:button="@null"
                 android:textColor="#AAAAAA"
+                android:onClick="@{()->mViewModel.clickPraise(comment)}"
                 android:checked="@{comment.praised}"
                 android:text="@{comment.countPraise==0?``:comment.countPraise+``}"
                 tools:text="144"/>

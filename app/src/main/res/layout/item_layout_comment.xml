@@ -9,6 +9,10 @@
             name="comment"
             type="com.demo.cook.ui.interaction.comment.model.data.CommentDetails" />
 
+        <variable
+            name="mViewModel"
+            type="com.demo.cook.ui.interaction.comment.view.CommentListViewModel" />
+
         <import type="com.demo.cook.utils.format.DateFormat"/>
 
         <import type="android.view.View"/>
@@ -47,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="middle"
                     android:singleLine="true"
+                    android:textColor="#AAAAAA"
                     android:text="@{comment.commentUserNickName}"
                     android:textSize="14sp"
                     android:textStyle="bold"
@@ -58,12 +63,12 @@
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:textSize="12sp"
+                    android:textColor="#AAAAAA"
                     android:text="@{DateFormat.format(comment.createTime,`yyyy-MM-dd`)}"
                     tools:text="2020-12-03" />
             </LinearLayout>
 
             <CheckBox
-                android:id="@+id/tvCommentPraise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -73,6 +78,7 @@
                 android:drawablePadding="8dp"
                 android:button="@null"
                 android:textColor="#AAAAAA"
+                android:onClick="@{()->mViewModel.clickPraise(comment)}"
                 android:checked="@{comment.praised}"
                 android:text="@{comment.countPraise==0?``:comment.countPraise+``}"
                 tools:text="144"/>
@@ -94,6 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="55dp"
+            android:clickable="true"
             android:visibility="@{comment.commentList.size()>0?View.VISIBLE:View.GONE}"
             android:orientation="vertical">
             <androidx.recyclerview.widget.RecyclerView

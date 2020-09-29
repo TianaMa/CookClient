@@ -1,5 +1,6 @@
 package com.demo.cook.ui.product.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +20,12 @@ import com.demo.cook.databinding.FragmentProductListBinding;
 import com.demo.cook.databinding.ItemLayoutProductBinding;
 import com.demo.cook.databinding.ItemLayoutProductImageBinding;
 import com.demo.cook.ui.interaction.comment.model.data.Comment;
-import com.demo.cook.ui.interaction.comment.view.CommentListDialog;
+import com.demo.cook.ui.interaction.comment.view.CommentListActivity;
 import com.demo.cook.ui.interaction.comment.view.CommentSendDialog;
 import com.demo.cook.ui.product.model.data.ProductDetails;
 import com.demo.cook.ui.product.model.data.request.QueryProductParams;
 import com.demo.cook.utils.LoginVerifyUtils;
+import com.demo.cook.utils.view.SoftKeyBoardListener;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 
@@ -56,6 +58,7 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
         return new ViewModelProvider(this).get(ProductListViewModel.class);
     }
 
+    CommentSendDialog commentSendDialog;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -89,21 +92,22 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
 
                 productBinding.tvWriteComment.setOnClickListener(v -> {
                     Comment comment = new Comment(productDetails.getProductId(),productDetails.getProductId(),productDetails.getProductId());
-                    new CommentSendDialog(getContext(), comment, () -> {
+                    commentSendDialog=new CommentSendDialog(getContext(), comment, () -> {
                         productDetails.setCountComment(productDetails.getCountComment()+1);
-                    }).show();
+                    });
+                    commentSendDialog.show();
                 });
 
                 productBinding.tvProductComment.setOnClickListener(v -> {
                     if(productDetails.getCountComment()>0){
-                        new CommentListDialog(getContext(),productDetails.getProductId()).show();
+                        CommentListActivity.actionStart(getContext(),productDetails.getProductId());
                     }else {
                         Comment comment = new Comment(productDetails.getProductId(),productDetails.getProductId(),productDetails.getProductId());
-                        new CommentSendDialog(getContext(), comment, () -> {
+                        commentSendDialog=new CommentSendDialog(getContext(), comment, () -> {
                             productDetails.setCountComment(productDetails.getCountComment()+1);
-                        }).show();
+                        });
+                        commentSendDialog.show();
                     }
-
                 });
 
                 List<String> imageList = Arrays.asList(productDetails.getImages().split(","));
@@ -122,6 +126,14 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
         adapter.setEmptyView(emptyView);
 
         mDataBinding.rcvProductList.setAdapter(adapter);
+
+        SoftKeyBoardListener softKeyBoardListener = new SoftKeyBoardListener(this.getActivity());
+        //软键盘状态监听
+        softKeyBoardListener.setListener(show -> {
+            if(!show&&commentSendDialog!=null&&commentSendDialog.isShowing()){
+                commentSendDialog.dismiss();
+            }
+        });
 
         mDataBinding.rflProductList.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override

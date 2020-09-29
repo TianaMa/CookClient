@@ -28,7 +28,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.classes.sort.RecipeListActivity"></activity>
+        <activity android:name=".ui.interaction.comment.view.CommentListActivity"
+            android:theme="@style/TransparentTheme"></activity>
+        <activity android:name=".ui.classes.sort.RecipeListActivity" />
         <activity android:name=".ui.classes.search.SearchRecipeActivity" />
         <activity android:name=".ui.recipe.RecipeDetailsActivity" />
         <activity android:name=".ui.recipe.publish.RecipeSortSelectActivity" />

@@ -15,11 +15,12 @@ import com.demo.cook.databinding.ActivityRecipeDetailsBinding;
 import com.demo.cook.databinding.ItemLayoutRecipeDetailsMaterialBinding;
 import com.demo.cook.databinding.ItemLayoutRecipeDetailsStepBinding;
 import com.demo.cook.ui.interaction.comment.model.data.Comment;
-import com.demo.cook.ui.interaction.comment.view.CommentListDialog;
+import com.demo.cook.ui.interaction.comment.view.CommentListActivity;
 import com.demo.cook.ui.interaction.comment.view.CommentSendDialog;
 import com.demo.cook.ui.recipe.model.data.RecipeDetails;
 import com.demo.cook.ui.recipe.model.data.RecipeMaterial;
 import com.demo.cook.ui.recipe.model.data.RecipeStep;
+import com.demo.cook.utils.view.SoftKeyBoardListener;
 
 public class RecipeDetailsActivity extends BaseActivity<ActivityRecipeDetailsBinding,RecipeDetailsViewModel> {
 
@@ -41,6 +42,8 @@ public class RecipeDetailsActivity extends BaseActivity<ActivityRecipeDetailsBin
     protected RecipeDetailsViewModel getViewModel() {
         return new ViewModelProvider(this).get(RecipeDetailsViewModel.class);
     }
+
+    CommentSendDialog commentSendDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,21 +83,31 @@ public class RecipeDetailsActivity extends BaseActivity<ActivityRecipeDetailsBin
         mDataBinding.tvRecipeComment.setOnClickListener(v -> {
             RecipeDetails recipeDetails = mViewModel.recipe.getValue();
             Comment comment = new Comment(recipeDetails.getRecipeId(),recipeDetails.getRecipeId(),recipeDetails.getRecipeId());
-            new CommentSendDialog(this, comment, () -> {
+            commentSendDialog=new CommentSendDialog(this, comment, () -> {
                 recipeDetails.setCountComment(recipeDetails.getCountComment()+1);
-            }).show();
+            });
+            commentSendDialog.show();
+        });
+
+        SoftKeyBoardListener softKeyBoardListener = new SoftKeyBoardListener(this);
+        //软键盘状态监听
+        softKeyBoardListener.setListener(show -> {
+            if(!show&&commentSendDialog!=null&&commentSendDialog.isShowing()){
+                commentSendDialog.dismiss();
+            }
         });
 
 
         mDataBinding.tvRecipeDetailsComment.setOnClickListener(v -> {
             RecipeDetails recipeDetails = mViewModel.recipe.getValue();
             if(recipeDetails.getCountComment()>0){
-                new CommentListDialog(this,recipeDetails.getRecipeId()).show();
+                CommentListActivity.actionStart(this,recipeDetails.getRecipeId());
             }else {
                 Comment comment = new Comment(recipeDetails.getRecipeId(),recipeDetails.getRecipeId(),recipeDetails.getRecipeId());
-                new CommentSendDialog(this, comment, () -> {
+                commentSendDialog=new CommentSendDialog(this, comment, () -> {
                     recipeDetails.setCountComment(recipeDetails.getCountComment()+1);
-                }).show();
+                });
+                commentSendDialog.show();
             }
         });
 
