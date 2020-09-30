@@ -1,10 +1,8 @@
 package com.demo.cook.ui.product.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -72,21 +70,13 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
 
                 productBinding.tvPraise.setOnClickListener(v -> {
                     LoginVerifyUtils.verifyAccount(() -> {
-                        if (((CheckBox) v).isChecked()){
-                            mViewModel.addPraise(productDetails);
-                        }else {
-                            mViewModel.cancelPraise(productDetails);
-                        }
+                        mViewModel.clickPraise(productDetails);
                     });
                 });
 
                 productBinding.tvCollect.setOnClickListener(v -> {
                     LoginVerifyUtils.verifyAccount(() -> {
-                        if (((CheckBox) v).isChecked()){
-                            mViewModel.addCollect(productDetails);
-                        }else {
-                            mViewModel.cancelCollect(productDetails);
-                        }
+                        mViewModel.clickCollect(productDetails);
                     });
                 });
 

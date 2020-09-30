@@ -9,6 +9,7 @@ import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.interaction.comment.model.HttpCommentApi;
 import com.demo.cook.ui.interaction.comment.model.data.CommentDetails;
 import com.demo.cook.ui.interaction.praise.HttpPraiseApi;
+import com.demo.cook.utils.LoginVerifyUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,23 +49,26 @@ public class CommentListViewModel extends BaseViewModel {
     }
 
     public void clickPraise(CommentDetails commentDetails){
-        if (!commentDetails.isPraised()){
-            praiseApi.addPraise(Storage.getUserInfo().getUsername(), commentDetails.getCommentId()).enqueue(new HttpCallback(){
-                @Override
-                public void onSuccess(Object data) {
-                    commentDetails.setCountPraise(commentDetails.getCountPraise()+1);
-                    commentDetails.setPraised(true);
-                }
-            });
-        }else {
-            praiseApi.cancelPraise(Storage.getUserInfo().getUsername(), commentDetails.getCommentId()).enqueue(new HttpCallback(){
-                @Override
-                public void onSuccess(Object data) {
-                    commentDetails.setCountPraise(commentDetails.getCountPraise()-1);
-                    commentDetails.setPraised(false);
-                }
-            });
-        }
+        LoginVerifyUtils.verifyAccount(() -> {
+            if (!commentDetails.isPraised()){
+                praiseApi.addPraise(Storage.getUserInfo().getUsername(), commentDetails.getCommentId()).enqueue(new HttpCallback(){
+                    @Override
+                    public void onSuccess(Object data) {
+                        commentDetails.setCountPraise(commentDetails.getCountPraise()+1);
+                        commentDetails.setPraised(true);
+                    }
+                });
+            }else {
+                praiseApi.cancelPraise(Storage.getUserInfo().getUsername(), commentDetails.getCommentId()).enqueue(new HttpCallback(){
+                    @Override
+                    public void onSuccess(Object data) {
+                        commentDetails.setCountPraise(commentDetails.getCountPraise()-1);
+                        commentDetails.setPraised(false);
+                    }
+                });
+            }
+        });
+
     }
 
     public void close(){

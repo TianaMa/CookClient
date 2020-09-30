@@ -53,43 +53,43 @@ public class ProductListViewModel extends BaseViewModel {
 
     }
 
-    void addPraise(ProductDetails productDetails){
-        praiseApi.addPraise(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
-            @Override
-            public void onSuccess(Object data) {
-                productDetails.setCountPraise(productDetails.getCountPraise()+1);
-                productDetails.setPraised(true);
-            }
-        });
+    void clickPraise(ProductDetails productDetails){
+        if(!productDetails.isPraised()){
+            praiseApi.addPraise(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
+                @Override
+                public void onSuccess(Object data) {
+                    productDetails.setCountPraise(productDetails.getCountPraise()+1);
+                    productDetails.setPraised(true);
+                }
+            });
+        }else {
+            praiseApi.cancelPraise(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
+                @Override
+                public void onSuccess(Object data) {
+                    productDetails.setCountPraise(productDetails.getCountPraise()-1);
+                    productDetails.setPraised(false);
+                }
+            });
+        }
     }
 
-    void cancelPraise(ProductDetails productDetails){
-        praiseApi.cancelPraise(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
-            @Override
-            public void onSuccess(Object data) {
-                productDetails.setCountPraise(productDetails.getCountPraise()-1);
-                productDetails.setPraised(false);
-            }
-        });
-    }
-
-    void addCollect(ProductDetails productDetails){
-        collectApi.addCollect(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
-            @Override
-            public void onSuccess(Object data) {
-                productDetails.setCountCollect(productDetails.getCountCollect()+1);
-                productDetails.setCollected(true);
-            }
-        });
-    }
-
-    void cancelCollect(ProductDetails productDetails){
-        collectApi.cancelCollect(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
-            @Override
-            public void onSuccess(Object data) {
-                productDetails.setCountCollect(productDetails.getCountCollect()-1);
-                productDetails.setCollected(false);
-            }
-        });
+    void clickCollect(ProductDetails productDetails){
+        if(!productDetails.isCollected()){
+            collectApi.addCollect(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
+                @Override
+                public void onSuccess(Object data) {
+                    productDetails.setCountCollect(productDetails.getCountCollect()+1);
+                    productDetails.setCollected(true);
+                }
+            });
+        }else {
+            collectApi.cancelCollect(Storage.getUserInfo().getUsername(),productDetails.getProductId()).enqueue(new HttpCallback(){
+                @Override
+                public void onSuccess(Object data) {
+                    productDetails.setCountCollect(productDetails.getCountCollect()-1);
+                    productDetails.setCollected(false);
+                }
+            });
+        }
     }
 }

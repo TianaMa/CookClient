@@ -16,6 +16,7 @@ import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.databinding.ViewDialogCommentPublishBinding;
 import com.demo.cook.ui.interaction.comment.model.HttpCommentApi;
 import com.demo.cook.ui.interaction.comment.model.data.Comment;
+import com.demo.cook.utils.LoginVerifyUtils;
 
 public class CommentSendDialog extends BaseBottomDialog {
 
@@ -58,22 +59,24 @@ public class CommentSendDialog extends BaseBottomDialog {
 
         mBinding.tvCommentSend.setOnClickListener(v -> {
 
-            String commentContent = mBinding.etCommentContent.getText().toString();
-            if(TextUtils.isEmpty(commentContent)){
-                ToastyUtils.showInfo(R.string.text_content_not_empty);return;
-            }
-
-            comment.setContent(commentContent);
-
-            commentApi.publishComment(comment).enqueue(new HttpCallback() {
-                @Override
-                public void onSuccess(Object data) {
-                    ToastyUtils.show(R.string.text_comment_success);
-                    dismiss();
-                    if (callback!=null){
-                        callback.commentSuccess();
-                    }
+            LoginVerifyUtils.verifyAccount(()->{
+                String commentContent = mBinding.etCommentContent.getText().toString();
+                if(TextUtils.isEmpty(commentContent)){
+                    ToastyUtils.showInfo(R.string.text_content_not_empty);return;
                 }
+
+                comment.setContent(commentContent);
+
+                commentApi.publishComment(comment).enqueue(new HttpCallback() {
+                    @Override
+                    public void onSuccess(Object data) {
+                        ToastyUtils.show(R.string.text_comment_success);
+                        dismiss();
+                        if (callback!=null){
+                            callback.commentSuccess();
+                        }
+                    }
+                });
             });
 
         });

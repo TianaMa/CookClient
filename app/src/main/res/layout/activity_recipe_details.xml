@@ -123,7 +123,7 @@
 
 
 
-                        <CheckBox
+                        <Button
                             android:id="@+id/btRecommendSubscribe"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -133,13 +133,12 @@
                             android:button="@null"
                             tools:text="关注"
                             android:onClick="@{mViewModel.clickSubscribe}"
-                            android:checked="@{mViewModel.recipe.subscribe}"
-                            android:background="@drawable/selector_bt_attention"
+                            android:background="@{mViewModel.recipe.subscribe?@drawable/shape_bt_attention_yet:@drawable/shape_bt_attention}"
                             android:text="@{mViewModel.recipe.subscribe?@string/text_subscribe_cancel:@string/text_subscribe}"
                             android:textColor="@android:color/white"
                             android:textSize="12sp">
 
-                        </CheckBox>
+                        </Button>
 
 
                     </LinearLayout>
@@ -277,7 +276,7 @@
             android:background="@drawable/shape_bg_top_line"
             android:gravity="center_vertical">
 
-            <CheckBox
+            <TextView
                 android:id="@+id/tvPraise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -288,8 +287,8 @@
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
                 android:onClick="@{mViewModel.clickPraise}"
-                android:button="@drawable/selector_drawable_praise"
-                android:checked="@{mViewModel.recipe.praised}"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@{mViewModel.recipe.praised?@drawable/vector_ic_praise_selected:@drawable/vector_ic_praise}"
                 android:text="@{mViewModel.recipe.countPraise==0?@string/text_praise:mViewModel.recipe.countPraise+``}"
                 tools:text="144"/>
 
@@ -310,7 +309,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"/>
 
-            <CheckBox
+            <TextView
                 android:id="@+id/tvCollect"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
@@ -319,9 +318,8 @@
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
                 android:onClick="@{mViewModel.clickCollect}"
-                android:button="@drawable/selector_drawable_collect"
+                android:drawableLeft="@{mViewModel.recipe.collected?@drawable/vector_ic_collect_selected:@drawable/vector_ic_collect}"
                 android:drawablePadding="10dp"
-                android:checked="@{mViewModel.recipe.collected}"
                 android:text="@{mViewModel.recipe.countCollect==0?@string/text_collect:mViewModel.recipe.countCollect+``}"
                 tools:text="122"/>
 

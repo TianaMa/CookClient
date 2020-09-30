@@ -68,18 +68,17 @@
                     tools:text="2020-12-03" />
             </LinearLayout>
 
-            <CheckBox
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:minHeight="0dp"
                 android:padding="10dp"
-                android:drawableRight="@drawable/selector_drawable_praise"
+                android:drawableRight="@{comment.praised?@drawable/vector_ic_praise_selected:@drawable/vector_ic_praise}"
                 android:drawablePadding="8dp"
                 android:button="@null"
                 android:textColor="#AAAAAA"
                 android:onClick="@{()->mViewModel.clickPraise(comment)}"
-                android:checked="@{comment.praised}"
                 android:text="@{comment.countPraise==0?``:comment.countPraise+``}"
                 tools:text="144"/>
         </LinearLayout>

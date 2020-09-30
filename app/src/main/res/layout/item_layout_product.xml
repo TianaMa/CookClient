@@ -121,7 +121,7 @@
             android:background="@drawable/shape_bg_under_line"
             android:gravity="center_vertical">
 
-            <CheckBox
+            <TextView
                 android:id="@+id/tvPraise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -130,8 +130,8 @@
                 android:paddingLeft="10dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:button="@drawable/selector_drawable_praise"
-                android:checked="@{productDetail.praised}"
+                android:drawablePadding="5dp"
+                android:drawableLeft="@{productDetail.praised?@drawable/vector_ic_praise_selected:@drawable/vector_ic_praise}"
                 android:text="@{productDetail.countPraise==0?@string/text_praise:productDetail.countPraise+``}"
                 tools:text="144"/>
 
@@ -152,16 +152,16 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"/>
 
-            <CheckBox
+            <TextView
                 android:id="@+id/tvCollect"
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
+                android:minWidth="80dp"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:button="@drawable/selector_drawable_collect"
+                android:drawableLeft="@{productDetail.collected?@drawable/vector_ic_collect_selected:@drawable/vector_ic_collect}"
                 android:drawablePadding="10dp"
-                android:checked="@{productDetail.collected}"
                 android:text="@{productDetail.countCollect==0?@string/text_collect:productDetail.countCollect+``}"
                 tools:text="122"/>
 

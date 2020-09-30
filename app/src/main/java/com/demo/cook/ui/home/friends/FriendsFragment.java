@@ -15,6 +15,7 @@ import com.demo.cook.databinding.FragmentFriendsBinding;
 import com.demo.cook.databinding.ItemLayoutFriendsBinding;
 import com.demo.cook.databinding.ItemLayoutFriendsRecommendBinding;
 import com.demo.cook.ui.user.model.data.UserInfo;
+import com.demo.cook.utils.LoginVerifyUtils;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 
@@ -45,7 +46,7 @@ public class FriendsFragment extends BaseFragment<FragmentFriendsBinding,Friends
             public void convert(CmnViewHolder holder, UserInfo userInfo, int position) {
                 ItemLayoutFriendsRecommendBinding recommendBinding = DataBindingUtil.bind(holder.itemView);
                 recommendBinding.setFriends(userInfo);
-                recommendBinding.btRecommendSubscribe.setOnClickListener(v -> mViewModel.addSubscribe(userInfo.getUsername()));
+                recommendBinding.btRecommendSubscribe.setOnClickListener(v -> LoginVerifyUtils.verifyAccount(() -> mViewModel.addSubscribe(userInfo.getUsername())));
             }
         });
 
@@ -56,7 +57,7 @@ public class FriendsFragment extends BaseFragment<FragmentFriendsBinding,Friends
             public void convert(CmnViewHolder holder, UserInfo userInfo, int position) {
                 ItemLayoutFriendsBinding friendsBinding = DataBindingUtil.bind(holder.itemView);
                 friendsBinding.setFriends(userInfo);
-                friendsBinding.btRecommendSubscribe.setOnClickListener(v -> mViewModel.cancelSubscribe(userInfo.getUsername()));
+                friendsBinding.btRecommendSubscribe.setOnClickListener(v -> LoginVerifyUtils.verifyAccount(() ->mViewModel.cancelSubscribe(userInfo.getUsername())));
             }
         });
 
