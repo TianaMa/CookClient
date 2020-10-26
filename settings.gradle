@@ -1,4 +1,4 @@
 include ':BaseCode'
 include ':BaseLib'
 include ':app'
-rootProject.name = "Cook"
+rootProject.name = "CookClient"

@@ -21,7 +21,7 @@
     </style>
 
     <!-- Base application theme. -->
-    <style name="TransparentTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="TransparentTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
         <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="android:windowBackground">@android:color/transparent</item>

@@ -73,7 +73,7 @@ public class QiNiuUtil {
     }
 
 
-    private static final String QiNiuUrl="http://qgljoem2k.hn-bkt.clouddn.com/";
+    private static final String QiNiuUrl="http://123qgljoem2k.hn-bkt.clouddn.com/";
     public static String getNetRealPath(String path){
         return QiNiuUrl+path;
     }
