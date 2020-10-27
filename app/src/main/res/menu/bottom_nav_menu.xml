@@ -12,6 +12,11 @@
         android:title="@string/title_classes" />
 
     <item
+        android:id="@+id/navigation_shop"
+        android:icon="@drawable/vector_ic_main_tab_shop"
+        android:title="@string/title_shop" />
+
+    <item
         android:id="@+id/navigation_like"
         android:icon="@drawable/vector_ic_main_tab_like"
         android:title="@string/title_like" />

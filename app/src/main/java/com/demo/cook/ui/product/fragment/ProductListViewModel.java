@@ -40,14 +40,14 @@ public class ProductListViewModel extends BaseViewModel {
                         }
                         listData.addAll(data.getList());
                         productListData.setValue(listData);
-                        productParams.setPageSize(data.getNextPage());
+                        productParams.setPageNum(data.getNextPage());
                         finishAndHaveMore.setValue(data.isIsLastPage());
                     }
 
                     @Override
                     public void finallyCall() {
                         super.finallyCall();
-                        finishAndHaveMore.setValue(true);
+                        finishAndHaveMore.setValue(false);
                     }
                 });
 

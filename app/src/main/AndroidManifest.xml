@@ -28,8 +28,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.interaction.comment.view.CommentListActivity"
-            android:theme="@style/TransparentTheme"></activity>
+        <activity android:name=".ui.shop.cart.ShoppingCartActivity"></activity>
+        <activity android:name=".ui.shop.search.SearchGoodsActivity" />
+        <activity android:name=".ui.shop.details.GoodsDetailsActivity" />
+        <activity
+            android:name=".ui.interaction.comment.view.CommentListActivity"
+            android:theme="@style/TransparentTheme" />
         <activity android:name=".ui.classes.sort.RecipeListActivity" />
         <activity android:name=".ui.classes.search.SearchRecipeActivity" />
         <activity android:name=".ui.recipe.RecipeDetailsActivity" />

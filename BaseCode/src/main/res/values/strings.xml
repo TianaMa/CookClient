@@ -10,6 +10,8 @@
     <string name="text_next">Next</string>
     <string name="text_prompt">Prompt</string>
     <string name="text_cancel">Cancel</string>
+    <string name="text_check_all">Check All</string>
+    <string name="text_delete">Delete</string>
 
     <string name="text_search">Search</string>
 
@@ -31,8 +33,9 @@
     <string name="text_loading">正在加载数据...</string>
     <string name="text_update_success">修改成功</string>
     <string name="text_publishing">正在发布...</string>
-    <string name="text_edit">编辑</string>
-    <string name="text_save">保存</string>
+    <string name="text_edit">Edit</string>
+    <string name="text_save">Save</string>
+    <string name="text_finish">Finish</string>
 
     <string name="text_publish">Publish</string>
 
@@ -78,6 +81,7 @@
     <!-- like = favorites -->
     <string name="title_home">Home</string>
     <string name="title_classes">Classes</string>
+    <string name="title_shop">Shop</string>
     <string name="title_like">Favorites</string>
     <string name="title_me">My</string>
     
@@ -91,6 +95,16 @@
 
     <string name="text_me_search_my_recipe">Search my recipes</string>
     <string name="text_search_my_collect">Search my collect</string>
+
+    <!--shop-->
+    <string name="text_search_goods">Search goods</string>
+    <string name="text_shopping_cart">购物车</string>
+    <string name="text_shop_add_to_cart">加入购物车</string>
+    <string name="text_shop_buy">立刻购买</string>
+    <string name="text_settle_accounts">结算</string>
+    <string name="text_total">合计:$  </string>
+    <string name="text_shopping_cart_empty">购物车是空的</string>
+
 
     <!--MyInfoActivity-->
     <string name="text_me_info">个人资料</string>

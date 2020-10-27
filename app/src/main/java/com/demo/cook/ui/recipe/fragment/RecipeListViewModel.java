@@ -35,14 +35,14 @@ public class RecipeListViewModel extends BaseViewModel {
                 }
                 listData.addAll(data.getList());
                 recipeListData.setValue(listData);
-                recipeParams.setPageSize(data.getNextPage());
+                recipeParams.setPageNum(data.getNextPage());
                 finishAndHaveMore.setValue(data.isIsLastPage());
             }
 
             @Override
             public void finallyCall() {
                 super.finallyCall();
-                finishAndHaveMore.setValue(true);
+                finishAndHaveMore.setValue(false);
             }
         });
 

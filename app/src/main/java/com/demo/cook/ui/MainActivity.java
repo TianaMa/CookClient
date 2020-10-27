@@ -13,6 +13,7 @@ import com.demo.cook.ui.like.LikeFragment;
 import com.demo.cook.ui.classes.ClassesFragment;
 import com.demo.cook.ui.home.HomeFragment;
 import com.demo.cook.ui.me.MeFragment;
+import com.demo.cook.ui.shop.ShopFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()){
                 case R.id.navigation_home : switchFragment(0); break;
                 case R.id.navigation_classes: switchFragment(1); break;
-                case R.id.navigation_like: switchFragment(2); break;
-                case R.id.navigation_me: switchFragment(3); break;
+                case R.id.navigation_shop: switchFragment(2); break;
+                case R.id.navigation_like: switchFragment(3); break;
+                case R.id.navigation_me: switchFragment(4); break;
             }
             return true;
         });
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     Fragment[] fragments = new Fragment[]{
-            new HomeFragment(),new ClassesFragment(),new LikeFragment(),new MeFragment()
+            new HomeFragment(),new ClassesFragment(),new ShopFragment(),new LikeFragment(),new MeFragment()
     };
 
 

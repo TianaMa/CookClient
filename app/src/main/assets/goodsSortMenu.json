@@ -1,0 +1,27 @@
+[
+  {
+    "sortId": "",
+    "sortName": "推荐",
+    "imageName": "vector_ic_recipe_sort_bread"
+  },
+  {
+    "sortId": "6884896f-1788-11eb-9e2b-04d4c4712e49",
+    "sortName": "器具",
+    "imageName": "vector_ic_recipe_sort_cake"
+  },
+  {
+    "sortId": "6f9514a6-1788-11eb-9e2b-04d4c4712e49",
+    "sortName": "电器",
+    "imageName": "vector_ic_recipe_sort_dessert"
+  },
+  {
+    "sortId": "75063203-1788-11eb-9e2b-04d4c4712e49",
+    "sortName": "调料",
+    "imageName": "vector_ic_recipe_sort_pasta"
+  },
+  {
+    "sortId": "7c6b3dea-1788-11eb-9e2b-04d4c4712e49",
+    "sortName": "米面粮油",
+    "imageName": "vector_ic_recipe_sort_drinks"
+  }
+]

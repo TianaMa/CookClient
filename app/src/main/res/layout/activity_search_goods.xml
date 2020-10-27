@@ -10,14 +10,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.HomeFragment"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".ui.shop.search.SearchGoodsActivity">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/scroll_tb_header"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="#F5F5F5"
             app:layout_collapseMode="pin">
 
             <LinearLayout
@@ -26,50 +24,54 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:id="@+id/ivHomePublish"
+                    android:id="@+id/ivSearchBack"
                     android:layout_width="32dp"
                     android:layout_height="40dp"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:paddingRight="8dp"
-                    android:src="@drawable/vector_ic_add"/>
+                    android:src="@drawable/vector_ic_arrows_left"/>
 
-                <TextView
-                    android:id="@+id/tvHomeSearch"
+                <EditText
+                    android:id="@+id/etSearchGoods"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginRight="30dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/shape_corners_5"
                     android:backgroundTint="#E9E9E9"
                     android:drawableLeft="@drawable/vector_ic_search"
                     android:drawablePadding="5dp"
                     android:hint="@string/text_search_product"
                     android:padding="10dp"
-                    android:textSize="13sp" />
+                    android:textSize="13sp" >
+                    <requestFocus/>
+                </EditText>
+
+
+                <TextView
+                    android:id="@+id/tvSearchGoods"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_text_button"
+                    android:text="@string/text_search"/>
 
 
             </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabHome"
+        <FrameLayout
+            android:id="@+id/flSearchGoods"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            app:tabIndicatorFullWidth="false"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tabIndicatorColor="#ff7300">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"/>
 
-        </com.google.android.material.tabs.TabLayout>
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/vpHome"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </androidx.viewpager.widget.ViewPager>
 
     </LinearLayout>
 </layout>
