@@ -4,13 +4,19 @@ package com.demo.cook.ui.shop.details;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.lifecycle.ViewModelProvider;
 
 import com.demo.baselib.design.BaseActivity;
 import com.demo.cook.R;
+import com.demo.cook.base.event.BusEvent;
 import com.demo.cook.databinding.ActivityGoodsDetailsBinding;
+import com.demo.cook.ui.shop.cart.ShoppingCartActivity;
 import com.demo.cook.utils.LoginVerifyUtils;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class GoodsDetailsActivity extends BaseActivity<ActivityGoodsDetailsBinding,GoodsDetailsViewModel> {
 
@@ -33,6 +39,7 @@ public class GoodsDetailsActivity extends BaseActivity<ActivityGoodsDetailsBindi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        registerEventBus = true;
         super.onCreate(savedInstanceState);
 
         mDataBinding.setViewModel(mViewModel);
@@ -44,9 +51,23 @@ public class GoodsDetailsActivity extends BaseActivity<ActivityGoodsDetailsBindi
             });
         });
 
+        mViewModel.queryCount();
+
         mDataBinding.btGoodsBuy.setOnClickListener(v -> {
 
         });
 
+        //跳转购物车
+        mDataBinding.ivShoppingCart.setOnClickListener(v -> LoginVerifyUtils.verifyAccount(()->{
+            startActivity(new Intent(v.getContext(), ShoppingCartActivity.class));
+            GoodsDetailsActivity.this.finish();
+        }));
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventMsg(BusEvent.ShoppingCartCount msg) {
+        mDataBinding.tvShoppingCartCount.setVisibility(msg.getCount()==0? View.GONE:View.VISIBLE);
+        mDataBinding.tvShoppingCartCount.setText(msg.getCount()+"");
     }
 }

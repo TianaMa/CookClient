@@ -20,21 +20,44 @@ public class GoodsDetailsViewModel extends BaseViewModel {
 
     public MutableLiveData<Goods> goodsData= new MutableLiveData<>();
 
+    public void queryCount(){
+        goodsApi.queryCount(Storage.getUserInfo().getUsername()).enqueue(new HttpCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer data) {
+                EventBus.getDefault().post(new BusEvent.ShoppingCartCount(data));
+            }
+        });
+    }
+
+
     void queryGoodsDetails(String goodsId){
+        showLoading(R.string.text_loading);
         goodsApi.queryGoodsDetails(goodsId).enqueue(new HttpCallback<Goods>() {
             @Override
             public void onSuccess(Goods data) {
                 goodsData.setValue(data);
             }
+
+            @Override
+            public void finallyCall() {
+                super.finallyCall();
+                closeLoading();
+            }
         });
     }
 
     void addShoppingCart(){
+        showLoading(R.string.text_loading);
         goodsApi.addShoppingCart(Storage.getUserInfo().getUsername(),goodsData.getValue().getGoodsId()).enqueue(new HttpCallback<Integer>() {
             @Override
             public void onSuccess(Integer data) {
                 EventBus.getDefault().post(new BusEvent.ShoppingCartCount(data));
-                ToastyUtils.show(R.string.text_success);
+            }
+
+            @Override
+            public void finallyCall() {
+                super.finallyCall();
+                closeLoading();
             }
         });
     }

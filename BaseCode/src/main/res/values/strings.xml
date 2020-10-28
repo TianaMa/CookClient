@@ -104,6 +104,7 @@
     <string name="text_settle_accounts">结算</string>
     <string name="text_total">合计:$  </string>
     <string name="text_shopping_cart_empty">购物车是空的</string>
+    <string name="text_dialog_delete_goods">确定删除这些商品吗？</string>
 
 
     <!--MyInfoActivity-->

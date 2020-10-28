@@ -96,6 +96,7 @@
     <string name="text_settle_accounts">Settle Accounts</string>
     <string name="text_total">Total:$</string>
     <string name="text_shopping_cart_empty">购物车是空的</string>
+    <string name="text_dialog_delete_goods">确定删除这些商品吗？</string>
 
     <!--MyInfoActivity-->
     <string name="text_me_info">个人资料</string>

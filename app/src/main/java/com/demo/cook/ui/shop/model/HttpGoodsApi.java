@@ -3,6 +3,7 @@ package com.demo.cook.ui.shop.model;
 import com.demo.cook.base.http.PageInfo;
 import com.demo.cook.base.http.RtnResult;
 import com.demo.cook.ui.shop.model.data.Goods;
+import com.demo.cook.ui.shop.model.data.ShoppingCart;
 import com.demo.cook.ui.shop.model.data.ShoppingCartDetails;
 import com.demo.cook.ui.shop.model.data.request.QueryGoodsParams;
 
@@ -33,6 +34,11 @@ public interface HttpGoodsApi {
             @Query("goodsId") String goodsId
     );
 
+    @POST("shoppingCart/updateCount")
+    Call<RtnResult<Integer>> updateCount(
+            @Body ShoppingCart params
+    );
+
     @GET("shoppingCart/queryCount")
     Call<RtnResult<Integer>> queryCount(
             @Query("username") String username
@@ -44,6 +50,11 @@ public interface HttpGoodsApi {
     );
 
 
+    @POST("shoppingCart/delete")
+    Call<RtnResult<List<ShoppingCartDetails>>> deleteShoppingCart(
+            @Query("username") String username,
+            @Query("goodsIds") String goodsIds
+    );
 
 
 

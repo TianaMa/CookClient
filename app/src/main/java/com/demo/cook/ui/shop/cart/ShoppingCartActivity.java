@@ -8,13 +8,14 @@ import android.view.View;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.demo.basecode.ui.ToastyUtils;
 import com.demo.baselib.adapter.CmnRcvAdapter;
 import com.demo.baselib.design.BaseActivity;
 import com.demo.cook.R;
 import com.demo.cook.databinding.ActivityShoppingCartBinding;
 import com.demo.cook.databinding.ItemLayoutShoppingCartBinding;
 import com.demo.cook.ui.shop.model.data.ShoppingCartDetails;
-import com.demo.cook.utils.LoginVerifyUtils;
+import com.demo.cook.utils.view.DialogUtils;
 
 public class ShoppingCartActivity extends BaseActivity<ActivityShoppingCartBinding,ShoppingCartViewModel> {
 
@@ -57,14 +58,19 @@ public class ShoppingCartActivity extends BaseActivity<ActivityShoppingCartBindi
         adapter.setEmptyView(emptyView);
         mDataBinding.rcvShoppingCart.setAdapter(adapter);
 
-        LoginVerifyUtils.verifyAccount(() -> mViewModel.getMyCart());
+        mViewModel.getMyCart();
 
-        mDataBinding.cbShoppingCartSelectAll.setOnClickListener(v -> {
-            mViewModel.selectAllData.setValue(!mViewModel.selectAllData.getValue());
-            for (ShoppingCartDetails cartDetails:mViewModel.shoppingCartListData.getValue()){
-                cartDetails.setCheck(mViewModel.selectAllData.getValue());
+        mDataBinding.btBuyOrDelete.setOnClickListener(v -> {
+            if(mViewModel.editAble.getValue()){
+                DialogUtils.getInstance().showConfirmDialog(
+                        v.getContext(),
+                        getString(R.string.text_dialog_title),
+                        getString(R.string.text_dialog_delete_goods),
+                        (dialog, which) -> mViewModel.deleteGoods()
+                );
+            }else {
+                ToastyUtils.show("结算");
             }
-            mViewModel.totalPrice();
         });
 
         mViewModel.priceTotalData.observe(this, s -> mDataBinding.tvShoppingCartTotalPrice.setText(getString(R.string.text_total)+s));

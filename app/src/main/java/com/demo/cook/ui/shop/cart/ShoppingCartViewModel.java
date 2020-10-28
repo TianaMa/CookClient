@@ -7,12 +7,15 @@ import androidx.lifecycle.MutableLiveData;
 import com.demo.basecode.ui.ToastyUtils;
 import com.demo.baselib.design.BaseViewModel;
 import com.demo.cook.R;
+import com.demo.cook.base.event.BusEvent;
 import com.demo.cook.base.http.HttpCallback;
 import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.shop.model.HttpGoodsApi;
 import com.demo.cook.ui.shop.model.data.ShoppingCart;
 import com.demo.cook.ui.shop.model.data.ShoppingCartDetails;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -23,12 +26,18 @@ public class ShoppingCartViewModel extends BaseViewModel {
 
     public MutableLiveData<List<ShoppingCartDetails>> shoppingCartListData = new MutableLiveData<>();
     public void getMyCart(){
-
+        showLoading(R.string.text_loading);
         goodsApi.queryShoppingCart(Storage.getUserInfo().getUsername()).enqueue(new HttpCallback<List<ShoppingCartDetails>>() {
             @Override
             public void onSuccess(List<ShoppingCartDetails> data) {
                 shoppingCartListData.setValue(data);
                 totalPrice();
+            }
+
+            @Override
+            public void finallyCall() {
+                super.finallyCall();
+                closeLoading();
             }
         });
     }
@@ -71,22 +80,88 @@ public class ShoppingCartViewModel extends BaseViewModel {
 
 
     public void addCount(ShoppingCartDetails goods){
-        goods.setBuyCount(goods.getBuyCount()+1);
-        if (goods.isCheck()){
-            totalPrice();
-        }
+        ShoppingCart params = new ShoppingCart();
+        params.setUsername(goods.getUsername());
+        params.setGoodsId(goods.getGoodsId());
+        params.setBuyCount(goods.getBuyCount()+1);
+        showLoading(R.string.text_loading);
+        goodsApi.updateCount(params).enqueue(new HttpCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer data) {
+                EventBus.getDefault().post(new BusEvent.ShoppingCartCount(data));
+                goods.setBuyCount(goods.getBuyCount()+1);
+                if (goods.isCheck()){
+                    totalPrice();
+                }
+            }
+
+            @Override
+            public void finallyCall() {
+                super.finallyCall();
+                closeLoading();
+            }
+        });
     }
 
     public void decreaseCount(ShoppingCartDetails goods){
-        goods.setBuyCount(goods.getBuyCount()-1);
-        if (goods.isCheck()){
-            totalPrice();
+        ShoppingCart params = new ShoppingCart();
+        params.setUsername(goods.getUsername());
+        params.setGoodsId(goods.getGoodsId());
+        params.setBuyCount(goods.getBuyCount()-1);
+        showLoading(R.string.text_loading);
+        goodsApi.updateCount(params).enqueue(new HttpCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer data) {
+                EventBus.getDefault().post(new BusEvent.ShoppingCartCount(data));
+                goods.setBuyCount(goods.getBuyCount()-1);
+                if (goods.isCheck()){
+                    totalPrice();
+                }
+            }
+
+            @Override
+            public void finallyCall() {
+                super.finallyCall();
+                closeLoading();
+            }
+        });
+    }
+
+    public void selectAll(){
+        selectAllData.setValue(!selectAllData.getValue());
+        for (ShoppingCartDetails cartDetails:shoppingCartListData.getValue()){
+            cartDetails.setCheck(selectAllData.getValue());
         }
+       totalPrice();
     }
 
 
-    public void settleOrDelete(){
+    public void deleteGoods(){
+        StringBuffer goodsIds=new StringBuffer("");
+        for (ShoppingCartDetails cartDetails:shoppingCartListData.getValue()){
+            if(cartDetails.isCheck()){
+                goodsIds.append(",").append(cartDetails.getGoodsId());
+            }
+        }
+        showLoading(R.string.text_loading);
+        goodsApi.deleteShoppingCart(Storage.getUserInfo().getUsername(),goodsIds.toString().substring(1)).enqueue(new HttpCallback<List<ShoppingCartDetails>>() {
+            @Override
+            public void onSuccess(List<ShoppingCartDetails> data) {
+                int count = 0;
+                for (ShoppingCartDetails item:data){
+                    count+= item.getBuyCount();
+                }
+                EventBus.getDefault().post(new BusEvent.ShoppingCartCount(count));
+                shoppingCartListData.setValue(data);
+                totalPrice();
+            }
 
+            @Override
+            public void finallyCall() {
+                super.finallyCall();
+                closeLoading();
+            }
+        });
     }
 
 

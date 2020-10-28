@@ -71,12 +71,12 @@
             android:layout_height="50dp">
 
             <TextView
-                android:id="@+id/cbShoppingCartSelectAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:drawableLeft="@{mViewModel.selectAllData?@drawable/ic_vector_check_box_on:@drawable/ic_vector_check_box_off}"
+                android:onClick="@{()->mViewModel.selectAll()}"
                 android:button="@drawable/selector_check_box_bg"
                 android:textColor="@android:color/white" />
 
@@ -103,12 +103,11 @@
             </TextView>
 
             <Button
-                android:id="@+id/btBuy"
+                android:id="@+id/btBuyOrDelete"
                 android:layout_width="100dp"
                 android:layout_marginLeft="3dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:onClick="@{()->mViewModel.settleOrDelete()}"
                 android:background="@drawable/selector_publish_click"
                 android:text="@{mViewModel.editAble?@string/text_delete:@string/text_settle_accounts}"
                 android:textColor="@android:color/white"/>
