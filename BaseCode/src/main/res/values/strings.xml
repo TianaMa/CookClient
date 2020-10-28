@@ -105,6 +105,14 @@
     <string name="text_total">合计:$  </string>
     <string name="text_shopping_cart_empty">购物车是空的</string>
     <string name="text_dialog_delete_goods">确定删除这些商品吗？</string>
+    
+    <string name="text_settle_title">确认订单</string>
+    <string name="text_settle_pay">Pay</string>
+    <string name="text_settle_total">实付款: $  </string>
+    <string name="text_settle_pay_way">付款方式</string>
+    <string name="text_settle_pay_way_ali">支付宝</string>
+    <string name="text_settle_pay_way_we_chat">微信支付</string>
+    <string name="text_settle_add_address">点击添加收货地址</string>
 
 
     <!--MyInfoActivity-->

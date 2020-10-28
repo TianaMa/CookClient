@@ -2,7 +2,9 @@ package com.demo.cook.ui.shop.model.data;
 
 import androidx.databinding.BaseObservable;
 
-public class ShoppingCart  extends BaseObservable {
+import java.io.Serializable;
+
+public class ShoppingCart  extends BaseObservable implements Serializable {
     private String username;
 
     private String goodsId;

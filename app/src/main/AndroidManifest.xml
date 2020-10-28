@@ -28,7 +28,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.shop.cart.ShoppingCartActivity"></activity>
+        <activity android:name=".ui.shop.settle.SettleActivity"></activity>
+        <activity android:name=".ui.shop.cart.ShoppingCartActivity" />
         <activity android:name=".ui.shop.search.SearchGoodsActivity" />
         <activity android:name=".ui.shop.details.GoodsDetailsActivity" />
         <activity

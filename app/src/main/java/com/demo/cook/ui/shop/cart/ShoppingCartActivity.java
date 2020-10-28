@@ -15,7 +15,10 @@ import com.demo.cook.R;
 import com.demo.cook.databinding.ActivityShoppingCartBinding;
 import com.demo.cook.databinding.ItemLayoutShoppingCartBinding;
 import com.demo.cook.ui.shop.model.data.ShoppingCartDetails;
+import com.demo.cook.ui.shop.settle.SettleActivity;
 import com.demo.cook.utils.view.DialogUtils;
+
+import java.util.ArrayList;
 
 public class ShoppingCartActivity extends BaseActivity<ActivityShoppingCartBinding,ShoppingCartViewModel> {
 
@@ -69,7 +72,13 @@ public class ShoppingCartActivity extends BaseActivity<ActivityShoppingCartBindi
                         (dialog, which) -> mViewModel.deleteGoods()
                 );
             }else {
-                ToastyUtils.show("结算");
+                ArrayList<ShoppingCartDetails> list=new ArrayList<>();
+                for (ShoppingCartDetails goods:mViewModel.shoppingCartListData.getValue()){
+                    if (goods.isCheck()){
+                        list.add(goods);
+                    }
+                }
+                SettleActivity.actionStart(v.getContext(),mViewModel.priceTotalData.getValue(),list);
             }
         });
 

@@ -45,11 +45,7 @@ public class GoodsDetailsActivity extends BaseActivity<ActivityGoodsDetailsBindi
         mDataBinding.setViewModel(mViewModel);
         mViewModel.queryGoodsDetails(getIntent().getStringExtra("goodsId"));
 
-        mDataBinding.btGoodsAddCart.setOnClickListener(v -> {
-            LoginVerifyUtils.verifyAccount(() -> {
-                mViewModel.addShoppingCart();
-            });
-        });
+        mDataBinding.btGoodsAddCart.setOnClickListener(v -> LoginVerifyUtils.verifyAccount(() -> mViewModel.addShoppingCart()));
 
         mViewModel.queryCount();
 
