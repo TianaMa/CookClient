@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="shoppingCart"
+            type="com.demo.cook.ui.shop.model.data.ShoppingCartDetails" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="100dp"
+                android:layout_marginLeft="5dp"
+                android:scaleType="fitXY"
+                srcPath="@{shoppingCart.cover}"
+                android:src="@drawable/logo_login"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:ellipsize="middle"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    tools:text="商品名"
+                    android:text="@{shoppingCart.goodsName}" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="12sp"
+                    android:text="@{shoppingCart.goodsDescribe}"
+                    tools:text="规格"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#EE744D"
+                    android:text="@{`$`+shoppingCart.price}"
+                    android:textSize="12sp"
+                    tools:text="$52.00"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivBuyGoodsClose"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/vector_ic_close"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bg_top_line"
+            android:padding="15dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="@string/text_count"
+                android:textSize="14sp"/>
+
+
+            <TextView
+                android:id="@+id/tvBuyGoodsReduce"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_border_corner_left"
+                android:enabled="@{shoppingCart.buyCount>1}"
+                android:gravity="center"
+                android:text="—"
+                android:textColor="@color/color_selector_btn_enable" />
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:background="@drawable/shape_border"
+                android:gravity="center"
+                android:text="@{shoppingCart.buyCount+``}"
+                android:textColor="@android:color/black"
+                tools:text="2"/>
+
+            <TextView
+                android:id="@+id/tvBuyGoodsAdd"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:background="@drawable/shape_border_corner_right"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:text="+"/>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btBuyGoodsConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_publish_click"
+            android:textColor="@android:color/white"
+            android:text="@string/text_confirm"/>
+
+    </LinearLayout>
+</layout>

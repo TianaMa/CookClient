@@ -17,6 +17,16 @@ public class ShoppingCartDetails extends ShoppingCart {
 
     private boolean isCheck;
 
+    public ShoppingCartDetails() {
+    }
+    public ShoppingCartDetails(Goods goods) {
+        this.setGoodsId(goods.getGoodsId());
+        this.goodsName= goods.getGoodsName();
+        this.price = goods.getPrice();
+        this.cover = goods.getCover();
+        this.goodsDescribe= goods.getGoodsDescribe();
+    }
+
 
     public String getGoodsName() {
         return goodsName;

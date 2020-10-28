@@ -11,12 +11,18 @@ import androidx.lifecycle.ViewModelProvider;
 import com.demo.baselib.design.BaseActivity;
 import com.demo.cook.R;
 import com.demo.cook.base.event.BusEvent;
+import com.demo.cook.base.local.Storage;
 import com.demo.cook.databinding.ActivityGoodsDetailsBinding;
 import com.demo.cook.ui.shop.cart.ShoppingCartActivity;
+import com.demo.cook.ui.shop.model.data.ShoppingCartDetails;
+import com.demo.cook.ui.shop.settle.SettleActivity;
 import com.demo.cook.utils.LoginVerifyUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class GoodsDetailsActivity extends BaseActivity<ActivityGoodsDetailsBinding,GoodsDetailsViewModel> {
 
@@ -51,6 +57,18 @@ public class GoodsDetailsActivity extends BaseActivity<ActivityGoodsDetailsBindi
 
         mDataBinding.btGoodsBuy.setOnClickListener(v -> {
 
+            LoginVerifyUtils.verifyAccount(() -> {
+                ShoppingCartDetails goods = new ShoppingCartDetails(mViewModel.goodsData.getValue());
+                goods.setBuyCount(1);
+                goods.setUsername(Storage.getUserInfo().getUsername());
+
+                new BuyGoodsDialog(this,goods, goods1 -> {
+                    SettleActivity.actionStart(v.getContext(),goods1.getPrice().multiply(new BigDecimal(goods1.getBuyCount())).toString(),new ArrayList(){{
+                        add(goods1);
+                    }});
+
+                }).show();
+            });
         });
 
         //跳转购物车

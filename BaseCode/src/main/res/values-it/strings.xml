@@ -39,6 +39,7 @@
     <string name="text_edit">编辑</string>
     <string name="text_save">保存</string>
     <string name="text_finish">Finish</string>
+    <string name="text_count">Count</string>
 
     <string name="text_praise">Praise</string>
     <string name="text_collect">Collect</string>
