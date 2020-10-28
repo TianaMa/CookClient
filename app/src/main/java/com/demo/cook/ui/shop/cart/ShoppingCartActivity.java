@@ -4,10 +4,8 @@ package com.demo.cook.ui.shop.cart;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CompoundButton;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.demo.baselib.adapter.CmnRcvAdapter;
@@ -46,11 +44,13 @@ public class ShoppingCartActivity extends BaseActivity<ActivityShoppingCartBindi
 
                 ItemLayoutShoppingCartBinding mBinding= DataBindingUtil.bind(holder.itemView);
                 mBinding.setShoppingCart(shoppingCartDetails);
+                mBinding.setMViewModel(mViewModel);
                 mBinding.cbShoppingCart.setOnClickListener(v -> {
                     shoppingCartDetails.setCheck(!shoppingCartDetails.isCheck());
                     mViewModel.totalPrice();
                     mViewModel.checkSelectAll();
                 });
+
             }
         };
         View emptyView = LayoutInflater.from(this).inflate(R.layout.empty_layout_shopping_cart,null);

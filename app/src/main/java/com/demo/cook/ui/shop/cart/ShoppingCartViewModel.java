@@ -11,6 +11,7 @@ import com.demo.cook.base.http.HttpCallback;
 import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.shop.model.HttpGoodsApi;
+import com.demo.cook.ui.shop.model.data.ShoppingCart;
 import com.demo.cook.ui.shop.model.data.ShoppingCartDetails;
 
 import java.math.BigDecimal;
@@ -66,4 +67,27 @@ public class ShoppingCartViewModel extends BaseViewModel {
         Log.e("totalPrice",priceTotal.toString());
         priceTotalData.setValue(priceTotal.toString());
     }
+
+
+
+    public void addCount(ShoppingCartDetails goods){
+        goods.setBuyCount(goods.getBuyCount()+1);
+        if (goods.isCheck()){
+            totalPrice();
+        }
+    }
+
+    public void decreaseCount(ShoppingCartDetails goods){
+        goods.setBuyCount(goods.getBuyCount()-1);
+        if (goods.isCheck()){
+            totalPrice();
+        }
+    }
+
+
+    public void settleOrDelete(){
+
+    }
+
+
 }

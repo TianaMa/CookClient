@@ -9,6 +9,10 @@
             name="shoppingCart"
             type="com.demo.cook.ui.shop.model.data.ShoppingCartDetails" />
 
+        <variable
+            name="mViewModel"
+            type="com.demo.cook.ui.shop.cart.ShoppingCartViewModel" />
+
     </data>
 
     <LinearLayout
@@ -84,6 +88,9 @@
                     android:layout_height="25dp"
                     android:background="@drawable/shape_border_corner_left"
                     android:gravity="center"
+                    android:enabled="@{shoppingCart.buyCount>1}"
+                    android:textColor="@color/color_selector_btn_enable"
+                    android:onClick="@{()->mViewModel.decreaseCount(shoppingCart)}"
                     android:text="—"/>
 
                 <TextView
@@ -92,6 +99,7 @@
                     android:background="@drawable/shape_border"
                     android:gravity="center"
                     android:text="@{shoppingCart.buyCount+``}"
+                    android:textColor="@android:color/black"
                     tools:text="2"/>
 
                 <TextView
@@ -99,8 +107,9 @@
                     android:layout_height="25dp"
                     android:background="@drawable/shape_border_corner_right"
                     android:gravity="center"
+                    android:onClick="@{()->mViewModel.addCount(shoppingCart)}"
+                    android:textColor="@android:color/black"
                     android:text="+"/>
-
 
 
 

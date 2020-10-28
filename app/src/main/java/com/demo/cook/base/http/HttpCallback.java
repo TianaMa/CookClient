@@ -2,7 +2,6 @@ package com.demo.cook.base.http;
 
 import com.demo.basecode.ui.ToastyUtils;
 import com.demo.cook.R;
-import com.demo.cook.utils.view.DialogUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;

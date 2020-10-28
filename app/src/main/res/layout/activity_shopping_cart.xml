@@ -108,6 +108,7 @@
                 android:layout_marginLeft="3dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:onClick="@{()->mViewModel.settleOrDelete()}"
                 android:background="@drawable/selector_publish_click"
                 android:text="@{mViewModel.editAble?@string/text_delete:@string/text_settle_accounts}"
                 android:textColor="@android:color/white"/>
