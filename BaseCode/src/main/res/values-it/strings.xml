@@ -1,209 +1,209 @@
 <resources>
 
-    <string name="app_name">烹饪</string>
-    <string name="text_attention">关注</string>
-    <string name="text_fans">粉丝</string>
+    <string name="app_name">Cook</string>
+    <string name="text_attention">Add</string>
+    <string name="text_fans">Fans</string>
 
-    <string name="text_recipe">菜谱</string>
-    <string name="text_product">作品</string>
-    <string name="text_next">下一步</string>
-    <string name="text_prompt">提示</string>
-    <string name="text_cancel">取消</string>
+    <string name="text_recipe">Recipe</string>
+    <string name="text_product">Product</string>
+    <string name="text_next">Next step</string>
+    <string name="text_prompt">Tips</string>
+    <string name="text_cancel">Cancel</string>
     <string name="text_check_all">Check All</string>
     <string name="text_delete">Delete</string>
-    
-    <string name="text_confirm">确定</string>
-    <string name="text_man">男</string>
-    <string name="text_woman">女</string>
 
-    <string name="text_search">搜索</string>
+    <string name="text_confirm">Confirm</string>
+    <string name="text_man">Man</string>
+    <string name="text_woman">Woman</string>
 
+    <string name="text_search">Search</string>
 
+    <string name="text_search_product">Search more product</string>
+    <string name="text_search_recipe">Search more recipe</string>
 
-    <string name="text_search_product">搜索更多作品</string>
-    <string name="text_search_recipe">搜多更多菜谱</string>
-
-    <string name="text_goto_login">去登录</string>
-    <string name="text_login_please">请先登录账号</string>
-    <string name="text_dialog_title">温馨提示</string>
+    <string name="text_goto_login">Login</string>
+    <string name="text_login_please">Please input account number</string>
+    <string name="text_dialog_title">Tips</string>
 
     <!--common-->
-    <string name="text_service_error">网络请求异常</string>
+    <string name="text_service_error">Network error</string>
 
-    <string name="text_upload_image">图片上传中...</string>
-    <string name="text_upload_image_fail">图片上传失败</string>
+    <string name="text_upload_image">Upload image...</string>
+    <string name="text_upload_image_fail">Image upload failed</string>
 
-    <string name="text_loading">正在加载数据...</string>
-    <string name="text_update_success">修改成功</string>
-    <string name="text_publishing">正在发布...</string>
-    <string name="text_edit">编辑</string>
-    <string name="text_save">保存</string>
+    <string name="text_loading">Loading...</string>
+    <string name="text_update_success">Succeed</string>
+    <string name="text_publishing">Publishing...</string>
+    <string name="text_edit">Edit</string>
+    <string name="text_save">Save</string>
     <string name="text_finish">Finish</string>
     <string name="text_count">Count</string>
 
     <string name="text_praise">Praise</string>
     <string name="text_collect">Collect</string>
     <string name="text_comment">Comment</string>
-    <string name="text_no_data">暂无信息</string>
+    <string name="text_no_data">Still Nothing</string>
 
-    <string name="text_subscribe">关注</string>
-    <string name="text_subscribe_cancel">取消关注</string>
+    <string name="text_subscribe">Add</string>
+    <string name="text_subscribe_cancel">Cancel</string>
 
-    <string name="text_loading_login">登陆中...</string>
-    <string name="text_loading_register">正在注册...</string>
+    <string name="text_loading_login">Login...</string>
+    <string name="text_loading_register">Registering...</string>
 
     <!--WelcomeActivity-->
-    <string name="text_welcome_jump">跳过</string>
+    <string name="text_welcome_jump">Skip</string>
 
     <!--LoginActivity-->
-    <string name="text_login_user_hint">请输入用户名</string>
-    <string name="text_login_password_hint">请输入密码</string>
-    <string name="text_login">登录</string>
-    <string name="text_login_register_account">注册账号</string>
-    <string name="text_login_visitor">游客登录</string>
+    <string name="text_login_user_hint">User Account</string>
+    <string name="text_login_password_hint">Password</string>
+    <string name="text_login">Login</string>
+    <string name="text_login_register_account">Signin</string>
+    <string name="text_login_visitor">Visitors</string>
 
     <!--RegisterActivity-->
-    <string name="text_register">注册</string>
-    <string name="text_register_hint_account">请输入您的注册账号</string>
-    <string name="text_register_hint_password">请输入您的账号密码</string>
-    <string name="text_register_hint_password_again">请输入确认密码</string>
-    <string name="text_register_password_un_same">两次密码不一致</string>
-    <string name="text_success">注册成功</string>
+    <string name="text_register">Sign in</string>
+    <string name="text_register_hint_account">Please input account number</string>
+    <string name="text_register_hint_password">Please input password</string>
+    <string name="text_register_hint_password_again">Please confirm password</string>
+    <string name="text_register_password_un_same">Confirm unsuccessfully</string>
+    <string name="text_success">Succeed</string>
 
 
     <!--MainActivity-->
-    <string name="title_home">首页</string>
-    <string name="title_classes">课堂</string>
+    <string name="title_home">Home</string>
+    <string name="title_classes">Class</string>
     <string name="title_shop">Shop</string>
-    <string name="title_like">收藏</string>
-    <string name="title_me">我的</string>
+    <string name="title_like">Collect</string>
+    <string name="title_me">My</string>
 
     <!--HomeFragment-->
-    <string name="text_home_friends">厨友</string>
-    <string name="text_home_recommend">推荐</string>
-    <string name="text_friend_recommend">你可能感兴趣的厨友</string>
-    
+    <string name="text_home_friends">Friends</string>
+    <string name="text_home_recommend">Recommend</string>
+    <string name="text_friend_recommend">Possible friends</string>
+
     <!--MeFragment-->
-    <string name="text_me_be_collected">被关注</string>
-    <string name="text_publish">发布</string>
-    <string name="text_me_search_my_recipe">搜索我的菜谱</string>
-    <string name="text_search_my_collect">搜索我的收藏</string>
+    <string name="text_me_be_collected">Friends</string>
+    <string name="text_publish">Publish</string>
+    <string name="text_me_search_my_recipe">Search my recipe</string>
+    <string name="text_search_my_collect">Search my collection</string>
 
     <!--shop-->
     <string name="text_search_goods">Search goods</string>
-    <string name="text_shopping_cart">购物车</string>
-    <string name="text_shop_add_to_cart">加入购物车</string>
-    <string name="text_shop_buy">立刻购买</string>
+    <string name="text_shopping_cart">Cart</string>
+    <string name="text_shop_add_to_cart">Add cart</string>
+    <string name="text_shop_buy">Buy Now</string>
     <string name="text_settle_accounts">Settle Accounts</string>
     <string name="text_total">Total:$</string>
-    <string name="text_shopping_cart_empty">购物车是空的</string>
-    <string name="text_dialog_delete_goods">确定删除这些商品吗？</string>
+    <string name="text_shopping_cart_empty">Empty</string>
+    <string name="text_dialog_delete_goods">Are you sure delete this？</string>
 
-    <string name="text_settle_title">确认订单</string>
+    <string name="text_settle_title">Ensure order</string>
     <string name="text_settle_pay">Pay</string>
-    <string name="text_settle_total">实付款: $  </string>
-    <string name="text_settle_pay_way">付款方式</string>
-    <string name="text_settle_pay_way_ali">支付宝</string>
-    <string name="text_settle_pay_way_we_chat">微信支付</string>
-    <string name="text_settle_add_address">点击添加收货地址</string>
+    <string name="text_settle_total">Total Pay: $  </string>
+    <string name="text_settle_pay_way">Payment Method</string>
+    <string name="text_settle_pay_way_ali">AliPay</string>
+    <string name="text_settle_pay_way_we_chat">BankAccount</string>
+    <string name="text_settle_add_address">Add Address</string>
+
 
     <!--MyInfoActivity-->
-    <string name="text_me_info">个人资料</string>
-    <string name="text_me_nickname">个人资料</string>
-    <string name="text_me_gender">性别</string>
-    <string name="text_me_birthday">生日</string>
-    <string name="text_me_profession">职业</string>
-    <string name="text_me_hometown">家乡</string>
-    <string name="text_me_address">常居地</string>
-    <string name="text_me_signature">个人简介</string>
-    
+    <string name="text_me_info">Personal Information</string>
+    <string name="text_me_nickname">Personal Detail</string>
+    <string name="text_me_gender">Gender</string>
+    <string name="text_me_birthday">Birthday</string>
+    <string name="text_me_profession">Job</string>
+    <string name="text_me_hometown">Hometown</string>
+    <string name="text_me_address">Address</string>
+    <string name="text_me_signature">Introduction</string>
+
     <!--PublishTypeActivity-->
     <string name="text_publish_slogan">分享的人是厨房里的天使</string>
-    <string name="text_publish_recipe">菜谱</string>
-    <string name="text_publish_product">作品</string>
-    <string name="text_publish_video">视频</string>
+    <string name="text_publish_recipe">Recipe</string>
+    <string name="text_publish_product">Product</string>
+    <string name="text_publish_video">Video</string>
 
     <!--PublishRecipeNameActivity-->
-    <string name="text_publish_recipe_create">创建一个菜谱</string>
-    <string name="text_publish_recipe_name">写下你的菜谱名吧</string>
+    <string name="text_publish_recipe_create">Create recipe</string>
+    <string name="text_publish_recipe_name">Write down the names of your recipes</string>
     <string name="text_publish_recipe_name_prompt">
-        1.好的标题是吸引厨友关注的第一步。\n
-        2. 在标题中描述菜谱的特点，会吸引更多的人点击。例如 [不用捏的饭团]、[不焯水不放油的红烧肉]
+        1. A good headline is the first step to attracting the attention of a chef\n
+        2. Describing the features of the recipe in the title will attract more clicks.
+        for example [Rice balls without pinch]、[Braised pork in brown sauce without blanching or oil]
     </string>
     <!--PublishRecipeActivity-->
-    <string name="text_publish_recipe_save_draft">存草稿</string>
-    <string name="text_publish_recipe_cover_hint">+菜谱封面\n诱人的封面是吸引厨友的关键</string>
-    <string name="text_publish_recipe_describe">请输入这道菜的描述或介绍</string>
+    <string name="text_publish_recipe_save_draft">Save Draft</string>
+    <string name="text_publish_recipe_cover_hint">+The menu cover \n A friendly cover could get attention from others</string>
+    <string name="text_publish_recipe_describe">What is you recipes story?</string>
 
-    <string name="text_publish_recipe_material">用料</string>
+    <string name="text_publish_recipe_material">Ingredients</string>
 
-    <string name="text_publish_recipe_material_example">食材：如鸡蛋</string>
-    <string name="text_publish_recipe_dosage_example">用量：如一只</string>Cover
-    <string name="text_publish_recipe_add_material">再增加一行</string>
-    <string name="text_publish_recipe_adjust_material">调整用料</string>
+    <string name="text_publish_recipe_material_example">Ingredients: Egg</string>
+    <string name="text_publish_recipe_dosage_example">Consumption：1</string>Cover
+    <string name="text_publish_recipe_add_material">Add more</string>
+    <string name="text_publish_recipe_adjust_material">Fix</string>
 
-    <string name="text_publish_recipe_method">做法</string>
-    <string name="text_publish_recipe_batch">批量传图</string>
-    <string name="text_publish_recipe_step">步骤</string>
-    <string name="text_publish_recipe_add_step_explain">添加步骤说明,至少两步</string>
+    <string name="text_publish_recipe_method">Direction</string>
+    <string name="text_publish_recipe_batch">Upload Images</string>
+    <string name="text_publish_recipe_step">Steps</string>
+    <string name="text_publish_recipe_add_step_explain">Add direction, at least two.</string>
 
-    <string name="text_publish_recipe_add_step">再增加一步</string>
-    <string name="text_publish_recipe_adjust_step">调整步骤</string>
+    <string name="text_publish_recipe_add_step">Add more</string>
+    <string name="text_publish_recipe_adjust_step">Fix</string>
 
-    <string name="text_publish_recipe_drag">长\n按\n拖\n动</string>
+    <string name="text_publish_recipe_drag">d\nr\na\ng</string>
 
-    <string name="text_publish_recipe_adjust_success">调整完成</string>
-    
-    <string name="text_publish_recipe_tips">小贴士</string>
-    <string name="text_publish_recipe_tips_hint">这道菜还有哪些需要注意的细节和小技巧？</string>
+    <string name="text_publish_recipe_adjust_success">Finish</string>
 
-    <string name="text_publish_recipe_publish">发布这个菜谱</string>
-    <string name="text_publish_recipe_cant_empty_cover">请上传菜谱封面</string>
-    <string name="text_publish_recipe_cant_empty_material">用料不能为空</string>
-    <string name="text_publish_recipe_cant_empty_material_name">请输入第%1$s个食材的名称</string>
-    <string name="text_publish_recipe_cant_empty_material_dosage">请输入第%1$s个食材的用量</string>
+    <string name="text_publish_recipe_tips">Tips</string>
+    <string name="text_publish_recipe_tips_hint">A little tip about this dish</string>
 
-    <string name="text_publish_recipe_cant_empty_step">步骤不能为空</string>
-    <string name="text_publish_recipe_cant_empty_step_content">请输入第%1$s步的说明</string>
-    
-    <string name="text_confirm_quit">确定退出？</string>
+    <string name="text_publish_recipe_publish">Publish</string>
+    <string name="text_publish_recipe_cant_empty_cover">Please submit the cover image.</string>
+    <string name="text_publish_recipe_cant_empty_material">Ingredients can not empty</string>
+    <string name="text_publish_recipe_cant_empty_material_name">Please submit the %1$s ingredient name</string>
+    <string name="text_publish_recipe_cant_empty_material_dosage">Please submit the %1$s ingredient consumption</string>
 
-    <string name="text_select_sort">选择分类</string>
+    <string name="text_publish_recipe_cant_empty_step">Step can not empty</string>
+    <string name="text_publish_recipe_cant_empty_step_content">Please submit the %1$s describe</string>
+
+    <string name="text_confirm_quit">Are you sure you want to exit?</string>
+
+    <string name="text_select_sort">Choose category</string>
 
 
     <!--MyPublishRecipeFragment-->
-    <string name="text_my_publish_recipe_go">开启创建第一道菜谱</string>
-    <string name="text_my_publish_product_empty_toast">记录生活，生活因回忆更美好</string>
-    <string name="text_my_publish_product_go">分享我的美食作品</string>
+    <string name="text_my_publish_recipe_go">Start your first recipe.</string>
+    <string name="text_my_publish_product_empty_toast">Record life, record beautiful memories...</string>
+    <string name="text_my_publish_product_go">Share my product</string>
 
     <!--MyPublishProductActivity-->
-    <string name="text_my_product_all">全部作品</string>
+    <string name="text_my_product_all">All Product</string>
 
     <!--PublishProductActivity-->
-    <string name="text_publish_product_title_hint">填写标题，会获得更多赞哦</string>
-    <string name="text_publish_product_title_content">分享的你下厨心得，生活点滴</string>
-    <string name="text_publish_product_tag"># 标签</string>
-    <string name="text_publish_product_add_tag">添加作品标签？</string>
-    <string name="text_product_title_cant_empty">请输入作品标题</string>
-    <string name="text_product_content_cant_empty">请输入作品心得</string>
+    <string name="text_publish_product_title_hint">An interesting name will get more attention.</string>
+    <string name="text_publish_product_title_content">Share experience, share life...</string>
+    <string name="text_publish_product_tag"># Tag</string>
+    <string name="text_publish_product_add_tag">Add tag?</string>
+    <string name="text_product_title_cant_empty">Please input recipe name</string>
+    <string name="text_product_content_cant_empty">How you feeling?</string>
 
-    <string name="text_recipe_recommend">推荐菜谱</string>
+    <string name="text_recipe_recommend">Recommended recipe</string>
 
-    <string name="text_order_praise">获赞最多</string>
-    <string name="text_order_collect">收藏最多</string>
-    <string name="text_order_new">最新发布</string>
-    
+    <string name="text_order_praise">The top favorites</string>
+    <string name="text_order_collect">The top collection</string>
+    <string name="text_order_new">The news</string>
+
     <!--RecipeDetailsActivity-->
-    <string name="text_collect_number">人收藏</string>
+    <string name="text_collect_number">collects</string>
 
     <!--评论相关-->
-    <string name="text_comment_size">条评论</string>
-    <string name="text_view_all">查看全部</string>
-    <string name="text_send">发送</string>
-    <string name="text_write_comment">写评论...</string>
-    <string name="text_content_not_empty">内容不能为空</string>
-    <string name="text_comment_success">评论成功</string>
-    <string name="text_reply">回复：</string>
+    <string name="text_comment_size">comments</string>
+    <string name="text_view_all">All</string>
+    <string name="text_send">Send</string>
+    <string name="text_write_comment">Write comments...</string>
+    <string name="text_content_not_empty">Can not empty</string>
+    <string name="text_comment_success">Succeed</string>
+    <string name="text_reply">Reply: </string>
 
     
 </resources>
