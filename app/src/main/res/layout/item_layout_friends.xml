@@ -43,7 +43,7 @@
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                tools:text="用户昵称" />
+                tools:text="User Name" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -56,7 +56,7 @@
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:text="@{@string/text_fans+`:`}"
-                    tools:text="粉丝：" />
+                    tools:text="Fans：" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:text="@{@string/text_product+`:`}"
-                    tools:text="作品：" />
+                    tools:text="Product：" />
 
                 <TextView
                     android:layout_width="wrap_content"

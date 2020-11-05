@@ -41,7 +41,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
-                tools:text="步骤一"
+                tools:text="Step One"
                 android:text="@{`step `+step.orderIndex}" />
 
             <FrameLayout

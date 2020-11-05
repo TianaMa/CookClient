@@ -86,7 +86,7 @@
                     android:textColor="@android:color/black"
                     android:enabled="@{mViewModel.editAble}"
                     android:text="@={mViewModel.user.nickname}"
-                    tools:text="昵称"/>
+                    tools:text="User Name"/>
 
 
                 <LinearLayout
@@ -98,7 +98,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="2"
-                        android:text="性别"
+                        android:text="Gender"
                         android:layout_height="wrap_content"/>
 
                     <TextView
@@ -115,7 +115,7 @@
                         android:enabled="@{mViewModel.editAble}"
                         android:hint="@string/text_no_data"
                         android:text="@{mViewModel.user.gender}"
-                        tools:text="女"/>
+                        tools:text="Woman"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -127,7 +127,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="2"
-                        android:text="生日"
+                        android:text="Birthday"
                         android:layout_height="wrap_content"/>
 
                     <TextView
@@ -156,7 +156,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="2"
-                        android:text="职业"
+                        android:text="Job"
                         android:layout_height="wrap_content"/>
 
                     <EditText
@@ -174,7 +174,7 @@
                         android:enabled="@{mViewModel.editAble}"
                         android:hint="@string/text_no_data"
                         android:text="@={mViewModel.user.profession}"
-                        tools:text="软件开发工程师"/>
+                        tools:text="Mouth"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -186,7 +186,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="2"
-                        android:text="家乡"
+                        android:text="Hometown"
                         android:layout_height="wrap_content"/>
 
                     <EditText
@@ -204,7 +204,7 @@
                         android:textSize="15sp"
                         android:text="@={mViewModel.user.hometown}"
                         android:textColor="@android:color/black"
-                        tools:text="山东-济南-高新" />
+                        tools:text="American" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -216,7 +216,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="2"
-                        android:text="常居地"
+                        android:text="Address"
                         android:layout_height="wrap_content"/>
 
                     <EditText
@@ -234,7 +234,7 @@
                         android:enabled="@{mViewModel.editAble}"
                         android:hint="@string/text_no_data"
                         android:text="@={mViewModel.user.address}"
-                        tools:text="山东-济南-高新"/>
+                        tools:text="American"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -248,7 +248,7 @@
                         android:layout_weight="2"
                         android:layout_height="match_parent"
                         android:paddingTop="15dp"
-                        android:text="个人简介"/>
+                        android:text="Introduce"/>
 
                     <EditText
                         android:layout_width="0dp"
@@ -263,7 +263,7 @@
                         android:gravity="top"
                         android:enabled="@{mViewModel.editAble}"
                         android:text="@={mViewModel.user.signature}"
-                        tools:text="我是一个快乐的程序员"/>
+                        tools:text="A mouse love cheese."/>
                 </LinearLayout>
 
 
@@ -275,7 +275,7 @@
                     android:layout_marginEnd="30dp"
                     android:layout_marginTop="25dp"
                     android:background="@drawable/selector_login_click"
-                    android:text="退出登录"
+                    android:text="Login out"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     tools:ignore="UnusedAttribute" />

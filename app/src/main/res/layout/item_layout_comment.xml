@@ -55,7 +55,7 @@
                     android:text="@{comment.commentUserNickName}"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    tools:text="用户昵称" />
+                    tools:text="User Name" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
             android:layout_marginBottom="5dp"
             android:textColor="@android:color/black"
             android:text="@{comment.content}"
-            tools:text="阿阿列克的哪里可能瑟兰v哪里看能否大量的纽芬兰发啊打开的发表卡"/>
+            tools:text="Where Where Where Where "/>
 
         <LinearLayout
             android:id="@+id/llReply"
@@ -121,7 +121,7 @@
                 android:paddingBottom="5dp"
                 android:textColor="#F45146"
                 android:text="@{@string/text_view_all+` (`+comment.commentList.size()+`)`}"
-                tools:text="查看全部(3)"/>
+                tools:text="All(3)"/>
         </LinearLayout>
 
 

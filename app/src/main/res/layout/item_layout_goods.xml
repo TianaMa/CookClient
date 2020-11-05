@@ -42,7 +42,7 @@
                 android:ellipsize="middle"
                 android:textSize="14sp"
                 android:textColor="@android:color/black"
-                tools:text="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称"
+                tools:text="Goods Name Goods Name Goods Name Goods Name"
                 android:text="@{goods.goodsName}" />
 
             <TextView
@@ -54,7 +54,7 @@
                 android:layout_marginTop="10dp"
                 android:textSize="12sp"
                 android:text="@{goods.goodsDescribe}"
-                tools:text="商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述"/>
+                tools:text="Goods Introduction Goods Introduction Goods Introduction Goods Introduction "/>
 
 
             <LinearLayout
@@ -69,13 +69,13 @@
                     android:textColor="#EE744D"
                     android:text="@{`$`+goods.price}"
                     android:textSize="12sp"
-                    tools:text="$52.00"/>
+                    tools:text="$5.00"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
-                    android:text="已售"/>
+                    android:text="Sold"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

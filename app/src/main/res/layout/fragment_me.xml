@@ -61,7 +61,7 @@
                             android:textStyle="bold"
                             android:textColor="@android:color/black"
                             android:text="@{mViewModel.user.nickname}"
-                            tools:text="昵称涂涂_umk" />
+                            tools:text="UserNamemm_umk" />
 
 
                         <ImageView
@@ -178,7 +178,7 @@
                         android:textColor="#555555"
                         android:lineSpacingExtra="6dp"
                         userInfo="@{mViewModel.user}"
-                        tools:text="男·2020-09-11 加入·家乡：山东，德州\n常居：山东，济南\n添加个人简介，让厨友更了解你"></TextView>
+                        tools:text="Man·2020-09-11 Join·Hometown：American \nAddress：Anywhere\nAdd introduction to make your friends konw you."></TextView>
 
                     <include layout="@layout/view_line" />
 
@@ -194,7 +194,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_horizontal"
                             android:textColor="@android:color/black"
-                            android:text="草\n稿\n箱"/>
+                            android:text="D\nr\na\nf\nt"/>
 
 
                         <TextView
@@ -204,7 +204,7 @@
                             android:gravity="center_horizontal"
                             android:textColor="@android:color/black"
                             android:drawableTop="@drawable/vector_ic_drafts_recipe"
-                            android:text="菜谱"/>
+                            android:text="Recipe"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -213,7 +213,7 @@
                             android:gravity="center_horizontal"
                             android:textColor="@android:color/black"
                             android:drawableTop="@drawable/vector_ic_drafts_product"
-                            android:text="作品"/>
+                            android:text="Product"/>
 
 
 

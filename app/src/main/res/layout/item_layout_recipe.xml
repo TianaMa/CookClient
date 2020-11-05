@@ -43,7 +43,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
-                tools:text="菜谱名"
+                tools:text="Recipe Name"
                 android:text="@{recipe.recipeName}" />
 
             <TextView
@@ -109,7 +109,7 @@
                     android:singleLine="true"
                     android:ellipsize="end"
                     android:text="@{recipe.nickname}"
-                    tools:text="用户昵称"/>
+                    tools:text="User name"/>
 
             </LinearLayout>
 

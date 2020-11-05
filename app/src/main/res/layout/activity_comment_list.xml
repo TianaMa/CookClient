@@ -43,7 +43,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="10dp"
                     android:textColor="@android:color/black"
-                    tools:text="5条评论"
+                    tools:text="5 Comments"
                     android:text="@{mViewModel.commentList.size()+@string/text_comment_size}"
                     android:textSize="16sp">
                     <requestFocus />

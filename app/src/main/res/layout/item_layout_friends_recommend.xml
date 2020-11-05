@@ -39,7 +39,7 @@
             android:singleLine="true"
             android:ellipsize="middle"
             android:text="@{friends.nickname}"
-            tools:text="用户昵称" />
+            tools:text="User Name" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                 android:singleLine="true"
                 android:ellipsize="end"
                 android:text="@{@string/text_fans+`:`}"
-                tools:text="粉丝："/>
+                tools:text="Fans："/>
 
             <TextView
                 android:layout_width="wrap_content"

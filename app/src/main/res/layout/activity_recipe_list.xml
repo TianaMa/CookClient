@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@android:color/black"
-                tools:text="菜谱分类"
+                tools:text="Recipe Classify"
                 android:textSize="18sp" />
 
             <View

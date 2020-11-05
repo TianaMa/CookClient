@@ -52,7 +52,7 @@
                         android:layout_margin="5dp"
                         android:textColor="@android:color/black"
                         android:textStyle="bold"
-                        tools:text="菜谱名称"
+                        tools:text="Recipe Name"
                         android:text="@{mViewModel.recipe.recipeName}"
                         android:gravity="center"/>
 
@@ -62,7 +62,7 @@
                         android:textSize="15dp"
                         android:layout_margin="5dp"
                         android:textStyle="bold"
-                        tools:text="15人收藏"
+                        tools:text="15 Collect"
                         android:text="@{mViewModel.recipe.countCollect + @string/text_collect_number}"
                         android:gravity="center"/>
 
@@ -106,7 +106,7 @@
                                 android:textColor="@android:color/black"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
-                                tools:text="用户昵称" />
+                                tools:text="User Name" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -131,7 +131,7 @@
                             android:minHeight="0dp"
                             android:padding="4dp"
                             android:button="@null"
-                            tools:text="关注"
+                            tools:text="Add"
                             android:onClick="@{mViewModel.clickSubscribe}"
                             android:background="@{mViewModel.recipe.subscribe?@drawable/shape_bt_attention_yet:@drawable/shape_bt_attention}"
                             android:text="@{mViewModel.recipe.subscribe?@string/text_subscribe_cancel:@string/text_subscribe}"
@@ -262,7 +262,7 @@
                         android:textColor="#666666"
                         android:background="@drawable/shape_corners_15"
                         android:backgroundTint="#88DDDDDD"
-                        android:hint="写评论..."/>
+                        android:hint="Write commented..."/>
                 </LinearLayout>
 
             </LinearLayout>

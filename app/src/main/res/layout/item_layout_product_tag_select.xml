@@ -26,6 +26,6 @@
         android:background="@drawable/shape_corners_15"
         android:backgroundTint="@color/color_selector_org_gray_tag"
         android:textColor="@android:color/white"
-        tools:text="下午茶"/>
+        tools:text="Afternoon tea"/>
 
 </layout>

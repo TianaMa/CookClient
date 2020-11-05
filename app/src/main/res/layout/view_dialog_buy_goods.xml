@@ -46,7 +46,7 @@
                     android:textSize="13sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/black"
-                    tools:text="商品名"
+                    tools:text="Goods Name"
                     android:text="@{shoppingCart.goodsName}" />
 
                 <TextView
@@ -55,7 +55,7 @@
                     android:layout_marginTop="5dp"
                     android:textSize="12sp"
                     android:text="@{shoppingCart.goodsDescribe}"
-                    tools:text="规格"/>
+                    tools:text="Standard"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
                     android:textColor="#EE744D"
                     android:text="@{`$`+shoppingCart.price}"
                     android:textSize="12sp"
-                    tools:text="$52.00"/>
+                    tools:text="$5.00"/>
             </LinearLayout>
 
             <ImageView

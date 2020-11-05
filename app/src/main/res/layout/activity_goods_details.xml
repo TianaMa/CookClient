@@ -51,7 +51,7 @@
                         android:ellipsize="middle"
                         android:textSize="14sp"
                         android:textColor="@android:color/black"
-                        tools:text="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称"
+                        tools:text="GoodsName GoodsName GoodsName GoodsName GoodsName GoodsName "
                         android:text="@{viewModel.goodsData.goodsName}" />
 
                     <TextView
@@ -63,7 +63,7 @@
                         android:layout_marginTop="10dp"
                         android:textSize="12sp"
                         android:text="@{viewModel.goodsData.goodsDescribe}"
-                        tools:text="商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述"/>
+                        tools:text="GoodsIntro GoodsIntro GoodsIntro GoodsIntro GoodsIntro GoodsIntro "/>
 
 
                     <LinearLayout
@@ -77,13 +77,13 @@
                             android:layout_height="wrap_content"
                             android:text="@{`$`+viewModel.goodsData.price}"
                             android:textSize="12sp"
-                            tools:text="$52.00"/>
+                            tools:text="$5.00"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
-                            android:text="已售"/>
+                            android:text="Sold"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                         android:layout_marginTop="10dp"
                         android:textSize="12sp"
                         android:text="@{viewModel.goodsData.details}"
-                        tools:text="商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述"/>
+                        tools:text="GoodsDetail GoodsDetail GoodsDetail GoodsDetail GoodsDetail GoodsDetail GoodsDetail "/>
 
 
                 </LinearLayout>

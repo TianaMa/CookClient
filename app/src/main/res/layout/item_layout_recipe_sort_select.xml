@@ -32,7 +32,7 @@
             android:drawableRight="@{sort.selected?@drawable/vector_ic_check_tick:null}"
             android:textSize="15sp"
             android:text="@{sort.sortName}"
-            tools:text="菜单名称"/>
+            tools:text="Recipe name"/>
 
     </LinearLayout>
 

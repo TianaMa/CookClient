@@ -25,6 +25,6 @@
         android:drawablePadding="8dp"
         android:drawableRight="@{tag.selected?@drawable/vector_ic_check_tick:null}"
         android:textColor="@android:color/white"
-        tools:text="下午茶"/>
+        tools:text="Afternoon tea"/>
 
 </layout>

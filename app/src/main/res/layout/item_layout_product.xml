@@ -54,7 +54,7 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:text="@{productDetail.nickname}"
-                tools:text="用户昵称"/>
+                tools:text="User Name"/>
 
             <ImageView
                 android:layout_width="25dp"
@@ -193,7 +193,7 @@
                 android:textColor="#666666"
                 android:background="@drawable/shape_corners_15"
                 android:backgroundTint="#88DDDDDD"
-                android:hint="写评论..."/>
+                android:hint="Write comment..."/>
         </LinearLayout>
 
         <TextView
