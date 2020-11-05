@@ -1,27 +1,27 @@
 [
-  {
-    "sortId": "",
-    "sortName": "Recommend",
-    "imageName": "vector_ic_recipe_sort_bread"
-  },
-  {
-    "sortId": "6884896f-1788-11eb-9e2b-04d4c4712e49",
-    "sortName": "Supplies",
-    "imageName": "vector_ic_recipe_sort_cake"
-  },
-  {
-    "sortId": "6f9514a6-1788-11eb-9e2b-04d4c4712e49",
-    "sortName": "Vegetables",
-    "imageName": "vector_ic_recipe_sort_dessert"
-  },
-  {
-    "sortId": "75063203-1788-11eb-9e2b-04d4c4712e49",
-    "sortName": "Seasoning",
-    "imageName": "vector_ic_recipe_sort_pasta"
-  },
-  {
-    "sortId": "7c6b3dea-1788-11eb-9e2b-04d4c4712e49",
-    "sortName": "Others",
-    "imageName": "vector_ic_recipe_sort_drinks"
-  }
+    {
+      "sortId": "",
+      "sortName": "Recommend",
+      "imageName": "vector_ic_recipe_sort_bread"
+    },
+    {
+      "sortId": "6884896f-1788-11eb-9e2b-04d4c4712e49",
+      "sortName": "Supplies",
+      "imageName": "vector_ic_recipe_sort_cake"
+    },
+    {
+      "sortId": "6f9514a6-1788-11eb-9e2b-04d4c4712e49",
+      "sortName": "Vegetables",
+      "imageName": "vector_ic_recipe_sort_dessert"
+    },
+    {
+      "sortId": "75063203-1788-11eb-9e2b-04d4c4712e49",
+      "sortName": "Seasoning",
+      "imageName": "vector_ic_recipe_sort_pasta"
+    },
+    {
+      "sortId": "7c6b3dea-1788-11eb-9e2b-04d4c4712e49",
+      "sortName": "Others",
+      "imageName": "vector_ic_recipe_sort_drinks"
+    }
 ]
