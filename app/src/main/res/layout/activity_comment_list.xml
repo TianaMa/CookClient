@@ -44,17 +44,17 @@
                     android:layout_marginLeft="10dp"
                     android:textColor="@android:color/black"
                     tools:text="5 Comments"
-                    android:text="@{mViewModel.commentList.size()+@string/text_comment_size}"
+                    android:text="@{mViewModel.commentCount+@string/text_comment_size}"
                     android:textSize="16sp">
                     <requestFocus />
                 </TextView>
 
 
                 <ImageView
+                    android:id="@+id/ivCloseCommentList"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:padding="5dp"
-                    android:onClick="@{()->mViewModel.close()}"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/vector_ic_close" />
 

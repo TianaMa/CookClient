@@ -18,6 +18,9 @@ import com.demo.cook.ui.interaction.comment.model.data.Comment;
 import com.demo.cook.ui.interaction.comment.model.data.CommentDetails;
 import com.demo.cook.utils.view.SoftKeyBoardListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CommentListActivity extends BaseActivity<ActivityCommentListBinding,CommentListViewModel> {
 
@@ -32,10 +35,21 @@ public class CommentListActivity extends BaseActivity<ActivityCommentListBinding
         return new ViewModelProvider(this).get(CommentListViewModel.class);
     }
 
+
+    static CommentCallback commentCallback;
+
     private static final String EXTRA_TARGET_ID="targetId";
+    public static void actionStart(Context context,String targetId,CommentCallback commentCallback){
+        Intent intent = new Intent(context,CommentListActivity.class);
+        intent.putExtra(EXTRA_TARGET_ID,targetId);
+        CommentListActivity.commentCallback = commentCallback;
+        context.startActivity(intent);
+    }
+
     public static void actionStart(Context context,String targetId){
         Intent intent = new Intent(context,CommentListActivity.class);
         intent.putExtra(EXTRA_TARGET_ID,targetId);
+        CommentListActivity.commentCallback =null;
         context.startActivity(intent);
     }
 
@@ -50,11 +64,13 @@ public class CommentListActivity extends BaseActivity<ActivityCommentListBinding
 
         mDataBinding.llCommentListSend.setOnClickListener(v -> {
             Comment comment = new Comment(targetId,targetId,targetId);
-            commentSendDialog =new CommentSendDialog(this, comment, () -> {
+            commentSendDialog =new CommentSendDialog(this, comment, (comment1) -> {
                 mViewModel.queryCommentList();
             });
             commentSendDialog.show();
         });
+
+        mDataBinding.ivCloseCommentList.setOnClickListener(v -> onBackPressed());
 
         SoftKeyBoardListener softKeyBoardListener = new SoftKeyBoardListener(this);
         //软键盘状态监听
@@ -74,7 +90,7 @@ public class CommentListActivity extends BaseActivity<ActivityCommentListBinding
 
                 holder.itemView.setOnClickListener(v -> {
                     Comment comment = new Comment(commentDetails.getTargetId(),commentDetails.getCommentId(),commentDetails.getCommentId());
-                    commentSendDialog=new CommentSendDialog(v.getContext(), comment, () -> {
+                    commentSendDialog=new CommentSendDialog(v.getContext(), comment, (comment1) -> {
                         mViewModel.queryCommentList();
                     });
                     commentSendDialog.show();
@@ -93,6 +109,19 @@ public class CommentListActivity extends BaseActivity<ActivityCommentListBinding
         mViewModel.queryCommentList();
     }
 
+    @Override
+    public void onBackPressed() {
+        if(commentCallback!=null){
+            List<Comment> commentList = new ArrayList<>();
+            commentList.addAll(mViewModel.originalCommentList);
+            commentCallback.callback(commentList);
+        }
+        super.onBackPressed();
+    }
+
+    public interface CommentCallback{
+        void callback(List<Comment> commentList);
+    }
 
 
 }

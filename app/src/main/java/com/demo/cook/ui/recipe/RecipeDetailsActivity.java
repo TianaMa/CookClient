@@ -83,7 +83,7 @@ public class RecipeDetailsActivity extends BaseActivity<ActivityRecipeDetailsBin
         mDataBinding.tvRecipeComment.setOnClickListener(v -> {
             RecipeDetails recipeDetails = mViewModel.recipe.getValue();
             Comment comment = new Comment(recipeDetails.getRecipeId(),recipeDetails.getRecipeId(),recipeDetails.getRecipeId());
-            commentSendDialog=new CommentSendDialog(this, comment, () -> {
+            commentSendDialog=new CommentSendDialog(this, comment, (comment1) -> {
                 recipeDetails.setCountComment(recipeDetails.getCountComment()+1);
             });
             commentSendDialog.show();
@@ -104,7 +104,7 @@ public class RecipeDetailsActivity extends BaseActivity<ActivityRecipeDetailsBin
                 CommentListActivity.actionStart(this,recipeDetails.getRecipeId());
             }else {
                 Comment comment = new Comment(recipeDetails.getRecipeId(),recipeDetails.getRecipeId(),recipeDetails.getRecipeId());
-                commentSendDialog=new CommentSendDialog(this, comment, () -> {
+                commentSendDialog=new CommentSendDialog(this, comment, (comment1) -> {
                     recipeDetails.setCountComment(recipeDetails.getCountComment()+1);
                 });
                 commentSendDialog.show();

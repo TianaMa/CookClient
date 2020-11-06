@@ -1,7 +1,11 @@
 package com.demo.cook.ui.product.model.data;
 
 
+import com.demo.cook.ui.interaction.comment.model.data.Comment;
+import com.demo.cook.ui.interaction.comment.model.data.CommentDetails;
+
 import java.util.Date;
+import java.util.List;
 
 public class ProductDetails extends Product  {
 
@@ -26,6 +30,7 @@ public class ProductDetails extends Product  {
     private boolean praised;
 
 
+    private List<Comment> commentList;
 
 
     public String getProductId() {
@@ -114,5 +119,13 @@ public class ProductDetails extends Product  {
     public void setPraised(boolean praised) {
         this.praised = praised;
         notifyChange();
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
     }
 }

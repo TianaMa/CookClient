@@ -21,7 +21,7 @@ import com.demo.cook.utils.LoginVerifyUtils;
 public class CommentSendDialog extends BaseBottomDialog {
 
     public interface CommentCallback{
-        void commentSuccess();
+        void commentSuccess(Comment comment);
     }
 
     HttpCommentApi commentApi = HttpConfig.getHttpServe(HttpCommentApi.class);
@@ -73,7 +73,7 @@ public class CommentSendDialog extends BaseBottomDialog {
                         ToastyUtils.show(R.string.text_comment_success);
                         dismiss();
                         if (callback!=null){
-                            callback.commentSuccess();
+                            callback.commentSuccess(comment);
                         }
                     }
                 });

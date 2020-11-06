@@ -7,6 +7,7 @@ import com.demo.cook.base.http.HttpCallback;
 import com.demo.cook.base.http.HttpConfig;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.ui.interaction.comment.model.HttpCommentApi;
+import com.demo.cook.ui.interaction.comment.model.data.Comment;
 import com.demo.cook.ui.interaction.comment.model.data.CommentDetails;
 import com.demo.cook.ui.interaction.praise.HttpPraiseApi;
 import com.demo.cook.utils.LoginVerifyUtils;
@@ -26,11 +27,18 @@ public class CommentListViewModel extends BaseViewModel {
     HttpCommentApi commentApi = HttpConfig.getHttpServe(HttpCommentApi.class);
     public MutableLiveData<List<CommentDetails>> commentList = new MutableLiveData(new ArrayList());
 
+    public List<Comment> originalCommentList = new ArrayList<>();
+
+    public MutableLiveData<Integer> commentCount = new MutableLiveData<>(0);
+
     void queryCommentList(){
         commentApi.queryCommentList(targetId, Storage.getUserInfo().getUsername()).enqueue(new HttpCallback<List<CommentDetails>>() {
             @Override
             public void onSuccess(List<CommentDetails> data) {
                 commentList.getValue().clear();
+                commentCount.setValue(data.size());
+                originalCommentList.clear();
+                originalCommentList.addAll(data);
                 for (CommentDetails details:data){
                     if (targetId.equals(details.getParentId())){
                         commentList.getValue().add(details);

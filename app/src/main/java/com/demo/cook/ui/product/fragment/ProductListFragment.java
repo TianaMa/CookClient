@@ -15,6 +15,7 @@ import com.demo.baselib.design.BaseFragment;
 import com.demo.cook.R;
 import com.demo.cook.base.local.Storage;
 import com.demo.cook.databinding.FragmentProductListBinding;
+import com.demo.cook.databinding.ItemLayoutCommentBriefnessBinding;
 import com.demo.cook.databinding.ItemLayoutProductBinding;
 import com.demo.cook.databinding.ItemLayoutProductImageBinding;
 import com.demo.cook.ui.interaction.comment.model.data.Comment;
@@ -82,19 +83,28 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
 
                 productBinding.tvWriteComment.setOnClickListener(v -> {
                     Comment comment = new Comment(productDetails.getProductId(),productDetails.getProductId(),productDetails.getProductId());
-                    commentSendDialog=new CommentSendDialog(getContext(), comment, () -> {
+                    commentSendDialog=new CommentSendDialog(getContext(), comment, (mComment) -> {
                         productDetails.setCountComment(productDetails.getCountComment()+1);
+                        productDetails.getCommentList().add(0,mComment);
+                        productBinding.rcvCommentListProduct.getAdapter().notifyDataSetChanged();
                     });
                     commentSendDialog.show();
                 });
 
                 productBinding.tvProductComment.setOnClickListener(v -> {
                     if(productDetails.getCountComment()>0){
-                        CommentListActivity.actionStart(getContext(),productDetails.getProductId());
+                        CommentListActivity.actionStart(getContext(), productDetails.getProductId(), commentList -> {
+                            productDetails.setCountComment(commentList.size());
+                            productDetails.getCommentList().clear();
+                            productDetails.getCommentList().addAll(commentList);
+                            productBinding.rcvCommentListProduct.getAdapter().notifyDataSetChanged();
+                        });
                     }else {
                         Comment comment = new Comment(productDetails.getProductId(),productDetails.getProductId(),productDetails.getProductId());
-                        commentSendDialog=new CommentSendDialog(getContext(), comment, () -> {
+                        commentSendDialog=new CommentSendDialog(getContext(), comment, (mComment) -> {
                             productDetails.setCountComment(productDetails.getCountComment()+1);
+                            productDetails.getCommentList().add(0,mComment);
+                            productBinding.rcvCommentListProduct.getAdapter().notifyDataSetChanged();
                         });
                         commentSendDialog.show();
                     }
@@ -102,12 +112,42 @@ public class ProductListFragment extends BaseFragment<FragmentProductListBinding
 
                 List<String> imageList = Arrays.asList(productDetails.getImages().split(","));
 
-                productBinding.rcyProductImageList.setAdapter(new CmnRcvAdapter<String>(R.layout.item_layout_product_image,imageList) {
+                productBinding.rcvProductImageList.setAdapter(new CmnRcvAdapter<String>(R.layout.item_layout_product_image,imageList) {
                     @Override
                     public void convert(CmnViewHolder holder, String s, int position) {
                         ItemLayoutProductImageBinding imageBinding = DataBindingUtil.bind(holder.itemView);
                         imageBinding.setImagePath(s);
                     }
+                });
+
+                productBinding.rcvCommentListProduct.setAdapter(new CmnRcvAdapter<Comment>(R.layout.item_layout_comment_briefness,productDetails.getCommentList()) {
+                    @Override
+                    public void convert(CmnViewHolder holder, Comment comment, int position) {
+                        ItemLayoutCommentBriefnessBinding commentBinding =DataBindingUtil.bind(holder.itemView);
+                        commentBinding.setComment(comment);
+                        holder.itemView.setOnClickListener(v -> {
+                            CommentListActivity.actionStart(getContext(), productDetails.getProductId(), commentList -> {
+                                productDetails.setCountComment(commentList.size());
+                                productDetails.getCommentList().clear();
+                                productDetails.getCommentList().addAll(commentList);
+                                productBinding.rcvCommentListProduct.getAdapter().notifyDataSetChanged();
+                            });
+                        });
+                    }
+
+                    @Override
+                    public int getItemCount() {
+                        return super.getItemCount()>3?3:super.getItemCount();
+                    }
+                });
+
+                productBinding.llCommentProduct.setOnClickListener(v -> {
+                    CommentListActivity.actionStart(getContext(), productDetails.getProductId(), commentList -> {
+                        productDetails.setCountComment(commentList.size());
+                        productDetails.getCommentList().clear();
+                        productDetails.getCommentList().addAll(commentList);
+                        productBinding.rcvCommentListProduct.getAdapter().notifyDataSetChanged();
+                    });
                 });
             }
         };
